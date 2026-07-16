@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Token Research Terminal</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js"></script>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f7f8fa; --panel: #ffffff; --ink: #16202e; --muted: #5b6878;
+    --line: #e4e8ee; --accent: #3b5bdb; --accent-soft: #eef1fd;
+    --green: #12805c; --green-soft: #e6f5ef; --red: #c0392b; --red-soft: #fdeeec;
+    --amber: #b7791f; --amber-soft: #fdf3e2;
+    --mono: "SF Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--ink); font: 14px/1.55 -apple-system, "Segoe UI", Inter, sans-serif; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px 60px; }
+
+  /* Topbar */
+  .topbar { background: var(--ink); color: #fff; padding: 10px 20px; }
+  .topbar .in { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .topbar .brand { font-weight: 700; letter-spacing: -.01em; margin-right: 6px; }
+  .topbar select, .topbar input { font: 13px var(--mono); padding: 6px 10px; border-radius: 8px; border: 1px solid #3a4657; background: #232f40; color: #fff; }
+  .topbar input { width: 150px; }
+  .topbar button { font: 600 12.5px inherit; padding: 6px 14px; border-radius: 8px; border: none; background: var(--accent); color: #fff; cursor: pointer; }
+  .databadge { font: 600 10.5px -apple-system, sans-serif; letter-spacing: .05em; padding: 3px 10px; border-radius: 12px; margin-left: auto; }
+  .databadge.live { background: #123d2c; color: #4ade80; }
+  .databadge.snap { background: #3d2f12; color: #fbbf24; }
+
+  header { background: var(--panel); border-bottom: 1px solid var(--line); padding: 20px; }
+  .hd { max-width: 1080px; margin: 0 auto; }
+  .hd-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; }
+  .hd h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; }
+  .ticker { font-family: var(--mono); font-size: 14px; color: var(--muted); }
+  .badge { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 20px; letter-spacing: .03em; }
+  .badge.sample { background: var(--amber-soft); color: var(--amber); border: 1px dashed var(--amber); }
+  .badge.rec { background: var(--green-soft); color: var(--green); }
+  .price-row { display: flex; align-items: baseline; gap: 10px; margin-top: 6px; flex-wrap: wrap; }
+  .price { font-size: 28px; font-weight: 700; font-family: var(--mono); }
+  .chg { font-family: var(--mono); font-weight: 600; }
+  .up { color: var(--green); } .down { color: var(--red); }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-top: 16px; }
+  .stat { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; }
+  .stat .k { font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  .stat .v { font-family: var(--mono); font-size: 15px; font-weight: 600; margin-top: 2px; }
+
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.95); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); overflow-x: auto; white-space: nowrap; }
+  nav .in { max-width: 1080px; margin: 0 auto; padding: 0 20px; display: flex; gap: 2px; }
+  nav a { display: inline-block; padding: 11px 12px; font-size: 12.5px; font-weight: 600; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; }
+  nav a:hover { color: var(--accent); }
+
+  section { margin-top: 34px; scroll-margin-top: 56px; }
+  h2 { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  h2 .num { font-family: var(--mono); font-size: 11px; color: var(--accent); background: var(--accent-soft); border-radius: 6px; padding: 2px 7px; }
+  h3 { font-size: 13.5px; font-weight: 700; margin: 18px 0 8px; }
+  p { margin-bottom: 10px; color: #2a3648; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 760px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+
+  .chart-box { position: relative; height: 300px; margin-top: 8px; }
+  .chart-box.sm { height: 240px; }
+  .cap { font-size: 11.5px; color: var(--muted); margin-top: 8px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th { text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); padding: 7px 10px; border-bottom: 1px solid var(--line); background: var(--bg); }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td.mono, .mono { font-family: var(--mono); font-size: 12px; }
+  tr:last-child td { border-bottom: none; }
+
+  .pill { display: inline-block; font-size: 10.5px; font-weight: 600; padding: 2px 8px; border-radius: 12px; }
+  .pill.g { background: var(--green-soft); color: var(--green); }
+  .pill.r { background: var(--red-soft); color: var(--red); }
+  .pill.a { background: var(--amber-soft); color: var(--amber); }
+  .pill.b { background: var(--accent-soft); color: var(--accent); }
+
+  ul.clean { list-style: none; padding: 0; }
+  ul.clean li { padding: 7px 0 7px 20px; position: relative; border-bottom: 1px solid var(--line); font-size: 13px; }
+  ul.clean li:last-child { border-bottom: none; }
+  ul.clean li::before { content: "▸"; position: absolute; left: 2px; color: var(--accent); }
+  ul.clean.pos li::before { content: "＋"; color: var(--green); font-weight: 700; }
+  ul.clean.neg li::before { content: "－"; color: var(--red); font-weight: 700; }
+
+  .scenario { border-radius: 12px; border: 1px solid var(--line); padding: 16px 18px; background: var(--panel); }
+  .scenario h4 { font-size: 13px; margin-bottom: 4px; }
+  .scenario .tgt { font-family: var(--mono); font-size: 20px; font-weight: 700; margin: 4px 0 8px; }
+  .scenario.bull { border-top: 3px solid var(--green); }
+  .scenario.base { border-top: 3px solid var(--accent); }
+  .scenario.bear { border-top: 3px solid var(--red); }
+  .trip { font-size: 11.5px; color: var(--muted); border-top: 1px dashed var(--line); margin-top: 10px; padding-top: 8px; }
+
+  .flow { display: flex; align-items: stretch; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
+  .fnode { flex: 1; min-width: 130px; background: var(--accent-soft); border: 1px solid #ccd6f6; border-radius: 10px; padding: 10px 12px; font-size: 12px; text-align: center; }
+  .fnode b { display: block; font-size: 12.5px; }
+  .fnode .amt { font-family: var(--mono); color: var(--accent); font-weight: 700; }
+  .farrow { align-self: center; color: var(--muted); font-size: 16px; }
+  .fnode.leak { background: var(--red-soft); border-color: #f2c4bd; }
+  .fnode.leak .amt { color: var(--red); }
+  .fnode.win { background: var(--green-soft); border-color: #bfe3d4; }
+  .fnode.win .amt { color: var(--green); }
+
+  .dev-card { border-left: 3px solid var(--accent); }
+  .footer-note { margin-top: 40px; font-size: 11.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
+
+  .ctrl-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+  .ctrl-row .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-right: 2px; }
+  .ctrl-row input[type=range] { accent-color: var(--accent); flex: 1; min-width: 120px; }
+  .btn-group { display: flex; gap: 6px; flex-wrap: wrap; }
+  .toggles { display: flex; gap: 8px; margin: 10px 0 4px; align-items: center; }
+  .toggles .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+  .tg { font: 600 11.5px -apple-system, "Segoe UI", Inter, sans-serif; padding: 4px 14px; border-radius: 16px; border: 1.5px solid var(--line); background: #fff; color: var(--muted); cursor: pointer; transition: all .15s; }
+  .tg.on { background: var(--c); border-color: var(--c); color: #fff; }
+  .legend-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); margin-right: 12px; }
+  .legend-chip i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+  .notice { background: var(--amber-soft); border: 1px dashed var(--amber); border-radius: 12px; padding: 16px 20px; margin-top: 20px; font-size: 13px; }
+  #loadErr { color: var(--red); padding: 30px 0; }
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="in">
+  <span class="brand">Token Research</span>
+  <select id="reportSel"></select>
+  <input id="searchBox" placeholder="any ticker…" spellcheck="false">
+  <button id="searchBtn">Load</button>
+  <span class="databadge snap" id="dataBadge">LOADING…</span>
+</div></div>
+
+<header>
+  <div class="hd">
+    <div class="hd-top">
+      <h1 id="tokenName">—</h1>
+      <span class="ticker" id="tokenTicker">—</span>
+      <span class="badge rec" id="recBadge" style="display:none">—</span>
+      <span class="badge sample" id="asOfBadge">—</span>
+    </div>
+    <div class="price-row">
+      <span class="price" id="price">—</span>
+      <span class="chg" id="chg24h">—</span>
+      <span class="cap" id="asOf"></span>
+    </div>
+    <div class="stats" id="statRow"></div>
+  </div>
+</header>
+
+<nav id="navBar"><div class="in">
+  <a href="#exec">Summary</a><a href="#biz">Business Model</a><a href="#moat">Competition</a>
+  <a href="#tokenomics">Tokenomics</a><a href="#pricehist">Price History</a><a href="#liquidity">Liquidity</a><a href="#tech">Technology</a>
+  <a href="#catalysts">Catalysts</a><a href="#longview">5-Yr View</a><a href="#valuation">Valuation</a>
+  <a href="#synthesis">Synthesis</a><a href="#sources">Sources</a>
+</div></nav>
+
+<div class="wrap">
+<div id="loadErr" style="display:none"></div>
+<div class="notice" id="noReportNotice" style="display:none"></div>
+
+<section id="exec">
+  <h2><span class="num">01</span>Executive Summary</h2>
+  <div class="card" id="thesisCard"></div>
+  <div class="grid3" style="margin-top:14px">
+    <div class="card"><h3 style="margin-top:0;color:var(--green)">Reasons to Own</h3><ul class="clean pos" id="ownList"></ul></div>
+    <div class="card"><h3 style="margin-top:0;color:var(--red)">Reasons to Avoid</h3><ul class="clean neg" id="avoidList"></ul></div>
+    <div class="card"><h3 style="margin-top:0;color:var(--accent)">Open Questions (6–12mo)</h3><ul class="clean" id="questionList"></ul></div>
+  </div>
+</section>
+
+<section id="biz">
+  <h2><span class="num">02</span>Business Model &amp; Unit Economics</h2>
+  <div class="card">
+    <p id="bizNarrative"></p>
+    <h3>Fee → Value Flow (trailing 30d)</h3>
+    <div class="flow" id="feeFlow"></div>
+    <p class="cap">Where fees leak vs. flow to tokenholders — the core value-accrual question for any token vs. equity comparison.</p>
+    <h3>Revenue Lines</h3>
+    <table><thead><tr><th>Line</th><th>Structure</th><th>30d Fees</th><th>90d Trend</th><th>To Token</th></tr></thead><tbody id="revLines"></tbody></table>
+    <div class="grid2" style="margin-top:16px">
+      <div><h3>Fees &amp; Protocol Revenue Trend <span class="pill a" id="feeLivePill" style="display:none">LIVE</span></h3><div class="chart-box sm"><canvas id="feeChart"></canvas></div></div>
+      <div><h3>Concentration &amp; Cost Notes</h3><ul class="clean" id="bizNotes"></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="moat">
+  <h2><span class="num">03</span>Competitive Landscape &amp; Moat</h2>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0">Moat Scorecard (1–5)</h3><div class="chart-box sm"><canvas id="moatChart"></canvas></div><p class="cap" id="moatNote"></p></div>
+    <div class="card"><h3 style="margin-top:0">Competitive Set</h3><table><thead><tr><th>Name</th><th>Axis</th><th>30d Fees</th><th>FDV / Fees</th><th>Threat</th></tr></thead><tbody id="compTable"></tbody></table></div>
+  </div>
+</section>
+
+<section id="tokenomics">
+  <h2><span class="num">04</span>Token Economics</h2>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0">Allocation at TGE</h3><div class="chart-box sm"><canvas id="allocChart"></canvas></div></div>
+    <div class="card">
+      <h3 style="margin-top:0">Supply Milestones</h3>
+      <table><thead><tr><th>Threshold</th><th>Date Reached</th></tr></thead><tbody id="milestones"></tbody></table>
+      <h3>Value Accrual Mechanisms</h3>
+      <table><thead><tr><th>Mechanism</th><th>Status</th><th>Quantum</th></tr></thead><tbody id="accrual"></tbody></table>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0">Unlock Schedule &amp; Circulating Supply</h3>
+    <div class="chart-box"><canvas id="unlockChart"></canvas></div>
+    <h3>Price Behavior Around Major Unlocks (vs. BTC/ETH/SOL)</h3>
+    <table><thead><tr><th>Unlock Event</th><th>Size</th><th>Token −30d</th><th>Token +30d</th><th>BTC ±30d</th><th>ETH ±30d</th><th>SOL ±30d</th></tr></thead><tbody id="unlockPerf"></tbody></table>
+  </div>
+</section>
+
+<section id="pricehist">
+  <h2><span class="num">05</span>Price History &amp; Re-rating Drivers <span class="pill a" id="priceLivePill" style="display:none">LIVE 365d</span></h2>
+  <div class="card">
+    <div class="chart-box"><canvas id="priceChart"></canvas></div>
+    <p class="cap">Numbered markers = annotated inflection points. Hover for detail.</p>
+    <table style="margin-top:12px"><thead><tr><th>#</th><th>Date</th><th>Event</th><th>Driver</th><th>What the market paid for</th></tr></thead><tbody id="eventTable"></tbody></table>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0">Unlocks vs. Price — Indexed Against Majors</h3>
+    <div class="toggles"><span class="lbl">Overlay:</span><span id="majToggles" style="display:flex;gap:8px"></span></div>
+    <div class="chart-box"><canvas id="unlockPriceChart"></canvas></div>
+    <p class="cap" id="upCap"></p>
+  </div>
+</section>
+
+<section id="liquidity">
+  <h2><span class="num">06</span>Liquidity &amp; Market Impact</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3 style="margin-top:0">Venue Depth &amp; Volume</h3>
+      <table><thead><tr><th>Venue</th><th>+2% Depth</th><th>−2% Depth</th><th>24h Vol</th><th>Share</th></tr></thead><tbody id="venueTable"></tbody></table>
+      <p class="cap" id="liqSummary"></p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">Aggregated Depth Curve</h3>
+      <div class="chart-box sm"><canvas id="depthChart"></canvas></div>
+      <p class="cap">Cumulative order-book depth across all venues at each price-impact threshold (snapshot at research date).</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h3 style="margin-top:0">Execution Impact Simulator</h3>
+    <div class="ctrl-row">
+      <span class="lbl">Side</span><span class="btn-group" id="sideBtns"></span>
+      <span class="lbl" style="margin-left:10px">Size</span><span class="btn-group" id="sizeBtns"></span>
+    </div>
+    <div class="ctrl-row">
+      <input type="range" id="sizeSlider" min="0" max="100" value="37">
+      <span class="mono" id="sizeLabel" style="font-weight:700;min-width:64px;text-align:right"></span>
+    </div>
+    <div class="ctrl-row"><span class="lbl">Execution</span><span class="btn-group" id="modeBtns"></span></div>
+    <div class="stats" id="simStats" style="margin-top:14px"></div>
+    <div class="chart-box sm" style="margin-top:14px"><canvas id="impactChart"></canvas></div>
+    <p class="cap">Solid bar = expected execution impact; translucent extension = ± timing risk from price drift over the execution window. Illustrative model: immediate orders walk the aggregated book; TWAP uses a square-root participation law with duration decay, floored so patient execution never exceeds immediate-order impact. Depth points anchored to venue order-book snapshots at research date; ADV updates live when available.</p>
+  </div>
+</section>
+
+<section id="tech">
+  <h2><span class="num">07</span>Technology Deep Dive &amp; Frontier Developments</h2>
+  <div class="card"><p id="techNarrative"></p></div>
+  <div class="grid2" style="margin-top:14px" id="devCards"></div>
+</section>
+
+<section id="catalysts">
+  <h2><span class="num">08</span>Catalyst Map</h2>
+  <div class="card">
+    <h3 style="margin-top:0">Near-Term (next 4 quarters)</h3>
+    <table><thead><tr><th>When</th><th>Catalyst</th><th>Type</th><th>Prob.</th><th>Impact</th><th>Monitor via</th></tr></thead><tbody id="catTable"></tbody></table>
+    <h3>Mid-Term (12–36 months)</h3>
+    <p id="midTerm"></p>
+  </div>
+</section>
+
+<section id="longview">
+  <h2><span class="num">09</span>Long-Duration Strategic View (5 Years)</h2>
+  <div class="grid3" id="scenarios"></div>
+  <div class="card" style="margin-top:14px"><h3 style="margin-top:0">Variant View vs. Consensus</h3><p id="variant"></p></div>
+</section>
+
+<section id="valuation">
+  <h2><span class="num">10</span>Valuation</h2>
+  <div class="grid2">
+    <div class="card"><h3 style="margin-top:0">Triangulation ("Football Field")</h3><div class="chart-box sm"><canvas id="valChart"></canvas></div></div>
+    <div class="card"><h3 style="margin-top:0">Multiples vs. History &amp; Peers</h3><table><thead><tr><th>Metric</th><th>Current</th><th>Own Hist. Range</th><th>Peer Median</th></tr></thead><tbody id="multTable"></tbody></table><p class="cap" id="embedded"></p></div>
+  </div>
+</section>
+
+<section id="synthesis">
+  <h2><span class="num">11</span>Synthesis &amp; Recommendation</h2>
+  <div class="card"><p id="synthesisText"></p><p id="recText" style="font-weight:600"></p></div>
+</section>
+
+<section id="sources">
+  <h2><span class="num">12</span>Sources &amp; Confidence Notes</h2>
+  <div class="card"><ul class="clean" id="sourceList"></ul></div>
+</section>
+
+<p class="footer-note">Written analysis is generated per research run (see "researched" stamp); market data refreshes live from CoinGecko and DeFiLlama where badged LIVE, otherwise shows the research-date snapshot. Liquidity-simulator outputs are model estimates, not execution quotes. Not investment advice.</p>
+</div>
+
+<script>
+/* ================= helpers ================= */
+const $ = id => document.getElementById(id);
+const el = (tag, html, cls) => { const e = document.createElement(tag); e.innerHTML = html; if (cls) e.className = cls; return e; };
+const fmt$ = v => v == null ? "—" : v >= 1e9 ? "$" + (v/1e9).toFixed(2) + "B" : v >= 1e6 ? "$" + (v/1e6).toFixed(1) + "M" : "$" + Math.round(v).toLocaleString();
+const fmtM = v => v >= 1 ? "$" + (v >= 10 ? v.toFixed(0) : v.toFixed(1)) + "M" : "$" + Math.round(v * 1000) + "k";
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const dLbl = ts => new Date(ts).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "2-digit" });
+const charts = {};
+function mkChart(id, cfg) { if (charts[id]) charts[id].destroy(); charts[id] = new Chart($(id), cfg); return charts[id]; }
+Chart.defaults.font.family = '-apple-system, "Segoe UI", Inter, sans-serif';
+Chart.defaults.color = "#5b6878";
+const gridCol = "#eceff4";
+const common = { responsive: true, maintainAspectRatio: false };
+function setBadge(live, txt) { const b = $("dataBadge"); b.className = "databadge " + (live ? "live" : "snap"); b.textContent = txt || (live ? "LIVE DATA" : "SNAPSHOT"); }
+
+/* CoinGecko + DeFiLlama fetchers (optional demo key: localStorage.setItem('cgKey','...')) */
+async function cg(path) {
+  const key = localStorage.getItem("cgKey");
+  const sep = path.includes("?") ? "&" : "?";
+  const r = await fetch("https://api.coingecko.com/api/v3" + path + (key ? sep + "x_cg_demo_api_key=" + key : ""));
+  if (!r.ok) throw new Error("cg " + r.status);
+  return r.json();
+}
+async function llama(path) { const r = await fetch("https://api.llama.fi" + path); if (!r.ok) throw new Error("llama " + r.status); return r.json(); }
+
+/* ================= report loading ================= */
+let REPORTS = [], CUR = null;
+async function boot() {
+  try {
+    const idx = await (await fetch("reports/index.json")).json();
+    REPORTS = idx.reports;
+    $("reportSel").innerHTML = REPORTS.map(r => `<option value="${r.file}">${r.ticker} — ${r.name} (${r.researchedAt})</option>`).join("");
+    $("reportSel").onchange = e => loadReport(e.target.value);
+    $("searchBtn").onclick = doSearch;
+    $("searchBox").addEventListener("keydown", e => { if (e.key === "Enter") doSearch(); });
+    const t = new URLSearchParams(location.search).get("t");
+    const match = t && REPORTS.find(r => r.ticker.toLowerCase() === t.toLowerCase());
+    loadReport(match ? match.file : REPORTS[0].file);
+  } catch (e) { $("loadErr").style.display = "block"; $("loadErr").textContent = "Failed to load reports/index.json — check the repo structure."; }
+}
+async function loadReport(file) {
+  try {
+    const D = await (await fetch("reports/" + file)).json();
+    CUR = D;
+    $("reportSel").value = file;
+    const rep = REPORTS.find(r => r.file === file);
+    if (rep) history.replaceState(null, "", "?t=" + rep.ticker);
+    showAnalysis(true);
+    renderReport(D);
+    applyLive(D);
+  } catch (e) { $("loadErr").style.display = "block"; $("loadErr").textContent = "Failed to load " + file; }
+}
+function showAnalysis(on) {
+  ["exec","biz","moat","tokenomics","liquidity","tech","catalysts","longview","valuation","synthesis","sources"].forEach(id => $(id).style.display = on ? "" : "none");
+  $("pricehist").style.display = "";
+  $("noReportNotice").style.display = on ? "none" : "block";
+  $("navBar").style.display = on ? "" : "none";
+}
+
+/* ================= search any ticker (live-only mode) ================= */
+async function doSearch() {
+  const q = $("searchBox").value.trim();
+  if (!q) return;
+  const known = REPORTS.find(r => r.ticker.toLowerCase() === q.toLowerCase() || r.name.toLowerCase() === q.toLowerCase());
+  if (known) return loadReport(known.file);
+  setBadge(false, "SEARCHING…");
+  try {
+    const res = await cg("/search?query=" + encodeURIComponent(q));
+    const coin = res.coins && res.coins[0];
+    if (!coin) { setBadge(false, "NOT FOUND"); return; }
+    showAnalysis(false);
+    $("noReportNotice").innerHTML = `<b>${coin.name} (${coin.symbol.toUpperCase()})</b> — live market data only. No research run exists for this token yet: ask Claude to run the deep-research template on it, commit the JSON to <span class="mono">reports/</span>, and add it to <span class="mono">reports/index.json</span>.`;
+    $("tokenName").textContent = coin.name;
+    $("tokenTicker").textContent = coin.symbol.toUpperCase();
+    $("recBadge").style.display = "none";
+    $("asOfBadge").textContent = "LIVE ONLY — NO RESEARCH RUN";
+    $("statRow").innerHTML = ""; $("asOf").textContent = "";
+    const c = await cg(`/coins/${coin.id}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`);
+    const md = c.market_data;
+    setPriceHeader(md.current_price.usd, md.price_change_percentage_24h);
+    [["Mkt Cap", fmt$(md.market_cap.usd)], ["FDV", fmt$(md.fully_diluted_valuation && md.fully_diluted_valuation.usd)],
+     ["24h Volume", fmt$(md.total_volume.usd)], ["ATH", fmt$(md.ath.usd)], ["Circ. Supply", md.circulating_supply ? (md.circulating_supply/1e6).toFixed(0)+"M" : "—"]]
+      .forEach(([k,v]) => $("statRow").appendChild(el("div", `<div class="k">${k}</div><div class="v">${v}</div>`, "stat")));
+    await sleep(1100);
+    const mc = await cg(`/coins/${coin.id}/market_chart?vs_currency=usd&days=365&interval=daily`);
+    buildPriceChart(mc.prices.map(p => dLbl(p[0])), mc.prices.map(p => p[1]), []);
+    buildUnlockPriceChart(mc.prices.map(p => dLbl(p[0])), mc.prices.map(p => p[1]), null, [], null);
+    setBadge(true, "LIVE · COINGECKO");
+  } catch (e) { setBadge(false, "API LIMIT — RETRY SHORTLY"); }
+}
+
+/* ================= render (snapshot layer) ================= */
+function setPriceHeader(p, chg) {
+  $("price").textContent = p >= 100 ? "$" + Math.round(p).toLocaleString() : "$" + (+p).toFixed(p < 1 ? 4 : 2);
+  if (chg == null) { $("chg24h").textContent = ""; return; }
+  $("chg24h").textContent = (chg >= 0 ? "+" : "") + (+chg).toFixed(1) + "% 24h";
+  $("chg24h").className = "chg " + (chg >= 0 ? "up" : "down");
+}
+function renderReport(D) {
+  setBadge(false, "SNAPSHOT · " + D.researchedAt);
+  $("tokenName").textContent = D.meta.name;
+  $("tokenTicker").textContent = D.meta.ticker + " · " + D.meta.exchanges;
+  $("recBadge").style.display = ""; $("recBadge").textContent = D.meta.rec;
+  $("asOfBadge").textContent = "RESEARCHED " + D.researchedAt;
+  setPriceHeader(D.meta.price, D.meta.chg24h);
+  $("asOf").textContent = D.meta.asOf;
+  $("statRow").innerHTML = "";
+  D.meta.stats.forEach(([k, v]) => $("statRow").appendChild(el("div", `<div class="k">${k}</div><div class="v" data-k="${k}">${v}</div>`, "stat")));
+
+  $("thesisCard").innerHTML = ""; $("thesisCard").appendChild(el("p", D.exec.thesis));
+  ["ownList","avoidList","questionList"].forEach(id => $(id).innerHTML = "");
+  D.exec.own.forEach(t => $("ownList").appendChild(el("li", t)));
+  D.exec.avoid.forEach(t => $("avoidList").appendChild(el("li", t)));
+  D.exec.questions.forEach(t => $("questionList").appendChild(el("li", t)));
+
+  $("bizNarrative").textContent = D.biz.narrative;
+  $("feeFlow").innerHTML = "";
+  D.biz.flow.forEach((f, i) => {
+    if (i > 0) $("feeFlow").appendChild(el("div", "→", "farrow"));
+    $("feeFlow").appendChild(el("div", `<b>${f.label}</b><span class="amt">${f.amt}</span>`, "fnode " + f.cls));
+  });
+  $("revLines").innerHTML = "";
+  D.biz.revLines.forEach(r => $("revLines").appendChild(el("tr",
+    `<td>${r[0]}</td><td>${r[1]}</td><td class="mono">${r[2]}</td><td><span class="pill ${r[3]==='up'?'g':r[3]==='down'?'r':'a'}">${r[3]}</span></td><td class="mono">${r[4]}</td>`)));
+  $("bizNotes").innerHTML = "";
+  D.biz.notes.forEach(t => $("bizNotes").appendChild(el("li", t)));
+
+  $("moatNote").textContent = D.moat.note;
+  $("compTable").innerHTML = "";
+  D.moat.comps.forEach(c => $("compTable").appendChild(el("tr",
+    `<td>${c[0]}</td><td>${c[1]}</td><td class="mono">${c[2]}</td><td class="mono">${c[3]}</td><td><span class="pill ${c[4]}">${c[4]==='r'?'High':c[4]==='a'?'Medium':'Low'}</span></td>`)));
+
+  $("milestones").innerHTML = ""; $("accrual").innerHTML = ""; $("unlockPerf").innerHTML = "";
+  D.tokenomics.milestones.forEach(m => $("milestones").appendChild(el("tr", `<td>${m[0]}</td><td class="mono">${m[1]}</td>`)));
+  D.tokenomics.accrual.forEach(a => $("accrual").appendChild(el("tr", `<td>${a[0]}</td><td>${a[1]}</td><td class="mono">${a[2]}</td>`)));
+  D.tokenomics.unlockPerf.forEach(u => $("unlockPerf").appendChild(el("tr",
+    `<td>${u[0]}</td><td class="mono">${u[1]}</td><td class="mono" style="color:var(--red)">${u[2]}</td><td class="mono" style="color:var(--green)">${u[3]}</td><td class="mono">${u[4]}</td><td class="mono">${u[5]}</td><td class="mono">${u[6]}</td>`)));
+
+  $("eventTable").innerHTML = "";
+  D.priceHistory.events.forEach(e => $("eventTable").appendChild(el("tr",
+    `<td class="mono">${e.n}</td><td class="mono">${e.dateLbl || e.date}</td><td>${e.event}</td><td><span class="pill b">${e.driver}</span></td><td>${e.paid}</td>`)));
+
+  $("techNarrative").textContent = D.tech.narrative;
+  $("devCards").innerHTML = "";
+  D.tech.devs.forEach(d => $("devCards").appendChild(el("div",
+    `<h3 style="margin-top:0">${d.title} <span class="pill a">${d.maturity}</span></h3><p style="margin:6px 0 0;font-size:12.5px">${d.body}</p>`, "card dev-card")));
+
+  $("catTable").innerHTML = "";
+  D.catalysts.near.forEach(c => $("catTable").appendChild(el("tr",
+    `<td class="mono">${c[0]}</td><td>${c[1]}</td><td><span class="pill ${c[2]==='Fundamental'?'g':c[2]==='Supply'?'r':'b'}">${c[2]}</span></td><td class="mono">${c[3]}</td><td class="mono">${c[4]}</td><td>${c[5]}</td>`)));
+  $("midTerm").textContent = D.catalysts.mid;
+
+  $("scenarios").innerHTML = "";
+  D.scenarios.forEach(s => $("scenarios").appendChild(el("div",
+    `<h4>${s.name} Case</h4><div class="tgt">${s.tgt}</div><p style="font-size:12.5px;margin:0">${s.body}</p><div class="trip">${s.trip}</div>`, "scenario " + s.cls)));
+  $("variant").textContent = D.variant;
+
+  $("multTable").innerHTML = "";
+  D.valuation.multiples.forEach(m => $("multTable").appendChild(el("tr",
+    `<td>${m[0]}</td><td class="mono">${m[1]}</td><td class="mono">${m[2]}</td><td class="mono">${m[3]}</td>`)));
+  $("embedded").textContent = D.valuation.embedded;
+  $("synthesisText").textContent = D.synthesis;
+  $("recText").textContent = D.recText;
+  $("sourceList").innerHTML = "";
+  D.sources.forEach(s => $("sourceList").appendChild(el("li", s)));
+
+  $("liqSummary").textContent = D.liquidity.summary;
+  $("venueTable").innerHTML = "";
+  D.liquidity.venues.forEach(v => $("venueTable").appendChild(el("tr",
+    `<td>${v[0]}</td><td class="mono">${v[1]}</td><td class="mono">${v[2]}</td><td class="mono">${v[3]}</td><td class="mono">${v[4]}</td>`)));
+
+  buildStaticCharts(D);
+  buildPriceChart(D.priceHistory.labels, D.priceHistory.prices, D.priceHistory.events.map(e => ({ i: e.idx, e })));
+  buildUnlockPriceChart(D.priceHistory.labels, D.priceHistory.prices, D.priceHistory.majors, D.priceHistory.unlocksM, D);
+  initSim(D);
+}
+
+function buildStaticCharts(D) {
+  mkChart("feeChart", { type: "bar",
+    data: { labels: D.biz.feeTrend.labels, datasets: [
+      { label: "Gross fees ($M)", data: D.biz.feeTrend.fees, backgroundColor: "#c7d2f5", borderRadius: 4 },
+      { label: "To token ($M)", data: D.biz.feeTrend.toToken, backgroundColor: "#12805c", borderRadius: 4 }
+    ]},
+    options: { ...common, scales: { x: { grid: { display: false } }, y: { grid: { color: gridCol } } }, plugins: { legend: { position: "bottom", labels: { boxWidth: 10 } } } }
+  });
+  mkChart("moatChart", { type: "radar",
+    data: { labels: D.moat.axes, datasets: [{ label: "Moat score", data: D.moat.scores, backgroundColor: "rgba(59,91,219,.15)", borderColor: "#3b5bdb", pointBackgroundColor: "#3b5bdb" }] },
+    options: { ...common, scales: { r: { min: 0, max: 5, ticks: { stepSize: 1, backdropColor: "transparent" }, grid: { color: gridCol } } }, plugins: { legend: { display: false } } }
+  });
+  mkChart("allocChart", { type: "doughnut",
+    data: { labels: D.tokenomics.alloc.labels, datasets: [{ data: D.tokenomics.alloc.values, backgroundColor: ["#3b5bdb", "#12805c", "#b7791f", "#c0392b", "#7c8ea6"], borderWidth: 2, borderColor: "#fff" }] },
+    options: { ...common, cutout: "58%", plugins: { legend: { position: "right", labels: { boxWidth: 10, font: { size: 11 } } } } }
+  });
+  const circ = D.tokenomics.unlocks.circPct;
+  mkChart("unlockChart", { type: "bar",
+    data: { labels: D.tokenomics.unlocks.labels, datasets: [
+      { label: "Team unlock ($M)", data: D.tokenomics.unlocks.team, backgroundColor: "#12805c", stack: "u", borderRadius: 3 },
+      { label: "Investor unlock ($M)", data: D.tokenomics.unlocks.investors, backgroundColor: "#c0392b", stack: "u", borderRadius: 3 },
+      { label: "Circulating %", data: circ, type: "line", yAxisID: "y1", borderColor: "#3b5bdb", backgroundColor: "#3b5bdb", tension: .3, pointRadius: 2 }
+    ]},
+    options: { ...common,
+      scales: {
+        x: { stacked: true, grid: { display: false } },
+        y: { stacked: true, grid: { color: gridCol }, title: { display: true, text: "$M unlocked" } },
+        y1: { position: "right", min: Math.floor(Math.min(...circ) - 3), max: Math.ceil(Math.max(...circ) + 3), grid: { drawOnChartArea: false }, title: { display: true, text: "Float %" } }
+      },
+      plugins: { legend: { position: "bottom", labels: { boxWidth: 10 } } }
+    }
+  });
+  mkChart("depthChart", { type: "line",
+    data: { labels: D.liquidity.depthCurve.impacts.map(i => "±" + i + "%"), datasets: [
+      { label: "Ask-side depth (buys hit this)", data: D.liquidity.depthCurve.askDepth, borderColor: "#12805c", backgroundColor: "rgba(18,128,92,.08)", fill: true, tension: .25, pointRadius: 3 },
+      { label: "Bid-side depth (sells hit this)", data: D.liquidity.depthCurve.bidDepth, borderColor: "#c0392b", backgroundColor: "rgba(192,57,43,.06)", fill: true, tension: .25, pointRadius: 3 }
+    ]},
+    options: { ...common,
+      scales: { x: { grid: { display: false }, title: { display: true, text: "Price impact threshold" } },
+                y: { grid: { color: gridCol }, title: { display: true, text: "Cumulative depth ($M)" } } },
+      plugins: { legend: { position: "bottom", labels: { boxWidth: 10 } } } }
+  });
+  const vm = D.valuation.methods;
+  mkChart("valChart", { type: "bar",
+    data: { labels: vm.map(m => m.name), datasets: [
+      { label: "Range", data: vm.map(m => [m.lo, m.hi]), backgroundColor: "rgba(59,91,219,.35)", borderColor: "#3b5bdb", borderWidth: 1, borderRadius: 4, borderSkipped: false, barPercentage: .55 },
+      { label: "Current $" + D.valuation.current.toFixed(2), data: vm.map(() => D.valuation.current), type: "line", borderColor: "#c0392b", borderDash: [5, 4], pointRadius: 0, borderWidth: 2 }
+    ]},
+    options: { ...common, indexAxis: "y",
+      scales: { x: { grid: { color: gridCol }, ticks: { callback: v => "$" + v } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } },
+      plugins: { legend: { position: "bottom", labels: { boxWidth: 10 } }, tooltip: { callbacks: { label: ctx => ctx.datasetIndex === 0 ? `$${ctx.raw[0]} – $${ctx.raw[1]}` : `Current $${D.valuation.current}` } } }
+    }
+  });
+}
+
+/* ---- price chart with event markers (works for snapshot labels or live daily) ---- */
+function buildPriceChart(labels, prices, evPairs) {
+  const evData = labels.map((_, i) => { const m = evPairs.find(p => p.i === i); return m ? prices[i] : null; });
+  mkChart("priceChart", { type: "line",
+    data: { labels, datasets: [
+      { label: "Price", data: prices, borderColor: "#16202e", backgroundColor: "rgba(22,32,46,.05)", fill: true, tension: .3, pointRadius: labels.length > 30 ? 0 : 2, borderWidth: 2 },
+      { label: "Events", data: evData, pointStyle: "circle", pointRadius: 9, pointHoverRadius: 11, pointBackgroundColor: "#3b5bdb", pointBorderColor: "#fff", pointBorderWidth: 2, showLine: false }
+    ]},
+    options: { ...common,
+      scales: { x: { grid: { display: false }, ticks: { maxTicksLimit: 12 } }, y: { grid: { color: gridCol }, ticks: { callback: v => "$" + (+v).toFixed(2) } } },
+      plugins: { legend: { display: false }, tooltip: { callbacks: {
+        label: ctx => {
+          if (ctx.datasetIndex === 1) { const m = evPairs.find(p => p.i === ctx.dataIndex); return m ? `#${m.e.n} ${m.e.event} — ${m.e.paid}` : ""; }
+          return "$" + (+ctx.parsed.y).toFixed(2);
+        } } } }
+    }
+  });
+}
+
+/* ---- unlocks vs price indexed, with BTC/ETH/SOL toggles ---- */
+function buildUnlockPriceChart(labels, prices, majors, unlocksM, D) {
+  const indexed = arr => arr.map(v => +(v / arr[0] * 100).toFixed(1));
+  const majorCfg = [["BTC", "#f7931a", true], ["ETH", "#627eea", false], ["SOL", "#9945ff", false]];
+  const majorSets = majors ? majorCfg.map(([n, c, vis]) => ({
+    label: n + " (indexed)", data: indexed(majors[n]), borderColor: c, backgroundColor: c,
+    tension: .3, pointRadius: 0, borderWidth: 1.8, borderDash: [5, 4], hidden: !vis, order: 1
+  })) : [];
+  const tk = (CUR && CUR.meta ? CUR.meta.ticker : "Token");
+  const sets = [
+    { label: tk + " (indexed)", data: indexed(prices), borderColor: "#16202e", backgroundColor: "rgba(22,32,46,.05)", fill: true, tension: .3, pointRadius: labels.length > 30 ? 0 : 2, borderWidth: 2.5, order: 0 },
+    ...majorSets
+  ];
+  if (unlocksM && unlocksM.some(v => v > 0)) sets.push({ label: "Unlocks ($M)", type: "bar", data: unlocksM, yAxisID: "y1",
+      backgroundColor: "rgba(192,57,43,.45)", hoverBackgroundColor: "rgba(192,57,43,.7)", borderRadius: 3, barPercentage: .5, order: 2 });
+  const ch = mkChart("unlockPriceChart", { type: "line",
+    data: { labels, datasets: sets },
+    options: { ...common, interaction: { mode: "index", intersect: false },
+      scales: {
+        x: { grid: { display: false }, ticks: { maxTicksLimit: 12 } },
+        y: { grid: { color: gridCol }, title: { display: true, text: "Indexed price (start = 100)" } },
+        y1: { position: "right", min: 0, suggestedMax: 300, grid: { drawOnChartArea: false }, title: { display: true, text: "Unlock $M" } }
+      },
+      plugins: { legend: { display: false }, tooltip: { callbacks: {
+        label: ctx => ctx.dataset.type === "bar"
+          ? (ctx.parsed.y ? `Unlock: $${ctx.parsed.y}M` : null)
+          : `${ctx.dataset.label}: ${ctx.parsed.y}`
+      } } }
+    }
+  });
+  $("majToggles").innerHTML = "";
+  if (majors) majorCfg.forEach(([n, c], i) => {
+    const b = document.createElement("button");
+    b.textContent = n; b.className = "tg" + (ch.isDatasetVisible(i + 1) ? " on" : "");
+    b.style.setProperty("--c", c);
+    b.onclick = () => {
+      const vis = ch.isDatasetVisible(i + 1);
+      ch.setDatasetVisibility(i + 1, !vis);
+      b.classList.toggle("on", !vis);
+      ch.update();
+    };
+    $("majToggles").appendChild(b);
+  });
+  $("upCap").innerHTML = `<span class="legend-chip"><i style="background:#16202e"></i>${tk} (indexed, start = 100)</span>
+    <span class="legend-chip"><i style="background:rgba(192,57,43,.55);height:9px"></i>Unlocks ($M, right axis)</span>
+    — toggle BTC/ETH/SOL for relative performance through unlock windows.`;
+}
+
+/* ================= execution impact simulator ================= */
+let impactChartRef = null;
+function initSim(D) {
+  const L = D.liquidity;
+  function walkDepth(sizeM, side) {
+    const imps = L.depthCurve.impacts;
+    const depths = side === "buy" ? L.depthCurve.askDepth : L.depthCurve.bidDepth;
+    if (sizeM <= depths[0]) return imps[0] * (sizeM / depths[0]);
+    for (let i = 1; i < depths.length; i++)
+      if (sizeM <= depths[i]) return imps[i-1] + (sizeM - depths[i-1]) / (depths[i] - depths[i-1]) * (imps[i] - imps[i-1]);
+    return imps[imps.length-1] * Math.pow(sizeM / depths[depths.length-1], 1.6);
+  }
+  const MODES = [
+    { name: "Market now", days: 0 }, { name: "TWAP 1h", days: 1/24 }, { name: "TWAP 4h", days: 4/24 },
+    { name: "TWAP 24h", days: 1 }, { name: "TWAP 3d", days: 3 }, { name: "TWAP 7d", days: 7 }
+  ];
+  function estimate(sizeM, side, days) {
+    const walk = walkDepth(sizeM, side), immediate = walk * 0.65;
+    if (days === 0) {
+      const dp = side === "buy" ? L.depthCurve.askDepth : L.depthCurve.bidDepth;
+      return { impact: immediate, partic: sizeM / dp[dp.length-1] * 100, particLbl: "of visible book", risk: 0 };
+    }
+    const sqrtLaw = L.sigmaDaily * 0.9 * Math.sqrt(sizeM / L.adv) * Math.pow(days, -0.25);
+    return { impact: Math.min(sqrtLaw, immediate), partic: sizeM / (L.adv * days) * 100, particLbl: "of window volume", risk: L.sigmaDaily * Math.sqrt(days) * 0.5 };
+  }
+  const sim = { side: "buy", sizeM: 1, mode: 3 };
+  const sliderToSize = v => 0.1 * Math.pow(500, v / 100);
+  const sizeToSlider = s => 100 * Math.log(s / 0.1) / Math.log(500);
+  const mkBtn = (label, color, onClick) => { const b = document.createElement("button"); b.textContent = label; b.className = "tg"; b.style.setProperty("--c", color); b.onclick = onClick; return b; };
+  ["sideBtns","sizeBtns","modeBtns"].forEach(id => $(id).innerHTML = "");
+  [["Buy", "#12805c"], ["Sell", "#c0392b"]].forEach(([s, c]) => $("sideBtns").appendChild(mkBtn(s, c, () => { sim.side = s.toLowerCase(); renderSim(); })));
+  [0.25, 0.5, 1, 2.5, 5, 10, 25].forEach(s => $("sizeBtns").appendChild(mkBtn(fmtM(s), "#3b5bdb", () => { sim.sizeM = s; $("sizeSlider").value = sizeToSlider(s); renderSim(); })));
+  MODES.forEach((m, i) => $("modeBtns").appendChild(mkBtn(m.name, "#3b5bdb", () => { sim.mode = i; renderSim(); })));
+  $("sizeSlider").oninput = e => { sim.sizeM = sliderToSize(+e.target.value); renderSim(); };
+  $("sizeSlider").value = 37;
+
+  impactChartRef = mkChart("impactChart", { type: "bar",
+    data: { labels: MODES.map(m => m.name), datasets: [
+      { label: "Expected impact %", data: [], backgroundColor: "#3b5bdb", borderRadius: 4, stack: "s" },
+      { label: "± Timing risk %", data: [], backgroundColor: "rgba(59,91,219,.22)", borderRadius: 4, stack: "s" }
+    ]},
+    options: { ...common,
+      scales: { x: { grid: { display: false } }, y: { grid: { color: gridCol }, ticks: { callback: v => v + "%" }, title: { display: true, text: "Est. cost / risk (%)" } } },
+      plugins: { legend: { position: "bottom", labels: { boxWidth: 10 } },
+        tooltip: { callbacks: { label: ctx => ctx.datasetIndex === 0 ? `Expected impact: ${ctx.parsed.y.toFixed(2)}%` : `Timing risk: ±${ctx.parsed.y.toFixed(2)}%` } } } }
+  });
+
+  function renderSim() {
+    $("sizeLabel").textContent = fmtM(sim.sizeM);
+    const setActive = (wrap, activeIdx) => [...$(wrap).children].forEach((b, i) => b.classList.toggle("on", i === activeIdx));
+    setActive("sideBtns", sim.side === "buy" ? 0 : 1);
+    setActive("modeBtns", sim.mode);
+    [...$("sizeBtns").children].forEach(b => b.classList.toggle("on", b.textContent === fmtM(sim.sizeM)));
+    const m = MODES[sim.mode], r = estimate(sim.sizeM, sim.side, m.days);
+    const px = D.meta.price, sign = sim.side === "buy" ? 1 : -1;
+    const fill = px * (1 + sign * r.impact / 100);
+    const costM = sim.sizeM * r.impact / 100;
+    const cards = [
+      ["Est. impact", r.impact.toFixed(2) + "%"],
+      ["Avg fill price", "$" + fill.toFixed(3)],
+      ["Slippage cost", costM >= 0.001 ? fmtM(costM) : "<$1k"],
+      ["Participation", r.partic.toFixed(1) + "% " + r.particLbl],
+      ["Timing risk", r.risk ? "±" + r.risk.toFixed(1) + "%" : "none"],
+      ["% of ADV", (sim.sizeM / L.adv * 100).toFixed(1) + "%"]
+    ];
+    $("simStats").innerHTML = "";
+    cards.forEach(([k, v]) => $("simStats").appendChild(el("div", `<div class="k">${k}</div><div class="v">${v}</div>`, "stat")));
+    const est = MODES.map(mo => estimate(sim.sizeM, sim.side, mo.days));
+    impactChartRef.data.datasets[0].data = est.map(e => +e.impact.toFixed(2));
+    impactChartRef.data.datasets[1].data = est.map(e => +e.risk.toFixed(2));
+    impactChartRef.data.labels = MODES.map((mo, i) => (i === sim.mode ? "▶ " : "") + mo.name);
+    impactChartRef.update();
+  }
+  renderSim();
+}
+
+/* ================= live layer ================= */
+function updateStat(key, val) { const n = document.querySelector(`[data-k="${key}"]`); if (n && val) n.textContent = val; }
+async function applyLive(D) {
+  if (!D.live || !D.live.coingeckoId) return;
+  let anyLive = false, fdvLive = null;
+  // 1) header price + caps
+  try {
+    const c = await cg(`/coins/${D.live.coingeckoId}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`);
+    const md = c.market_data;
+    setPriceHeader(md.current_price.usd, md.price_change_percentage_24h);
+    updateStat("Mkt Cap", fmt$(md.market_cap.usd));
+    fdvLive = md.fully_diluted_valuation && md.fully_diluted_valuation.usd;
+    updateStat("FDV", fmt$(fdvLive));
+    $("asOf").textContent = "Live · CoinGecko · " + new Date().toLocaleString();
+    if (D.liquidity && md.total_volume && md.total_volume.usd) D.liquidity.adv = md.total_volume.usd / 1e6;
+    anyLive = true;
+  } catch (e) {}
+  // 2) 365d daily price history + majors
+  let litDaily = null;
+  try {
+    await sleep(1100);
+    const mc = await cg(`/coins/${D.live.coingeckoId}/market_chart?vs_currency=usd&days=365&interval=daily`);
+    litDaily = mc.prices; // [[ts, px]]
+    const labels = litDaily.map(p => dLbl(p[0]));
+    const prices = litDaily.map(p => +p[1]);
+    const evPairs = D.priceHistory.events.map(ev => {
+      const t = new Date(ev.date).getTime();
+      let best = 0, bd = Infinity;
+      litDaily.forEach((p, i) => { const d = Math.abs(p[0] - t); if (d < bd) { bd = d; best = i; } });
+      return { i: best, e: ev };
+    });
+    buildPriceChart(labels, prices, evPairs);
+    $("priceLivePill").style.display = "";
+    // unlock bars mapped by date
+    const unlocks = labels.map(() => 0);
+    (D.priceHistory.unlockEventsDated || []).forEach(u => {
+      const t = new Date(u.date).getTime();
+      let best = -1, bd = 45 * 864e5;
+      litDaily.forEach((p, i) => { const d = Math.abs(p[0] - t); if (d < bd) { bd = d; best = i; } });
+      if (best >= 0) unlocks[best] = u.amt;
+    });
+    // majors, sequential to respect rate limits
+    const majors = {};
+    for (const [sym, id] of Object.entries(D.live.majors || {})) {
+      try {
+        await sleep(1200);
+        const m = await cg(`/coins/${id}/market_chart?vs_currency=usd&days=365&interval=daily`);
+        const map = new Map(m.prices.map(p => [dLbl(p[0]), p[1]]));
+        let last = m.prices.length ? m.prices[0][1] : 1;
+        majors[sym] = labels.map(l => { const v = map.get(l); if (v != null) last = v; return last; });
+      } catch (e) { majors[sym] = null; }
+    }
+    const ok = ["BTC","ETH","SOL"].every(s => majors[s]);
+    buildUnlockPriceChart(labels, prices, ok ? majors : null, unlocks, D);
+    anyLive = true;
+  } catch (e) {}
+  // 3) DeFiLlama fees + revenue (protocol fundamentals)
+  if (D.live.llamaSlug) {
+    try {
+      const [f, r] = [await llama(`/summary/fees/${D.live.llamaSlug}?dataType=dailyFees`), await llama(`/summary/fees/${D.live.llamaSlug}?dataType=dailyRevenue`)];
+      const monthly = series => {
+        const m = {};
+        (series || []).forEach(([ts, v]) => { const d = new Date(ts * 1000); const k = d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0"); m[k] = (m[k] || 0) + v; });
+        return m;
+      };
+      const fm = monthly(f.totalDataChart), rm = monthly(r.totalDataChart);
+      const keys = Object.keys(fm).sort().slice(-9);
+      if (keys.length >= 3) {
+        const labels = keys.map(k => new Date(k + "-15").toLocaleDateString("en-US", { month: "short", year: "2-digit" }));
+        charts.feeChart.data.labels = labels;
+        charts.feeChart.data.datasets[0].data = keys.map(k => +(fm[k]/1e6).toFixed(2));
+        charts.feeChart.data.datasets[1].data = keys.map(k => +((rm[k]||0)/1e6).toFixed(2));
+        charts.feeChart.update();
+        $("feeLivePill").style.display = "";
+        // 30d fees stat + FDV/fees
+        const daily = f.totalDataChart || [];
+        const last30 = daily.slice(-30).reduce((s, p) => s + p[1], 0);
+        updateStat("30d Fees", fmt$(last30));
+        if (fdvLive && last30 > 0) updateStat("FDV / Run-rate Fees", "~" + Math.round(fdvLive / (last30 * 12.17)) + "x");
+        anyLive = true;
+      }
+    } catch (e) {}
+  }
+  setBadge(anyLive, anyLive ? "LIVE · CG + DEFILLAMA" : "SNAPSHOT · " + D.researchedAt);
+}
+
+boot();
+</script>
+</body>
+</html>
