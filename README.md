@@ -1,4 +1,4 @@
-# Token Research Terminal
+# Token Research Terminal 
 
 Static site for interactive crypto token deep-research reports. Live market data (CoinGecko + DeFiLlama) layered over per-ticker research JSONs. No build step, no backend.
 
