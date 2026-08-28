@@ -329,7 +329,7 @@ async function llama(path) { const r = await fetch("https://api.llama.fi" + path
 let REPORTS = [], CUR = null;
 async function boot() {
   try {
-    const idx = await (await fetch("reports/index.json")).json();
+    const idx = await (await fetch("reports/index.json", { cache: "no-store" })).json();
     REPORTS = idx.reports;
     $("reportSel").innerHTML = REPORTS.map(r => `<option value="${r.file}">${r.ticker} — ${r.name} (${r.researchedAt})</option>`).join("");
     $("reportSel").onchange = e => loadReport(e.target.value);
@@ -342,7 +342,7 @@ async function boot() {
 }
 async function loadReport(file) {
   try {
-    const D = await (await fetch("reports/" + file)).json();
+    const D = await (await fetch("reports/" + file, { cache: "no-store" })).json();
     CUR = D;
     $("reportSel").value = file;
     const rep = REPORTS.find(r => r.file === file);
