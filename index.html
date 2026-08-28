@@ -177,7 +177,7 @@
     <h3>Revenue Lines</h3>
     <table><thead><tr><th>Line</th><th>Structure</th><th>30d Fees</th><th>90d Trend</th><th>To Token</th></tr></thead><tbody id="revLines"></tbody></table>
     <div class="grid2" style="margin-top:16px">
-      <div><h3>Fees &amp; Protocol Revenue Trend <span class="pill a" id="feeLivePill" style="display:none">LIVE</span></h3><div class="chart-box sm"><canvas id="feeChart"></canvas></div></div>
+      <div><h3><span id="feeTrendTitle">Fees &amp; Protocol Revenue Trend</span> <span class="pill a" id="feeLivePill" style="display:none">LIVE</span></h3><div class="chart-box sm"><canvas id="feeChart"></canvas></div></div>
       <div><h3>Concentration &amp; Cost Notes</h3><ul class="clean" id="bizNotes"></ul></div>
     </div>
   </div>
@@ -194,7 +194,7 @@
 <section id="tokenomics">
   <h2><span class="num">04</span>Token Economics</h2>
   <div class="grid2">
-    <div class="card"><h3 style="margin-top:0">Allocation at TGE</h3><div class="chart-box sm"><canvas id="allocChart"></canvas></div></div>
+    <div class="card"><h3 style="margin-top:0" id="allocTitle">Allocation at TGE</h3><div class="chart-box sm"><canvas id="allocChart"></canvas></div></div>
     <div class="card">
       <h3 style="margin-top:0">Supply Milestones</h3>
       <table><thead><tr><th>Threshold</th><th>Date Reached</th></tr></thead><tbody id="milestones"></tbody></table>
@@ -416,6 +416,8 @@ function renderReport(D) {
   D.exec.questions.forEach(t => $("questionList").appendChild(el("li", t)));
 
   $("bizNarrative").textContent = D.biz.narrative;
+  $("feeTrendTitle").textContent = D.biz.feeTrend.title || "Fees & Protocol Revenue Trend";
+  $("allocTitle").textContent = D.tokenomics.allocTitle || "Allocation at TGE";
   $("feeFlow").innerHTML = "";
   D.biz.flow.forEach((f, i) => {
     if (i > 0) $("feeFlow").appendChild(el("div", "→", "farrow"));
@@ -480,8 +482,8 @@ function renderReport(D) {
 function buildStaticCharts(D) {
   mkChart("feeChart", { type: "bar",
     data: { labels: D.biz.feeTrend.labels, datasets: [
-      { label: "Gross fees ($M)", data: D.biz.feeTrend.fees, backgroundColor: "#c7d2f5", borderRadius: 4 },
-      { label: "To token ($M)", data: D.biz.feeTrend.toToken, backgroundColor: "#12805c", borderRadius: 4 }
+      { label: (D.biz.feeTrend.names || [])[0] || "Gross fees ($M)", data: D.biz.feeTrend.fees, backgroundColor: "#c7d2f5", borderRadius: 4 },
+      { label: (D.biz.feeTrend.names || [])[1] || "To token ($M)", data: D.biz.feeTrend.toToken, backgroundColor: "#12805c", borderRadius: 4 }
     ]},
     options: { ...common, scales: { x: { grid: { display: false } }, y: { grid: { color: gridCol } } }, plugins: { legend: { position: "bottom", labels: { boxWidth: 10 } } } }
   });
