@@ -1,0 +1,178 @@
+{
+  "live": { "coingeckoId": "numeraire", "majors": { "BTC": "bitcoin", "ETH": "ethereum", "SOL": "solana" } },
+  "researchedAt": "2026-08-28",
+  "meta": {
+    "name": "Numerai", "ticker": "NMR", "exchanges": "Coinbase · Binance · Kraken · Bitvavo · MEXC · 45+ minor venues",
+    "price": 9.03, "chg24h": -0.4, "asOf": "Aug 28, 2026 · CoinGecko/CMC live cluster $8.85-9.03",
+    "rec": "AVOID for size — optionality-only; the trade is a token-policy change, not fund success",
+    "stats": [
+      ["Mkt Cap", "$63M"], ["FDV", "$96M"], ["Circ / Max", "~7.0M / 11M (64%)"],
+      ["Burned (lifetime)", "368K NMR (3.3%)"], ["Staked", "1.12M NMR (~16% of float)"], ["Buybacks (12mo)", "$3.2M ≈ 5% of mcap"]
+    ]
+  },
+  "exec": {
+    "thesis": "Numerai the company is working: AUM 10x'd in three years ($60M → $700M, targeting $1B), JPMorgan committed $500M of capacity, the fund printed +25.45% net with a 2.75 Sharpe in 2024, and a Nov '25 Series C marked the equity at $500M. Numeraire the token is a claim on none of it except by managerial grace — fund fees flow to equity, while the token gets staking demand, slow burns (3.3% of supply in nine years), and ad hoc treasury buybacks ($3.2M in 12 months) that are recycled back out as tournament payouts. The market has already run this experiment: the JPMorgan announcement spiked NMR +140% intraday to $19.55, and it round-tripped entirely — the market will instantly pay for fund-token linkage, and won't pay for hope. Meanwhile the token's microstructure is deteriorating: Binance delisted pairs twice in 2026, volume fell ~44%, and aggregate ±2% depth is ~$250K per side on a $63M market cap. The single lever that changes everything — a formalized fee-linked buyback policy — is entirely in Richard Craib's hands, and until it exists NMR is optionality, not an investment.",
+    "own": [
+      "The only liquid exposure to a JPMorgan-validated AI quant fund scaling toward $1B AUM — token FDV $96M vs. a $500M equity mark set by sophisticated investors (endowments, Paul Tudor Jones) in Nov '25.",
+      "Hard-capped, structurally shrinking supply: minting keys burned in 2018 (no inflation possible ever), 3.3% of max supply burned via losing stakes, ~16% of float locked as tournament collateral, and $3.2M of company buybacks in 12 months ≈ 5% of market cap.",
+      "A real, decade-deep moat: obfuscated data + stake-weighted meta model + 30,000+ participants with skin in the game — none of it replicable by forking a token, and now being extended to agentic-AI submissions (Numerai MCP)."
+    ],
+    "avoid": [
+      "Structural value-capture gap: 1%/20% fund economics (≈$27M+/yr gross at $700M AUM, est.) accrue to equity; the token's buybacks exist to refill the payout treasury, not to return capital. The Aug '25 JPM spike-and-round-trip is the market's verdict on this gap.",
+      "Liquidity is decaying, not growing: Binance delisted NMR/BTC+ETH pairs (Jan '26) then the USDC pair (Aug 21 '26); volume fell ~44%; ±2% book depth is ~$250K/side — a $1M market order moves price >10%, and there is no perp market for hedged execution.",
+      "The USDC staking option (targeted Jul '26) directly erodes the token's core utility: if new stakers prefer USDC collateral, NMR loses its main structural demand leg while keeping all its illiquidity."
+    ],
+    "questions": [
+      "Does Craib formalize a fee-linked buyback/burn policy (vs. ad hoc treasury refills)? This is the single re-rating lever — watch blog language and buyback cadence.",
+      "What share of staking flows to USDC vs. NMR once the non-NMR rail is live? High USDC adoption hollows out the token thesis.",
+      "Does Binance fully delist NMR, and does any major venue offset it? Liquidity is now thin enough that venue decisions dominate price.",
+      "When does AUM cross $1B (guided ~late 2026), and does the fund's 2025/2026 performance hold up under the larger book?"
+    ]
+  },
+  "biz": {
+    "narrative": "Numerai runs a weekly ML tournament: ~30,000+ data scientists submit stock predictions on obfuscated data, optionally staking NMR on their models. The Stake-Weighted Meta Model blends staked submissions into one signal traded by Numerai One, a long-short global equity hedge fund (1% management / 20% performance fees, $700M AUM as of Jul '26, >$1B/month traded). Winning stakes earn NMR from a fixed treasury (supply is fully minted — payouts are never inflationary); losing stakes are permanently burned. The company replenishes the treasury with open-market buybacks via Coinbase Institutional ($1M Jul '25, $1M Feb '26 at avg $8.57, $1.2M Jul '26). Products beyond the main tournament: Signals (external data), Crypto (launched Jun '24), a residual-volatility tournament, and Numerai MCP for agentic-AI submissions. The critical asymmetry: fund economics accrue to Numerai's equity ($500M Series C mark), not the token — the token's cash-flow linkage is discretionary.",
+    "flow": [
+      { "label": "Fund economics (1/20 on $700M AUM)", "amt": "≈$27M+/yr gross est.", "cls": "" },
+      { "label": "To equity / opco — NOT the token", "amt": "~88% est.", "cls": "leak" },
+      { "label": "Discretionary NMR buybacks", "amt": "$3.2M / 12mo pace", "cls": "win" }
+    ],
+    "revLines": [
+      ["Hedge fund fees (equity, not token)", "1% mgmt + 20% perf", "≈$27M+/yr gross est.", "up", "0% — accrues to equity"],
+      ["Company buybacks (treasury refill)", "Ad hoc, ~2-3/yr", "$3.2M / 12mo", "up", "supply absorbed from market"],
+      ["Stake burns (losing models)", "Merit-based", "368K NMR lifetime", "flat", "100% supply reduction"],
+      ["Tournament payouts", "Merit-based", "-$0.2-0.5M/mo est.", "flat", "outflow: treasury → stakers"]
+    ],
+    "feeTrend": {
+      "title": "Treasury Flows: Buybacks vs. Payouts (est., $M/quarter)",
+      "names": ["Buybacks ($M)", "Payouts est. ($M)"],
+      "labels": ["Q3 25","Q4 25","Q1 26","Q2 26","Q3 26"],
+      "fees": [1.0, 0, 1.0, 0, 1.2],
+      "toToken": [1.0, 1.1, 1.0, 0.9, 0.9]
+    },
+    "notes": [
+      "Payout run-rate ($0.2-0.5M/mo) is a third-party estimate — Numerai doesn't publish it; buybacks are company-confirmed. Net treasury flow is roughly balanced at current cadence: buybacks ≈ payouts.",
+      "Treasury holds ~3.1M NMR (~28% of max supply) — the dominant holder; a ~3M reserve is earmarked/locked until 2028. Reconciliation between 'locked reserve' and 'operating treasury' is imperfect across sources (flagged).",
+      "Fund performance: 2024 +25.45% net, 2.75 Sharpe (best year); 2023 ~-17% drawdown; 2025 full-year figure not publicly located — LP-only disclosure.",
+      "Craib publicly disputed CMC's $4M TVL figure (claims ~$20M) — the company actively manages the token narrative but has not changed token policy."
+    ]
+  },
+  "moat": {
+    "axes": ["Network effects", "Switching costs", "Scale/liquidity", "Brand", "Regulatory", "Tech/IP"],
+    "scores": [4, 3, 2, 4, 2, 4],
+    "note": "Community + obfuscated-data flywheel (10 years of labeled meta-model history) and institutional brand (JPM, PTJ, endowments) are genuinely strong. Token-market liquidity is the glaring weakness (2/5 and falling post-delistings). Regulatory: no SEC action ever filed, but the 2017-era 'is it a security' overhang influenced the 2018 decentralization and still shapes venue decisions.",
+    "comps": [
+      ["WorldQuant BRAIN", "Direct (no token)", "—", "n/a", "r"],
+      ["CrunchDAO", "Direct (closest analog)", "—", "n/a", "a"],
+      ["QuantConnect / Quantiacs", "Adjacent (DIY quant)", "—", "n/a", "g"],
+      ["LLM/agentic signal platforms", "Substitution", "—", "n/a", "a"],
+      ["Internal quant desks scaling ML", "Substitution", "—", "n/a", "a"]
+    ]
+  },
+  "tokenomics": {
+    "allocTitle": "Current Supply Composition (of 11M max)",
+    "alloc": { "labels": ["Free float (58%)", "Treasury (28.4%)", "Staked (10.2%)", "Burned (3.3%)"], "values": [58, 28.4, 10.2, 3.3] },
+    "milestones": [[">25% float", "2017 — 1M NMR airdropped to ~12,000 data scientists (no ICO)"], [">50% float", "~2019 — after NMR 2.0 cut max supply 21M → 11M, minting keys destroyed"], ["Next supply event", "2028 — ~3M NMR treasury reserve unlock window (~27% of supply)"]],
+    "accrual": [
+      ["Stake burns (losing predictions)", "Live since 2017", "368K NMR burned — 3.3% of max supply"],
+      ["Company buybacks via Coinbase Institutional", "Ad hoc — 3 tranches in 12mo", "$3.2M ≈ 5% of mcap annualized"],
+      ["Staking demand (tournament collateral)", "Live — >1,200 staked models weekly", "1.12M NMR (~16% of float) locked"],
+      ["Systematic fee share / fee-linked buyback", "NONE — the missing piece", "0% of ≈$27M+/yr est. fund economics"]
+    ],
+    "unlocks": {
+      "labels": ["Sep 26","Oct 26","Nov 26","Dec 26","Jan 27","Feb 27","Mar 27","Apr 27","May 27","Jun 27","Jul 27","Aug 27"],
+      "team": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "investors": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "circPct": [64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64]
+    },
+    "unlockPerf": [
+      ["No vesting schedule — supply fully distributed since the 2017 airdrop; minting keys burned Dec 2018", "n/a", "—", "—", "—", "—", "—"],
+      ["Treasury reserve (~3M NMR, ~27% of supply) — earmarked/locked until 2028", "~$28M at spot", "—", "—", "—", "—", "—"]
+    ]
+  },
+  "priceHistory": {
+    "labels": ["Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26","Jul 26","Aug 28 '26"],
+    "prices": [13.0, 11.0, 10.5, 11.65, 10.0, 8.8, 8.57, 8.2, 7.5, 7.0, 6.8, 8.0, 9.03],
+    "unlocksM": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "unlockEventsDated": [],
+    "majors": {
+      "BTC": [113, 112, 109, 95, 88.4, 82, 70, 68, 65, 62, 60, 62, 79.8],
+      "ETH": [4.6, 4.3, 4.0, 3.4, 3.0, 2.6, 2.3, 2.1, 2.0, 1.95, 1.9, 1.95, 2.5],
+      "SOL": [200, 190, 185, 165, 150, 130, 115, 105, 95, 85, 78, 80, 106.6]
+    },
+    "events": [
+      { "idx": 0, "n": 1, "date": "2025-08-26", "dateLbl": "Aug 26 '25", "event": "JPMorgan commits $500M capacity — NMR spikes $8.11 → $19.55 intraday (+140%), volume +5,000%", "driver": "Narrative", "paid": "Momentarily priced a fund-token linkage that doesn't exist; fully round-tripped" },
+      { "idx": 3, "n": 2, "date": "2025-11-20", "dateLbl": "Nov 20 '25", "event": "Series C: $30M at $500M valuation (endowments, Paul Tudor Jones, USV) — NMR +41%", "driver": "Narrative", "paid": "Equity mark 5x'd; token FDV barely re-rated — the gap widened" },
+      { "idx": 5, "n": 3, "date": "2026-01-23", "dateLbl": "Jan 23 '26", "event": "Binance delists NMR/BTC and NMR/ETH pairs; trading activity -44%", "driver": "Liquidity", "paid": "Liquidity discount deepens into the 2026 crypto bear" },
+      { "idx": 6, "n": 4, "date": "2026-02-16", "dateLbl": "Feb 16 '26", "event": "Buyback #2: $1M (116,721 NMR @ $8.57) announced at NumerCon", "driver": "Company", "paid": "A ~5%-of-mcap/yr bid, absorbed quietly — no re-rate" },
+      { "idx": 11, "n": 5, "date": "2026-07-15", "dateLbl": "Jul 15 '26", "event": "Buyback #3: $1.2M; AUM hits $700M; $3.2M cumulative buybacks in <1yr", "driver": "Company", "paid": "Floor-building — market pays ~20x the voluntary buyback pace" },
+      { "idx": 12, "n": 6, "date": "2026-08-21", "dateLbl": "Aug 21 '26", "event": "Binance delists NMR/USDC pair in broader delisting round", "driver": "Liquidity", "paid": "Another liquidity leg down — current setup" }
+    ]
+  },
+  "liquidity": {
+    "sigmaDaily": 6,
+    "adv": 4.4,
+    "summary": "Aggregate ±2% depth is only ~$240K ask / ~$255K bid across ~52 venues against ~$4.4M ADV — among the thinnest books of any $60M+ mcap token, and thinning: Binance pair delistings (Jan + Aug '26) cut activity ~44%. A $250K market order clears the ±2% band; $1M+ moves price >10%. No perp market exists for hedged execution — everything above ~$100K should be worked as TWAP, and exit capacity is the position risk.",
+    "venues": [
+      ["Binance (USDT — sole surviving pair)", "$27.0K", "$11.7K", "$242K", "5.5%"],
+      ["P2B", "$36.3K", "$78.8K", "$215K", "4.9%"],
+      ["Coinbase", "$30.9K", "$32.1K", "$111K", "2.5%"],
+      ["LBank", "$36.6K", "$12.8K", "$109K", "2.5%"],
+      ["Bitvavo (EUR)", "$32.0K", "$50.9K", "$107K", "2.4%"],
+      ["MEXC", "$37.0K", "$20.0K", "$61K", "1.4%"],
+      ["~46 other venues (incl. likely wash volume)", "~$100K", "~$120K", "~$3.6M", "~81%"]
+    ],
+    "depthCurve": { "impacts": [0.25, 0.5, 1, 2, 4, 8], "askDepth": [0.05, 0.09, 0.15, 0.24, 0.42, 0.75], "bidDepth": [0.05, 0.10, 0.16, 0.25, 0.45, 0.80] }
+  },
+  "tech": {
+    "narrative": "Numerai's stack is a data-and-incentives machine rather than a chain: obfuscated/encrypted equity features (participants model data they cannot interpret or steal), a Stake-Weighted Meta Model that ensembles thousands of staked predictions, and a live fund executing the blend across 30 global markets. The moat compounds through labeled history — ten years of knowing which anonymous modelers are persistently skillful. 2026 infrastructure shifts: 'Atomic Blockchain Staking' moves stakes on-chain (main tournament migration ~Jun '26), a USDC staking rail was targeted for Jul '26, and Numerai MCP opens submissions to AI agents. Embedded bull assumption: crowdsourced, staked ensembles keep beating internal quant desks as AI commoditizes signal generation. Embedded risk: the same commoditization lets competitors replicate crowdsourcing without a token — and Numerai itself just built a stake rail that doesn't need NMR.",
+    "devs": [
+      { "title": "USDC staking rail", "maturity": "Targeted Jul '26 — verify adoption", "body": "The most consequential token development in years, and it's double-edged by design: better for tournament growth (no crypto-volatility deterrent for quants), directly corrosive to NMR staking demand. Watch the stake-mix data before anything else." },
+      { "title": "Agentic AI submissions (Numerai MCP + Skills)", "maturity": "Early, live 2026", "body": "AI agents submitting models could 10x participation and meta-model quality without headcount — the strongest fundamental tailwind for the fund (and only indirectly for the token)." },
+      { "title": "LLM commoditization of alpha", "maturity": "Structural, 2-5yr", "body": "Cuts both ways: floods Numerai with better submissions, but also lets WorldQuant-style platforms and internal desks replicate crowdsourcing cheaply. Numerai's counter is its labeled-history data moat, not the token." },
+      { "title": "Fee-linked token policy", "maturity": "Unannounced — the lever", "body": "Nothing technical prevents routing a fixed share of fund economics to systematic buybacks/burns. It's a policy choice sitting with one founder. Every other item on this page is noise next to this one." }
+    ]
+  },
+  "catalysts": {
+    "near": [
+      ["Now", "Binance NMR/USDC delisting effect settles (Aug 21 '26)", "Supply", "100%", "-5-10% + thinner books", "CG volume/depth weekly"],
+      ["H2 '26", "USDC-vs-NMR staking mix data emerges", "Fundamental", "70%", "-5-15% if USDC dominates", "Numerai docs/forum, stake dashboards"],
+      ["Q4 '26", "AUM crosses $1B (company-guided)", "Narrative", "55%", "+15-30% spike (historically fades)", "blog.numer.ai, fund updates"],
+      ["Q4 '26-Q1 '27", "Buyback #4 (~5-6mo cadence implied)", "Fundamental", "65%", "+5-10%", "blog.numer.ai, Coinbase Inst. flow"],
+      ["Jan '27", "NumerCon 2027 — historically where token news lands", "Mixed", "80%", "±10%", "Event coverage, Craib posts"],
+      ["2028", "~3M NMR treasury reserve unlock window", "Supply", "100%", "Overhang narrative builds into it", "On-chain treasury addresses"]
+    ],
+    "mid": "Three things matter over 12-36 months. First, policy: any shift from ad hoc buybacks toward a stated, fee-linked cadence converts NMR from loyalty token to quasi-equity — the entire bull case compressed into one announcement. Second, the staking mix: if NMR keeps majority share of tournament collateral despite the USDC rail, the utility floor holds; if not, it doesn't. Third, fund compounding: $1B+ AUM with 2024-quality returns makes the buyback budget trivially expandable ($27M+ gross fee pool vs. a $63M token mcap — the company could half-turn the float in two years if it chose to). The bear structural path: full Binance exit plus USDC staking dominance leaves an illiquid token with no mechanical demand — a delisting spiral where the fund thrives while its token dies."
+  },
+  "scenarios": [
+    { "cls": "bull", "name": "Bull", "tgt": "$32.00 (+254%)", "body": "Craib formalizes fee-linked buybacks at $1B+ AUM (even 15-20% of gross fees ≈ $4-6M/yr systematic bid vs. $63M mcap), NMR holds staking majority, supply keeps shrinking. The Aug '25 spike showed the market instantly pays $19+ for this linkage.", "trip": "Tripwires: policy language in blog/NumerCon · buyback cadence tightens to quarterly · AUM >$1B · NMR stake share >60%" },
+    { "cls": "base", "name": "Base", "tgt": "$9.50 (+5%)", "body": "Status quo: ad hoc buybacks roughly offset payouts, price tracks crypto beta with fund-news spikes that fade. Dead money punctuated by tradeable 40-140% event pops.", "trip": "Tripwires: buybacks continue ~2/yr · volume stabilizes >$4M/day · staked NMR holds >1M" },
+    { "cls": "bear", "name": "Bear", "tgt": "$3.50 (-61%)", "body": "Full Binance delisting + USDC staking dominance hollow out utility; buybacks lapse; liquidity spiral. The fund keeps succeeding — the token just stops being how anyone participates.", "trip": "Tripwires: NMR stake share <40% · buyback gap >8mo · full Binance delist · volume <$2M/day" }
+  ],
+  "variant": "Both consensus camps are wrong in opposite directions. Crypto-native consensus dismisses NMR as a 2017 relic with no fee share — ignoring that supply mechanics (hard cap, burns, 16% staked, 5%-of-mcap buyback pace) already make it one of the tightest-float tokens extant, attached to a business compounding at venture rates. Fan consensus treats every AUM milestone as bullish — ignoring that the Aug '25 JPM spike round-tripped precisely because fund success doesn't mechanically reach the token. The variant: the binding constraint is POLICY, not performance, and policy has been drifting token-positive for a year (three buybacks, 'NMR is essential to Numerai's future,' on-chain staking migration). The trade is owning the option BEFORE any formalization — signals to monitor are blog language shifts and cadence tightening — while renting, never marrying, the fund-milestone spikes.",
+  "valuation": {
+    "methods": [
+      { "name": "Buyback-yield parity (8%→3% req.)", "lo": 5.70, "hi": 15.30 },
+      { "name": "Token FDV as % of equity mark (10-35%)", "lo": 4.70, "hi": 16.40 },
+      { "name": "Staking-utility floor", "lo": 3.00, "hi": 5.00 },
+      { "name": "Fee-linkage repricing (JPM-spike evidence)", "lo": 12.00, "hi": 19.50 }
+    ],
+    "current": 9.03,
+    "multiples": [
+      ["Mcap / trailing-12mo buybacks", "~20x (≈5% yield)", "first full year of data", "HYPE ~5-6% yield — parity"],
+      ["Token FDV / company equity value", "19% ($96M / $500M)", "n/a — Series C Nov '25", "no clean peer"],
+      ["Staked share of circulating", "~16%", "10-20% since 2023", "n/a"],
+      ["Lifetime burn / max supply", "3.3% over 9 years", "slow, merit-driven", "—"]
+    ],
+    "embedded": "At $9, the market pays ~20x the company's voluntary buyback pace and gives zero credit for fund growth — rational, given the accrual gap. The reverse-engineered bull requires believing systematic buybacks reach $4-6M/yr against a shrinking float, which requires a policy announcement that costs the company <25% of one year's gross fees. The asymmetry is that the downside (utility erosion) unfolds slowly, while the upside (policy) reprices in a day — the Aug '25 tape is the proof of both speeds."
+  },
+  "synthesis": "Numerai is the rare crypto project where the underlying business is unambiguously succeeding and the token is unambiguously not capturing it. Supply mechanics are genuinely excellent — hard cap, no vesting, burns, staking lock, buybacks — but they support value rather than create it, and the market prices that correctly at ~20x buyback pace. With ~$250K of ±2% depth, position size IS the risk: even right theses can't exit cleanly. This is an optionality holding, not an allocation — sized so that a -60% bear case is irrelevant and a policy-driven 3x is meaningful.",
+  "recText": "Recommendation: avoid for size; a small optionality position (well under 1%) is defensible purely on the policy-formalization lever. Enter on liquidity flushes toward $7, not news; sell fund-milestone spikes (they have always round-tripped); reassess everything the day a fee-linked buyback policy — or language pointing at one — appears. Priority follow-ups: NMR-vs-USDC stake mix once the rail is live, and buyback #4 timing vs. the implied 5-6 month cadence.",
+  "sources": [
+    "blog.numer.ai — buyback posts (Jul '25, Feb '26, Jul 15 '26), JPMorgan announcement (Aug 26 '25), Series C (Nov 20 '25) — PRIMARY, high confidence for AUM/buybacks/fund returns",
+    "Numerai docs — staking/burn mechanics, fee structure (PRIMARY)",
+    "CoinGecko / CoinMarketCap / CoinCodex — price $8.85-9.03 (Aug 28 '26), mcap ~$63-65M, venue depth table (CG markets tab)",
+    "The Tippening dashboard — burn tally 368,281 NMR, supply composition (THIRD-PARTY; directionally consistent with CG supply math, not Numerai-confirmed)",
+    "CoinDesk (Dec '18 supply cut), USV, Chainwire (Series C), cryptoticker.io (Binance Aug '26 delisting round)",
+    "LOW CONFIDENCE flagged: ATH disputed ($93.15 May '21 CG vs. $168.49 Jun '17 CMC — early thin-market print); monthly closes for NMR and majors are approximate/event-anchored, not exact; payout run-rate ($0.2-0.5M/mo) is a third-party estimate; fund gross-fee estimate (≈$27M+/yr) is derived from 1/20 on $700M, not disclosed; treasury-vs-2028-locked-reserve reconciliation imperfect; USDC staking launch status unverified post-July; 2025 fund return not public; 'no SEC action' is absence-of-evidence"
+  ]
+}
