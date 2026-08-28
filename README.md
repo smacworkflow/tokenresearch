@@ -35,3 +35,4 @@ To refresh an existing report, re-run the research and replace the JSON (bump `r
 ## Disclaimer
 
 Research output + model estimates, not investment advice. Liquidity simulator numbers are illustrative, not execution quotes.
+
