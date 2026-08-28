@@ -1,5 +1,6 @@
 {
   "reports": [
-    { "ticker": "LIT", "name": "Lighter", "file": "lit.json", "rec": "WATCHLIST", "researchedAt": "2026-07-16" }
+    { "ticker": "LIT", "name": "Lighter", "file": "lit.json", "rec": "WATCHLIST", "researchedAt": "2026-07-16" },
+    { "ticker": "NMR", "name": "Numerai", "file": "nmr.json", "rec": "AVOID/OPTIONALITY", "researchedAt": "2026-08-28" }
   ]
 }
