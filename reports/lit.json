@@ -1,63 +1,64 @@
 {
   "live": { "coingeckoId": "lighter", "llamaSlug": "lighter", "majors": { "BTC": "bitcoin", "ETH": "ethereum", "SOL": "solana" } },
-  "researchedAt": "2026-07-16",
+  "researchedAt": "2026-08-28",
   "meta": {
-    "name": "Lighter", "ticker": "LIT", "exchanges": "Coinbase · Bybit · OKX · Gate · Hyperliquid · Lighter DEX",
-    "price": 2.45, "chg24h": -1.2, "asOf": "Jul 16, 2026 · CoinDesk/CMC/DropsTab live cluster (some aggregators show stale $1.5–1.65 caches)",
-    "rec": "WATCHLIST — tactical only; structural entry into Dec '26 cliff",
+    "name": "Lighter", "ticker": "LIT", "exchanges": "Coinbase · Bybit · OKX · Gate · Upbit (new) · Lighter DEX",
+    "price": 3.73, "chg24h": 12.5, "asOf": "Aug 28, 2026 · CoinGecko freshest ($3.73); CMC/DefiLlama lag $3.45-3.53 (stale-cache pattern persists)",
+    "rec": "WATCHLIST — don't chase +52%; structural entry remains the Dec '26 cliff window",
     "stats": [
-      ["Mkt Cap", "$605M"], ["FDV", "$2.45B"], ["Float", "25% (6.3% burned)"],
-      ["30d Fees", "$3.33M"], ["30d Buyback+Burn", "$2.53M"], ["FDV / Run-rate Fees", "~60x"]
+      ["Mkt Cap", "$933M"], ["FDV", "$3.73B"], ["Float", "25% (6.3% burned)"],
+      ["30d Fees", "$4.07M (+22% vs Jul)"], ["30d Buyback", "$2.44M"], ["FDV / Run-rate Fees", "~75x (was ~60x)"]
     ]
   },
   "exec": {
-    "thesis": "Lighter pairs the sector's cleanest value-accrual design — 100% of trading fees fund open-market buybacks, now permanently burned — with a business whose revenue has halved every quarter since TGE (Q4 '25 $39.7M → Q1 $19.7M → Q2 $9.6M) as points-farming volume unwound. At $2.45 ($2.45B FDV) it trades ~60x run-rate fees: Hyperliquid's multiple without Hyperliquid's organic flow, meaning the price already pays for a Robinhood-driven re-acceleration that hasn't shown up in the fee data yet. The float story cuts both ways — burns retired 6.3% of circulating supply, but the Dec 29 '26 team/investor cliff opens ~13.9M LIT/month (~$34M) of new supply for 36 months against ~$56M/day of spot volume and a ±2% book of only ~$1.5M.",
+    "thesis": "Six weeks changed the story's slope but not its shape. The fee re-acceleration the July price was 'pre-paying' has now begun showing up: 30d fees +22% to $4.07M, blended take rate up 0.77→0.97bps, and the trailing WEEK ran ~$275K/day — roughly 2x the 30d average — as three catalysts stacked: the Robinhood Chain 50/50 revenue-share went from rumor to confirmed (live since Jul 1, now $3.65B/30d volume, ~8.7% of total), Novakovski took a CFTC Innovation Advisory Committee seat (inaugural meeting Aug 20), and Upbit listed LIT/KRW (Aug 24, +22% intraday). But price ran faster than fundamentals: +52% from $2.45 to $3.73 pushed FDV/run-rate fees from ~60x to ~75x and compressed the buyback yield from 5.1% to 3.2% — LIT re-rated toward Hyperliquid's multiple while the Dec 27-30 cliff moved four months closer, and at $3.73 that cliff now represents ~$52M/month of new supply. The trade discipline is unchanged: this remains a watchlist name where the structural entry is cliff-driven weakness, not an Upbit-squeeze chase — with one new upside caveat: if the trailing-week fee rate holds, the multiple compresses back to ~37x and the re-rate is justified.",
     "own": [
-      "Most direct value accrual in the sector: 100% of trading fees → buyback-and-burn, ~5.1% annualized yield on market cap at current run-rate, plus ~6% staking with 50% of float already staked.",
-      "Robinhood is both an investor and a launch partner: Robinhood Chain integration (Jul 1 '26, $11M LIT committed, 2x points) is a real consumer-distribution option no perp-DEX peer has.",
-      "The tech is real and hard to replicate: SNARK-verified order book (matching, margin, liquidations all proved), ex-Citadel/Jump team, $90M from Founders Fund/Ribbit/Haun at $1.5B."
+      "Value accrual intact and about to compound: 100% of trading fees still fund buybacks (cumulative 6.61% of supply bought, 5.99% burned); Q3 pool has $4.13M+ accrued toward burn #2 (~early Oct if the Jul cadence repeats).",
+      "Robinhood is now revenue, not narrative: 50/50 revenue-share confirmed live since Jul 1; Robinhood Chain already ~8.7% of volume ($3.65B/30d) with equities-as-collateral shipped and an $11-25M incentive program settling weekly in LIT since Aug 21.",
+      "Regulatory positioning no peer has: founder seated on the CFTC's Innovation Advisory Committee (Aug 20 inaugural) — the only perp DEX with a principal inside the US rule-making conversation; Upbit KRW listing adds the Korean retail bid."
     ],
     "avoid": [
-      "Fundamentals still falling: protocol revenue halved each quarter post-airdrop; blended take rate ~0.77bps is ~10x thinner than Hyperliquid per dollar of volume; 30d volume is −82% from the Dec '25 peak.",
-      "Supply wall: from Dec 29 '26, ~1.4% of supply unlocks monthly for 36 months (~$34M/mo at current price) into ~$1.5M of ±2% book depth — buyback firepower ($2.5M/mo and shrinking) can't absorb it.",
-      "Priced for the turnaround: ~60x declining run-rate fees, plus single-sequencer operational risk (4.5h outage during the Oct 10 '25 cascade, LLP −5.35%)."
+      "Price outran proof: +52% in six weeks vs. +22% fee growth expanded the multiple to ~75x trailing; the fee 'surge' is concentrated in the last 7-10 days and is partly sector beta (HYPE hit its ATH the same week). Q3-to-date daily revenue (~$108K/day) is still only flat with Q2.",
+      "The supply wall got bigger in dollars: Dec 27-30 cliff starts ~13.9M LIT/month for 36 months — at $3.73 that's ~$52M/month against ~$2M of ±2% book depth, and no re-lock or OTC program has been announced (unlike Monad's).",
+      "The 50/50 deal cuts both ways: Robinhood Chain revenue is NOT yet flowing to the buyback (DeFiLlama shows $0 holders-revenue on that leg) — the headline flatters the token more than current plumbing delivers; plus the $11-25M incentive pool is fresh LIT supply hitting weekly."
     ],
     "questions": [
-      "Does Robinhood Chain distribution convert into measurable non-incentive volume by Q4 '26?",
-      "Can the 250M ecosystem pool fund ~6% staking yield without depleting, now that it (not revenue) pays stakers?",
-      "Does the estimated ~$40M/yr Circle USDC float income ever get formally pledged to the token? That would roughly double token-directed cash flow overnight."
+      "Does the trailing-week fee rate (~$275K/day) hold through September, or fade with the Upbit/squeeze froth? This single variable decides whether 75x is cheap or expensive.",
+      "When does Robinhood Chain's revenue share start routing to LIT buybacks — and at what split after Robinhood's 50%?",
+      "Will Lighter run a Monad-style re-lock/OTC program for the Dec cliff? Nothing announced; watch for it as the single biggest de-risking event.",
+      "Does Novakovski's CFTC seat translate into a licensed US path (the substitution-threat neutralizer) or stay symbolic?"
     ]
   },
   "biz": {
-    "narrative": "Lighter is a ZK-rollup order-book perp DEX: free for retail, paid for professionals. Standard accounts pay 0/0 maker-taker (with deliberate 200–300ms latency); opt-in Premium accounts (MMs, HFT, API) pay 0.004%/0.028% with lower latency, discountable up to 30% by staking LIT. Blended take rate is ~0.77bps of volume — roughly 10x thinner than Hyperliquid. 100% of trading-fee revenue funds daily TWAP buybacks of LIT (burned since Jul '26). Separately, a Feb '26 Circle deal shares yield on ~$920M of platform USDC (~$40M/yr est.) — that float income accrues to the company, not the token, and doesn't appear in DeFiLlama fee lines. Liquidation fees route to the LLP liquidity pool. Team is lean (~16–18 FTE), so operating leverage is extreme in both directions: fees fell with farming volume, and would flow straight to buybacks if volume returns.",
+    "narrative": "Lighter is a ZK-rollup order-book perp DEX: free for retail, paid for professionals. Standard accounts pay 0/0 maker-taker (with deliberate 200-300ms latency); opt-in Premium accounts pay 0.004%/0.028% with lower latency, discountable by staking LIT. Blended take rate is now ~0.97bps of volume (up from 0.77bps in July as fee mix shifts premium and the Robinhood leg adds retail flow). 100% of zkLighter trading-fee revenue funds continuous buybacks (burned quarterly). New since July: the protocol now runs TWO deployments — core zkLighter plus Robinhood Chain (live Jul 1, 50/50 revenue split with Robinhood, $3.65B/30d volume, $540K/30d fees) — and the Robinhood leg's revenue does not yet route to the buyback. The Feb '26 Circle deal (~$40M/yr est. float income on ~$920M platform USDC) still accrues to the company, not the token. Liquidation fees route to the LLP pool. Team remains lean; operating leverage is extreme in both directions.",
     "flow": [
-      { "label": "Gross Trading Fees", "amt": "$3.33M / 30d", "cls": "" },
-      { "label": "Ops / non-buyback", "amt": "−$0.80M", "cls": "leak" },
-      { "label": "Buyback → Burn", "amt": "$2.53M / 30d", "cls": "win" }
+      { "label": "Gross Trading Fees (both legs)", "amt": "$4.07M / 30d", "cls": "" },
+      { "label": "RH share + ops / non-buyback", "amt": "−$1.63M", "cls": "leak" },
+      { "label": "Buyback → Burn (zkLighter leg)", "amt": "$2.44M / 30d", "cls": "win" }
     ],
     "revLines": [
-      ["Premium maker/taker fees", "Usage-based", "$3.33M", "down", "100% → buyback+burn"],
+      ["Premium maker/taker fees (zkLighter)", "Usage-based", "$3.53M", "up", "100% → buyback+burn"],
+      ["Robinhood Chain fees (50/50 split)", "Usage-based", "$0.54M", "up", "0% today — routing TBD (watch item)"],
       ["Circle USDC float share", "Balance-based", "~$3.3M est.", "flat", "0% (company opco)"],
-      ["Liquidation fees", "Usage-based", "n/a", "flat", "0% (routed to LLP)"],
-      ["Spot", "Usage-based", "~$0.05M", "flat", "0%"]
+      ["Liquidations", "Usage-based", "n/a", "flat", "0% (routed to LLP)"]
     ],
-    "feeTrend": { "labels": ["Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26","Jul (30d)"], "fees": [8.5, 6.5, 4.7, 4.0, 3.2, 3.4, 3.33], "toToken": [5.5, 4.8, 4.3, 2.9, 2.2, 2.0, 2.53] },
+    "feeTrend": { "labels": ["Feb 26","Mar 26","Apr 26","May 26","Jun 26","Jul 26","Aug (30d)"], "fees": [6.5, 4.7, 4.0, 3.2, 3.4, 3.33, 4.07], "toToken": [4.8, 4.3, 2.9, 2.2, 2.0, 2.53, 2.44] },
     "notes": [
-      "Volume quality improving: volume/OI ratio now ~1.7x vs ~8x during points farming — but 30d volume ($43B) is still −82% from the Dec '25 peak ($232B).",
-      "Monthly fee split within quarters is estimated from DeFiLlama quarterly income statements (Q4 $39.7M → Q1 $19.7M → Q2 $9.6M) — trend is hard data, monthly shape is interpolated.",
-      "No public wallet-level concentration data for MM share of volume — flagged gap; the bifurcated fee model means revenue depends heavily on the Premium/API cohort.",
-      "Circle float income (~$40M/yr est.) rivals all trading fees combined — the single biggest unpriced lever if ever pledged to the token."
+      "The inflection is recent and narrow: trailing-7d fees $1.93M (~$275K/day) vs. $135K/day 30d average — the surge is concentrated in the Aug 18-27 window (Upbit + CFTC + sector rally). Q3-to-date gross revenue ($6.38M, ~$108K/day) is still roughly flat with Q2's pace.",
+      "Quarterly income: Q4'25 $39.7M → Q1'26 $19.7M → Q2'26 $9.6M → Q3-to-date $6.38M (64% elapsed). The decline has FLATTENED; it has not yet reversed on a quarterly basis.",
+      "Robinhood Chain leg booked separately: $543K cumulative fees, $0 to holders so far. The 50/50 split means Robinhood captures its half before any buyback allocation on that leg.",
+      "Circle float income (~$40M/yr est.) still rivals all trading fees and still sits at the opco — unchanged, still the biggest unpriced lever."
     ]
   },
   "moat": {
     "axes": ["Network effects", "Switching costs", "Scale/liquidity", "Brand", "Regulatory", "Tech/IP"],
-    "scores": [3, 2, 3, 3, 2, 4],
-    "note": "Tech/IP is the standout: SNARK-verified matching is genuinely differentiated and durable ~18–24mo. Liquidity network effects are real but far behind Hyperliquid (which is re-concentrating share, ~37–44% of perp-DEX volume). Regulatory is thinnest — US-regulated perps (Kalshi BTCPERP approved May '26, Coinbase, CME lawsuit pending) are a live substitution vector.",
+    "scores": [3, 2, 3, 4, 3, 4],
+    "note": "Two scores upgraded since July: Brand 3→4 (Robinhood partnership live + Upbit listing) and Regulatory 2→3 (Novakovski on the CFTC Innovation Advisory Committee — unique among perp DEXs). Liquidity still far behind Hyperliquid, which holds ~71% of the HL/Aster/Lighter volume trio vs. Lighter's ~13%. Tech edge (SNARK-verified order book) unchanged and still durable ~18-24mo.",
     "comps": [
-      ["Hyperliquid (HYPE)", "Direct", "$79.8M", "59x", "r"],
-      ["Aster (ASTER)", "Direct", "$5.0M", "~80x", "a"],
-      ["edgeX (EDGE)", "Direct", "$6.7M", "n/a", "a"],
-      ["US-regulated perps (Kalshi, Coinbase)", "Substitution", "n/a", "n/a", "r"],
+      ["Hyperliquid (HYPE — ATH Aug 27)", "Direct", "$64.8M", "~101x", "r"],
+      ["Aster (ASTER)", "Direct", "$5.1M", "~88x", "a"],
+      ["edgeX (EDGE)", "Direct", "n/a", "n/a", "a"],
+      ["US-regulated perps (Kalshi, Coinbase)", "Substitution", "n/a", "n/a", "a"],
       ["dYdX / GMX (legacy)", "Direct", "<$2M", "collapsed", "g"]
     ]
   },
@@ -65,106 +66,109 @@
     "alloc": { "labels": ["Team (26%)", "Airdrop S1+S2 (25%)", "Ecosystem (25%)", "Investors (24%)"], "values": [26, 25, 25, 24] },
     "milestones": [[">25% float", "At TGE — Dec 30 '25 (airdrop, no vesting)"], [">33% float", "Est. mid-2027 (post-cliff linear vest)"], [">50% float", "Est. mid-2028; full vest ~Dec 2029"]],
     "accrual": [
-      ["Buyback — 100% of trading fees, daily TWAP", "Live since TGE", "$2.53M/30d ≈ 5.1% yield on mcap"],
-      ["Burn of bought-back LIT (quarterly)", "Live — first burn Jul 11 '26", "15.64M LIT burned (6.3% of float)"],
-      ["Staking (~6% APY target)", "Live — ecosystem-funded since Jul '26", "~125M LIT staked (≈50% of float)"],
-      ["Premium fee discounts for stakers", "Live", "Up to 30% off at 500k LIT staked"]
+      ["Buyback — 100% of zkLighter fees, continuous", "Live since TGE", "6.61% of supply bought to date; $4.13M accrued in Q3 pool"],
+      ["Burn of bought-back LIT (quarterly)", "Burn #1 Jul 10-11 '26; #2 est. early Oct", "15.64M LIT burned (5.99% of supply)"],
+      ["Staking (~6% APY target)", "Live — ecosystem-funded", "~125M LIT staked (≈50% of float)"],
+      ["Robinhood Chain revenue share to token", "NOT YET — $0 of RH-leg revenue to holders", "The key plumbing item to watch"]
     ],
     "unlocks": {
-      "labels": ["Aug 26","Sep 26","Oct 26","Nov 26","Dec 26","Jan 27","Feb 27","Mar 27","Apr 27","May 27","Jun 27","Jul 27"],
-      "team": [0, 0, 0, 0, 1.7, 17.7, 17.7, 17.7, 17.7, 17.7, 17.7, 17.7],
-      "investors": [0, 0, 0, 0, 1.6, 16.3, 16.3, 16.3, 16.3, 16.3, 16.3, 16.3],
-      "circPct": [25.0, 25.0, 25.0, 25.0, 25.1, 26.5, 27.9, 29.3, 30.7, 32.1, 33.4, 34.8]
+      "labels": ["Sep 26","Oct 26","Nov 26","Dec 26","Jan 27","Feb 27","Mar 27","Apr 27","May 27","Jun 27","Jul 27","Aug 27"],
+      "team": [0, 0, 0, 2.7, 26.9, 26.9, 26.9, 26.9, 26.9, 26.9, 26.9, 26.9],
+      "investors": [0, 0, 0, 2.5, 24.9, 24.9, 24.9, 24.9, 24.9, 24.9, 24.9, 24.9],
+      "circPct": [25.0, 25.0, 25.0, 25.1, 26.5, 27.9, 29.3, 30.7, 32.1, 33.4, 34.8, 36.2]
     },
     "unlockPerf": [
       ["TGE airdrop — 250M LIT (25% supply), Dec 30 '25", "~$750M at debut", "n/a (listing)", "−48%", "— / ≈+6%", "— / ≈−7%", "— / ≈−8%"],
-      ["Team+investor cliff — Dec 29 '26 (upcoming)", "~13.9M LIT/mo (~$34M) × 36mo", "—", "—", "—", "—", "—"]
+      ["Team+investor cliff — Dec 27-30 '26 (trackers vary ±3d)", "~13.9M LIT/mo (~$52M at $3.73) × 36mo", "—", "—", "—", "—", "—"]
     ]
   },
   "priceHistory": {
-    "labels": ["TGE Dec 30 '25","Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26","Jul 16 '26"],
-    "prices": [2.98, 1.55, 1.35, 0.79, 1.07, 1.30, 1.86, 2.45],
-    "unlocksM": [750, 0, 0, 0, 0, 0, 0, 0],
+    "labels": ["TGE Dec 30 '25","Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26","Jul 16 '26","Aug 16 '26","Aug 28 '26"],
+    "prices": [2.98, 1.55, 1.35, 0.79, 1.07, 1.30, 1.86, 2.45, 2.24, 3.73],
+    "unlocksM": [750, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     "unlockEventsDated": [ { "date": "2025-12-30", "amt": 750, "label": "TGE airdrop — 250M LIT" } ],
     "majors": {
-      "BTC": [87.0, 92.0, 62.0, 69.0, 76.5, 72.0, 66.0, 64.5],
-      "ETH": [3.0, 2.8, 2.1, 2.0, 1.9, 1.75, 1.70, 1.92],
-      "SOL": [130, 120, 95, 90, 85, 82, 81, 77]
+      "BTC": [87.0, 92.0, 62.0, 69.0, 76.5, 72.0, 66.0, 64.1, 62.8, 80.3],
+      "ETH": [3.0, 2.8, 2.1, 2.0, 1.9, 1.75, 1.70, 1.92, 1.87, 2.51],
+      "SOL": [130, 120, 95, 90, 85, 82, 81, 77, 74.6, 109.2]
     },
     "events": [
-      { "idx": 0, "n": 1, "date": "2025-12-30", "dateLbl": "Dec 30 '25", "event": "TGE: 25% airdrop, debut ~$3.40, wick ATH disputed ($3.7–7.9)", "driver": "Supply+Narrative", "paid": "Pure narrative — FDV $2.8B on farmed volume" },
-      { "idx": 2, "n": 2, "date": "2026-02-15", "dateLbl": "Feb '26", "event": "Circle deal: yield share on $920M platform USDC", "driver": "Company", "paid": "+10% pop, no durable re-rate — income sits at opco" },
-      { "idx": 3, "n": 3, "date": "2026-03-31", "dateLbl": "Mar 31 '26", "event": "ATL $0.78 — post-airdrop capitulation, −80% from debut", "driver": "Supply+Sector", "paid": "Trough ~13x run-rate fees; sector −5 straight months" },
-      { "idx": 6, "n": 4, "date": "2026-06-30", "dateLbl": "Jun 30 '26", "event": "Tokenomics overhaul: permanent burns + 6% staking", "driver": "Company", "paid": "+20% — market starts crediting the buyback" },
-      { "idx": 7, "n": 5, "date": "2026-07-11", "dateLbl": "Jul '26", "event": "Robinhood Chain partnership + first burn (15.6M LIT)", "driver": "Company", "paid": "+35% wk — distribution narrative at ~60x fees" }
+      { "idx": 0, "n": 1, "date": "2025-12-30", "dateLbl": "Dec 30 '25", "event": "TGE: 25% airdrop, debut ~$3.40, wick ATH disputed ($3.7-7.9)", "driver": "Supply+Narrative", "paid": "Pure narrative — FDV $2.8B on farmed volume" },
+      { "idx": 3, "n": 2, "date": "2026-03-31", "dateLbl": "Mar 31 '26", "event": "ATL $0.78 — post-airdrop capitulation, −80% from debut", "driver": "Supply+Sector", "paid": "Trough ~13x run-rate fees" },
+      { "idx": 6, "n": 3, "date": "2026-06-30", "dateLbl": "Jun 30 '26", "event": "Tokenomics overhaul: permanent burns + 6% staking", "driver": "Company", "paid": "+20% — market starts crediting the buyback" },
+      { "idx": 7, "n": 4, "date": "2026-07-11", "dateLbl": "Jul '26", "event": "Robinhood Chain launch (50/50 rev share) + burn #1 (15.6M LIT)", "driver": "Company", "paid": "+35% wk — distribution narrative at ~60x fees" },
+      { "idx": 8, "n": 5, "date": "2026-08-16", "dateLbl": "Aug 16 '26", "event": "Sector low — LIT $2.24 as BTC bottoms $62.8K; RH incentive-farm overhang", "driver": "Sector", "paid": "Multiple back to ~55x — the entry that worked" },
+      { "idx": 9, "n": 6, "date": "2026-08-28", "dateLbl": "Aug 18-28 '26", "event": "CFTC IAC seat (Aug 20) + Upbit KRW listing (Aug 24) + fee surge: +65% off low, beating BTC +28% / ETH +34% / SOL +46%", "driver": "Company+Sector", "paid": "Re-rated to ~75x trailing — pricing the inflection as durable" }
     ]
   },
   "liquidity": {
-    "sigmaDaily": 7,
-    "adv": 56,
-    "summary": "Aggregate ±2% book depth is only ~$1.3M ask / ~$1.6M bid across all venues, against ~$56M spot ADV (plus ~$120M+ CEX-perp notional) — thin absolute depth typical of a 25%-float token. Blocks above ~$2M need TWAP or perp-hedged execution; above ~$10M you exhaust visible books. Deepest −2% books: Coinbase and Lighter's own DEX; tightest spreads: Bybit/OKX.",
+    "sigmaDaily": 8,
+    "adv": 77,
+    "summary": "Liquidity improved with the rally: aggregate ±2% depth ≈ $1.9M ask / $2.3M bid (top-10 venues) vs. ~$1.5M total in July, and spot ADV is up ~38% to ~$77M across 38 markets. Lighter's own DEX book is now the deepest single ask-side venue ($495K +2%). New: Upbit LIT/KRW (Aug 24) adds the Korean retail bid — historically a venue that amplifies both squeezes and dumps. Blocks above ~$3M still need TWAP or perp-hedged execution; the Dec cliff's ~$52M/month would be ~2.3% of monthly spot volume at current rates.",
     "venues": [
-      ["Bybit", "$204K", "$199K", "$8.6M", "15%"],
-      ["Lighter DEX (LIT/USDC)", "$216K", "$263K", "$5.5M", "10%"],
-      ["OKX", "$162K", "$177K", "$4.6M", "8%"],
-      ["Coinbase", "$124K", "$276K", "$4.1M", "7%"],
-      ["Gate", "$142K", "$143K", "$7.7M", "14%"],
-      ["Others (Bitget, LBank, DigiFinex…)", "~$470K", "~$520K", "~$25M", "46%"],
-      ["CEX perps (Binance, OKX, Bybit) + HL", "—", "—", "$120M+ notional", "—"]
+      ["Bybit", "$198K", "$220K", "$12.0M", "13.1%"],
+      ["OKX", "$199K", "$297K", "$9.8M", "10.7%"],
+      ["Lighter DEX (LIT/USDC)", "$495K", "$151K", "$9.6M", "10.5%"],
+      ["MEXC", "$75K", "$53K", "$8.5M", "9.3%"],
+      ["DigiFinex", "$182K", "$375K", "$8.1M", "8.9%"],
+      ["Gate", "$174K", "$471K", "$7.5M", "8.2%"],
+      ["Coinbase", "$243K", "$399K", "$4.8M", "5.3%"],
+      ["Others (LBank, Bitget, Upbit KRW…)", "~$330K", "~$330K", "~$17M", "~34%"]
     ],
-    "depthCurve": { "impacts": [0.25, 0.5, 1, 2, 4, 8], "askDepth": [0.25, 0.45, 0.80, 1.32, 2.3, 4.0], "bidDepth": [0.30, 0.55, 0.95, 1.58, 2.7, 4.7] }
+    "depthCurve": { "impacts": [0.25, 0.5, 1, 2, 4, 8], "askDepth": [0.35, 0.65, 1.15, 1.90, 3.3, 5.8], "bidDepth": [0.42, 0.78, 1.38, 2.26, 3.9, 6.9] }
   },
   "tech": {
-    "narrative": "zkLighter is an app-specific ZK-rollup settling to Ethereum with a verifiable order book: SNARK proofs cover not just state transitions but the exchange logic itself — price-time priority matching, margin checks, and liquidations are all cryptographically proved. This is the genuine differentiator vs. both Hyperliquid (own L1, trust-the-validators) and CEXs (trust-the-operator). Latency is deliberately tiered as a product (140–300ms by account class) on a ms-level engine. The embedded bull-case assumption: verifiability + execution quality wins institutional flow as perps legitimize. The embedded risk: it all runs on a single centralized sequencer today — the Oct 10 '25 cascade caused a 4.5-hour outage (index corruption under load, LLP −5.35%, 2,000+ users compensated).",
+    "narrative": "zkLighter is an app-specific ZK-rollup settling to Ethereum with a verifiable order book: SNARK proofs cover the exchange logic itself — price-time priority matching, margin checks, liquidations. This remains the genuine differentiator vs. Hyperliquid (own L1, trust-the-validators) and CEXs (trust-the-operator). The architecture now spans two deployments: core zkLighter plus the Robinhood Chain leg (live Jul 1 '26), where Robinhood Stock Tokens (NVDA, GOOG, AAPL) are accepted as perp collateral — the first equities-as-margin implementation in the sector. Embedded bull assumption: verifiability + Robinhood distribution + a seat inside the CFTC conversation wins the institutional/US flow as perps legitimize. Embedded risk: single centralized sequencer (Oct 10 '25 outage, 4.5h, LLP −5.35%) — still no public decentralization date.",
     "devs": [
-      { "title": "Sequencer decentralization", "maturity": "Roadmap, no public date", "body": "The proven single point of failure. Verifiable matching makes decentralization architecturally tractable, but execution is unproven — this is the gating item for the institutional thesis." },
-      { "title": "RWA / equity / FX perps + prediction markets", "maturity": "Live & rolling, 2026", "body": "Chainlink-oracle RWA perps live (premium fees since Apr '26); pre-IPO markets, prediction markets, and collateral expansion (tokenized gold, BTC, equities as margin) slated Q3 '26. Expands TAM beyond crypto-native perps." },
-      { "title": "US-regulated perpetuals", "maturity": "Live, legally contested", "body": "Kalshi's BTCPERP approved by CFTC May 29 '26 (first US-regulated true perp); Coinbase routing global perps via Bermuda; CME sued the CFTC same day. Substitution threat for US flow — but legal legitimization is also a sector tailwind." },
-      { "title": "Robinhood Chain consumer distribution", "maturity": "Early, 6–18mo", "body": "Robinhood Wallet users can post collateral directly into Lighter perps (2x points, $11M LIT committed). Tests whether distribution can beat liquidity-depth moats — the single most watchable Lighter-specific development." }
+      { "title": "Sequencer decentralization", "maturity": "Roadmap, no public date", "body": "The proven single point of failure, unchanged since the Oct '25 outage. Still the gating item for the institutional thesis — and increasingly conspicuous as the CFTC engagement deepens." },
+      { "title": "Collateral expansion", "maturity": "Partially shipped Q3 '26", "body": "Equities-as-margin live on the Robinhood Chain leg (Stock Tokens as collateral). Tokenized gold, BTC collateral, and cross-margin risk engine for core zkLighter: still in progress, not confirmed shipped." },
+      { "title": "US regulatory path", "maturity": "Live engagement — CFTC IAC", "body": "Novakovski seated on the CFTC Innovation Advisory Committee (inaugural Aug 20 '26), arguing DeFi's on-chain auditability case directly to the regulator. Unique positioning vs. every peer; watch whether it converts to a licensed path or stays advisory." },
+      { "title": "Robinhood Chain consumer distribution", "maturity": "Live and ramping", "body": "$3.65B/30d volume (~8.7% of total) three weeks into the incentive program ($11-25M LIT pool, weekly settlement since Aug 21, 2x points). The open question shifted from 'will flow arrive' to 'is it sticky post-incentives' — and whether the 50/50 revenue split ever routes to the buyback." }
     ]
   },
   "catalysts": {
     "near": [
-      ["Q3 '26", "Collateral expansion: tokenized gold, BTC, equities as margin", "Fundamental", "80%", "+5–10%", "Release notes, TVL collateral mix"],
-      ["Q3–Q4 '26", "Robinhood Chain flow shows up as non-incentive volume", "Fundamental", "55%", "+10–20%", "Daily vol vs. OI ratio, wallet cohorts (Dune)"],
-      ["~Oct '26", "Quarterly burn #2 (buyback-matched)", "Fundamental", "90%", "+3–5%", "Burn address on Etherscan, docs treasury account"],
-      ["Sep '26", "CFTC licensing step (single-sourced — verify)", "Narrative", "30%", "+10–15%", "CFTC docket, team X"],
-      ["H2 '26", "Season 3 points program (250M ecosystem pool)", "Mixed", "50%", "±10% (volume up, supply out)", "Official X / Discord"],
-      ["Dec 29 '26", "Team/investor cliff opens: ~13.9M LIT/mo × 36mo begins", "Supply", "100%", "−10–25% into event", "DeFiLlama unlocks, OTC desk chatter"]
+      ["Sep '26", "Fee-inflection confirmation: does ~$275K/day (last wk) hold vs. $135K/day 30d avg?", "Fundamental", "50%", "Decides if 75x is cheap; ±20%", "DeFiLlama daily fees, weekly"],
+      ["Sep 15 '26", "CLARITY Act Senate floor vote — sector-wide; Novakovski positioned via CFTC IAC", "Regulatory", "60% vote occurs", "±10% sector", "Senate calendar, CFTC IAC minutes"],
+      ["~Oct '26", "Burn #2 — Q3 buyback pool ($4.13M+ accrued) burned on Jul cadence", "Fundamental", "85%", "+3-5%", "Lighter X, burn address"],
+      ["Q4 '26", "Robinhood Chain revenue starts routing to LIT buyback (currently $0)", "Fundamental", "45%", "+10-15% — fixes the 50/50 optics", "DeFiLlama holders-rev on RH leg"],
+      ["Q4 '26", "Re-lock / OTC program for the cliff (Monad precedent) — none announced", "Supply", "30%", "+15-25% if announced", "Official X, OTC desk chatter"],
+      ["Q4 '26", "Incentive program expiry — Robinhood flow stickiness test", "Fundamental", "100%", "±10-15%", "RH-leg volume vs. OI post-expiry"],
+      ["Dec 27-30 '26", "Team/investor cliff opens: ~13.9M LIT/mo (~$52M) × 36mo begins", "Supply", "100%", "−10-25% into event", "DeFiLlama unlocks, funding rates"]
     ],
-    "mid": "The 12–36mo re-rating rests on three legs: (1) durable non-incentive volume — Robinhood consumer flow plus RWA/equity perps replacing the departed points farmers; (2) the Circle float income (~$40M/yr est., currently at the opco) being formally pledged to the token, which would roughly double token-directed cash flow and re-frame LIT as the sector's yield asset; (3) sector legal clarity from the CME-v-CFTC fight — legitimized perps grow the pie but also arm CEX/TradFi substitutes. Compression scenario: Hyperliquid's re-concentration (37–44% share and rising) plus zero-fee competition makes take-rate expansion impossible, and LIT's multiple converges down toward shrinking fees."
+    "mid": "The 12-36mo re-rating still rests on three legs, now partially de-risked: (1) durable non-incentive volume — Robinhood Chain is real ($3.65B/30d) but incentive-fueled; the sticky-flow test comes when the points pool expires; (2) token-directed economics expanding — RH-leg revenue routing to buybacks and/or Circle float income (~$40M/yr est., still at the opco) being pledged; either would materially compress the effective multiple; (3) the US path — Novakovski's CFTC seat is the sector's best regulatory option value, against the Kalshi/Coinbase substitution threat. Compression scenario unchanged: Hyperliquid (~71% share, ATH the same week) keeps absorbing the category's economics and LIT's multiple converges to its fee share rather than its story."
   },
   "scenarios": [
-    { "cls": "bull", "name": "Bull", "tgt": "$8.00 (+225%)", "body": "Robinhood distribution + RWA perps triple fees by '28; quarterly burns retire 10%+ of supply; Circle economics pledged to token. Market pays 30x growing fees on a shrinking base.", "trip": "Tripwires: 30d fees >$8M · volume/OI stays <2.5x · cliff absorbed with <20% drawdown" },
-    { "cls": "base", "name": "Base", "tgt": "$2.60 (+6%)", "body": "Fees stabilize ~$40M/yr; buyback offsets ~40% of unlock flow; multiple compresses toward 25x as float doubles by 2028. Dead money with catalyst-trading range.", "trip": "Tripwires: fees hold $3–4M/30d · float >33% absorbed without capitulation · staking stays >40% of float" },
-    { "cls": "bear", "name": "Bear", "tgt": "$0.70 (−71%)", "body": "Volume decay resumes post-catalyst; ecosystem pool drains funding staking; unlocks overwhelm a shrinking buyback; multiple de-rates to 10–15x falling fees. Retest and loss of ATL.", "trip": "Tripwires: fees <$2M/30d · staking APY target cut · burn cadence missed · Robinhood volume immaterial by Q1 '27" }
+    { "cls": "bull", "name": "Bull", "tgt": "$8.00 (+114%)", "body": "Trailing-week fee rate holds and compounds ($100M+ ann.), RH-leg revenue routes to buybacks, re-lock program defuses the cliff, burns keep retiring supply. Market pays 35-40x growing fees — the Robinhood-distribution thesis realized.", "trip": "Tripwires: fees >$8M/30d · RH holders-rev >$0 · re-lock announced · cliff absorbed <20% drawdown" },
+    { "cls": "base", "name": "Base", "tgt": "$4.00 (+7%)", "body": "Fee rate settles between Q2's floor and August's spike (~$60-70M/yr), multiple compresses toward 50x as the cliff approaches, buyback (~$30M/yr pace) absorbs a fifth of unlock flow. Choppy range into December, cliff-driven flush, then recovery.", "trip": "Tripwires: fees $4-6M/30d · float >30% absorbed through H1 '27 · staking holds >40% of float" },
+    { "cls": "bear", "name": "Bear", "tgt": "$1.40 (−62%)", "body": "August proves to be froth: Upbit/squeeze flow fades, RH volume collapses post-incentives, fees revert to ~$100K/day, and the cliff hits a 75x-priced token with no re-lock. Retest of the $1.50-2.00 zone where the multiple math clears.", "trip": "Tripwires: fees <$3M/30d · RH-leg volume −50% post-expiry · no re-lock by Nov · burn cadence missed" }
   ],
-  "variant": "Consensus reads the burn + Robinhood news as the turnaround and is paying ~60x for it. The variant is structural: Lighter's buyback is revenue-funded, so it's pro-cyclical — firepower shrinks exactly when volume (and price) fall, and the Dec '26 cliff arrives with the buyback near cycle lows. That makes the 'structural bid' thesis weaker than it looks on paper. The defensible non-consensus long isn't the burn — it's the unpriced Circle float income (~$40M/yr, invisible in DeFiLlama, roughly equal to ALL trading fees). A formal pledge of float economics to the token is the single event that would change the math overnight; watch team communications for it.",
+  "variant": "July's variant (own the unlock, the buyback is a structural bid) is now half-consensus — so the new variant is about the Robinhood headline: the market is pricing the 50/50 revenue share as token-accretive, but the plumbing says otherwise — DeFiLlama shows $0 of Robinhood Chain revenue flowing to holders; Robinhood takes its half and the rest sits unrouted. The 'boring' catalyst nobody is watching is a plumbing announcement that routes RH-leg revenue into the buyback — small dollars today ($360K/30d rev) but it converts the sector's flashiest partnership from narrative to cash flow, and it's exactly the kind of low-cost, high-signal move this team has made twice (burns, staking). Conversely, the crowd chasing the CFTC-seat narrative should note advisory committees confer influence, not licenses. Positioning: fade the froth, own the cliff flush, and treat RH-revenue-routing + re-lock announcements as the two asymmetric long triggers.",
   "valuation": {
     "methods": [
-      { "name": "Comp FDV/fees (20–60x run-rate)", "lo": 0.80, "hi": 2.40 },
-      { "name": "Incl. Circle float (15–35x total rev)", "lo": 1.05, "hi": 2.50 },
-      { "name": "Buyback-yield parity (8%→3% req. yield)", "lo": 1.55, "hi": 4.10 },
-      { "name": "Bear replacement value", "lo": 0.40, "hi": 0.80 }
+      { "name": "Comp FDV/fees (25-60x trailing run-rate)", "lo": 1.24, "hi": 2.97 },
+      { "name": "If Aug inflection holds (30-45x on $100M)", "lo": 3.00, "hi": 4.50 },
+      { "name": "Buyback-yield parity (8%→3% req.)", "lo": 1.48, "hi": 3.96 },
+      { "name": "Bear replacement value", "lo": 0.50, "hi": 0.90 }
     ],
-    "current": 2.45,
+    "current": 3.73,
     "multiples": [
-      ["FDV / ann. fees (30d ×12.17)", "~60x", "~13x (Mar ATL) – ~70x (TGE)", "HYPE 59x · ASTER ~80x"],
-      ["Buyback+burn yield on mcap", "5.1%", "5–15% (higher at lows)", "HYPE ~5–6% (Assist. Fund)"],
-      ["FDV / total rev incl. Circle est.", "~33x", "n/a (deal live Feb '26)", "n/a — not in peer data"],
-      ["Blended take rate (rev/volume)", "0.77bps", "0.6–1.7bps", "HYPE ~7–8bps"]
+      ["FDV / ann. fees (30d ×12.17)", "~75x", "13x (Mar ATL) – 75x (now)", "HYPE ~101x · ASTER ~88x (full-FDV basis)"],
+      ["Buyback yield on mcap", "3.2% (was 5.1% in Jul)", "3-15% range", "compressed by the rally"],
+      ["Blended take rate (fees/volume)", "0.97bps (was 0.77)", "0.6-1.7bps", "HYPE ~7-8bps"],
+      ["FDV / TVL", "5.9x ($633M TVL)", "n/a", "—"]
     ],
-    "embedded": "Reverse-engineered: at $2.45 the market pays ~60x a fee base that halved two quarters running. To earn a market return at a 25x exit multiple, fees must roughly triple to ~$120M/yr by 2029 — i.e., the price embeds substantial Robinhood/RWA success, or early credit for Circle float economics reaching the token. Note LIT trades at rough multiple parity with Hyperliquid on run-rate fees despite inferior flow quality — the market is already paying the 'quality tech + Robinhood' premium."
+    "embedded": "At $3.73 the market pays ~75x trailing fees — up from ~60x in July despite fees growing — which means the price now embeds the trailing-WEEK rate (~$275K/day → ~$100M/yr → ~37x) as the new normal, plus Robinhood stickiness, plus an orderly cliff. Each is plausible; all three at once is the bull case, not the base case. The reverse math: to earn a market return from here at a 35x exit, fees need to roughly hold August's spike rate permanently and grow from there."
   },
-  "synthesis": "Lighter pairs the sector's most shareholder-like token design with post-airdrop fundamentals that are still finding a floor. The tech is real, the burn is real, and Robinhood is a distribution option nobody else has — but at ~60x declining run-rate fees the market has already paid for the turnaround, while a 36-month, ~$400M/yr supply spigot opens in five months against a $1.5M ±2% order book. The asymmetry today is poor for size; it turns attractive either materially lower (into cliff fear — both prior sector cliff patterns and LIT's own post-airdrop capitulation were the buying moments) or on hard evidence of organic volume inflection.",
-  "recText": "Recommendation: watchlist, not a core position today. Tactical only around catalyst windows (burns, Robinhood milestones) with tight stops given 7%+ daily vol. Structural entry target: the Dec '26–Q1 '27 cliff window, or sub-$1.50 with fees stabilizing. Priority follow-ups: non-incentive volume forensics (Dune wallet cohorts), and any signal that Circle float economics get pledged to LIT.",
+  "synthesis": "The July thesis said the price was paying for a re-acceleration that hadn't shown up; it has now started to — take rate up, Robinhood volume real, regulatory optionality unique — but the market has again paid ahead of the proof, at ~75x trailing with the $52M/month supply spigot four months out and the flashiest catalyst (50/50 revenue share) not yet wired to the token. Lighter keeps executing; the stock of things to like grew. The price grew faster.",
+  "recText": "Recommendation: still watchlist — do not chase the +52%. Tactical framework: fade strength above ~$4 (75x+ trailing), accumulate cliff-driven weakness in the $2.00-2.50 zone (where the multiple clears ~40x and the Aug 16 low proved buyable), size up only on the two asymmetric triggers: RH-leg revenue routing to buybacks, or a re-lock/OTC program for the December cliff. Priority follow-ups: weekly DeFiLlama fee rate through September, and burn #2 timing/size in early October.",
   "sources": [
-    "DeFiLlama protocol page — volume, fees, revenue, quarterly income, unlocks (HIGH confidence; core fundamental series)",
-    "Lighter official docs (trading fees, LIT utility, buyback account) + official X announcements — PRIMARY",
-    "CoinDesk (dated Jul 16 quote $2.4733), CMC, DropsTab — live price cluster $2.42–2.65; CoinGecko/Binance pages showed stale $1.4–1.65 caches (flagged)",
-    "Fortune / CoinDesk — funding: $21M seed (Haun, Craft, Dragonfly), $68M Nov '25 at $1.5B (Founders Fund, Ribbit, Robinhood). a16z/Coinbase Ventures claims NOT corroborated",
-    "CryptoTimes / CoinGabbar + official X — Jun 30 tokenomics overhaul, Jul 11 burn of 15,638,702 LIT (Etherscan-verifiable)",
-    "CoinGecko State of Perps 2026, CF Benchmarks HYPE framework, CCN, kkdemian — sector share, multiples, value-capture critique",
-    "LOW CONFIDENCE flagged: ATH disputed ($3.7–$7.86 across aggregators); majors' monthly closes approximate; Circle float income ~$40M/yr is an estimate; CFTC licensing single-sourced; wash-trading share unquantified; depth curve modeled beyond the ±2% CoinGecko anchor; monthly fee shape interpolated from quarterly data"
+    "DeFiLlama protocol pages (lighter, lighter-perps, hyperliquid, aster) — fees, revenue, holders revenue, quarterly income, unlocks (HIGH confidence; core series; fetched Aug 28)",
+    "Lighter official X + docs — burn #1 (15,638,702 LIT, Jul 10-11), buyback methodology (PRIMARY)",
+    "The Block / CryptoBriefing / The Defiant — Robinhood Chain launch Jul 1 '26, 50/50 revenue split, Stock Tokens as collateral (confirmed, not rumor)",
+    "CFTC.gov + Federal Register (Aug 11 '26) + CryptoTimes — Novakovski on CFTC Innovation Advisory Committee, inaugural meeting Aug 20 '26",
+    "CoinGecko — price $3.73 (freshest; CMC $3.53 / DefiLlama $3.45 lag ~1 day), venue depth table, Upbit KRW listing Aug 24",
+    "Tokenomist / insights.unlocks.app — cumulative buyback 6.61% / burn 5.99% of supply; cliff analysis",
+    "LOW CONFIDENCE flagged: ATH still disputed ($7.86 CG vs $4.04 CMC, same date); cliff date varies Dec 27-30 across trackers (±3d clock conventions); Robinhood incentive pool size conflicting ($11M / $20M / $25M across sources); perp OI figure ($1.93B) is ~4wks stale; no second burn confirmed (Tokenomist detail table paywalled); Circle float income remains an estimate; majors' monthly closes approximate; Aster revenue basis changed mid-year (holders-rev proxy)"
   ]
 }
