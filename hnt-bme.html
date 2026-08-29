@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HNT Burn-Mint Equilibrium Forecaster</title>
+<style>
+:root { --bg:#0b0e14; --panel:#12161f; --line:#232a36; --txt:#d6dbe4; --dim:#8b94a3; --acc:#58a6ff; --grn:#3fb950; --red:#f85149; --amb:#d29922; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--txt); font:14px/1.5 "SF Mono","JetBrains Mono",Menlo,Consolas,monospace; padding:24px; }
+.wrap { max-width:1080px; margin:0 auto; }
+h1 { font-size:19px; letter-spacing:.5px; }
+h1 span { color:var(--acc); }
+.sub { color:var(--dim); font-size:12px; margin:6px 0 18px; }
+.sub a { color:var(--acc); text-decoration:none; }
+.grid { display:grid; grid-template-columns:340px 1fr; gap:16px; }
+@media (max-width:860px){ .grid{grid-template-columns:1fr;} }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; }
+.panel h2 { font-size:12px; color:var(--dim); text-transform:uppercase; letter-spacing:1px; margin-bottom:12px; }
+.field { margin-bottom:12px; }
+.field label { display:flex; justify-content:space-between; font-size:12px; color:var(--dim); margin-bottom:4px; }
+.field label b { color:var(--txt); font-weight:600; }
+.field input[type=range] { width:100%; accent-color:var(--acc); }
+.field input[type=number] { width:100%; background:#0d1117; color:var(--txt); border:1px solid var(--line); border-radius:5px; padding:5px 8px; font:inherit; }
+.chk { display:flex; align-items:center; gap:8px; font-size:12px; color:var(--dim); margin-bottom:10px; }
+.chk input { accent-color:var(--acc); }
+.presets { display:flex; gap:8px; margin-bottom:14px; }
+.presets button { flex:1; background:#0d1117; color:var(--txt); border:1px solid var(--line); border-radius:5px; padding:6px 0; font:inherit; font-size:12px; cursor:pointer; }
+.presets button:hover { border-color:var(--acc); }
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
+.stat { background:#0d1117; border:1px solid var(--line); border-radius:6px; padding:10px; }
+.stat .k { font-size:10px; color:var(--dim); text-transform:uppercase; letter-spacing:.5px; }
+.stat .v { font-size:17px; margin-top:3px; font-weight:600; }
+.stat .v.g { color:var(--grn); } .stat .v.r { color:var(--red); } .stat .v.a { color:var(--amb); } .stat .v.b { color:var(--acc); }
+canvas { width:100%; background:#0d1117; border:1px solid var(--line); border-radius:6px; }
+.legend { display:flex; gap:18px; font-size:11px; color:var(--dim); margin-top:8px; flex-wrap:wrap; }
+.legend i { display:inline-block; width:14px; height:3px; margin-right:5px; vertical-align:middle; border-radius:2px; }
+.note { font-size:11px; color:var(--dim); margin-top:14px; border-top:1px solid var(--line); padding-top:12px; }
+.note b { color:var(--txt); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>HNT <span>Burn-Mint Equilibrium</span> Forecaster</h1>
+<div class="sub">Model: DC burns are USD-fixed (usage × on-chain data price), so HNT burned/day = burn$ ÷ price. Equilibrium price P<sub>eq</sub> = daily burn $ ÷ daily HNT issuance — the price at which supply is flat. Below P<sub>eq</sub> the token is net-deflationary; the supply path simulates a market price at k × P<sub>eq</sub>. Companion to the <a href="index.html?t=HNT">HNT research report</a>. Model estimates, not investment advice.</div>
+<div class="grid">
+<div class="panel">
+<h2>Inputs</h2>
+<div class="presets">
+<button onclick="preset('bear')">Bear</button><button onclick="preset('base')">Base</button><button onclick="preset('bull')">Bull</button>
+</div>
+<div class="field"><label>Daily DC burn (usage revenue) <b id="vBurn"></b></label><input type="range" id="burn" min="10000" max="200000" step="5000" value="50000" oninput="run()"></div>
+<div class="field"><label>Usage growth (% per quarter) <b id="vGrow"></b></label><input type="range" id="grow" min="-20" max="80" step="5" value="30" oninput="run()"></div>
+<div class="field"><label>Market price as k × P<sub>eq</sub> <b id="vK"></b></label><input type="range" id="kfac" min="0.2" max="2" step="0.05" value="0.6" oninput="run()"></div>
+<div class="field"><label>Vault on-market selling (M HNT / mo) <b id="vSell"></b></label><input type="range" id="sell" min="0" max="4" step="0.25" value="0" oninput="run()"></div>
+<div class="chk"><input type="checkbox" id="vault" checked onchange="run()"><span>HIP-149 vault mint active (141M / 36mo ≈ 130.6K HNT/day)</span></div>
+<div class="chk"><input type="checkbox" id="halv" checked onchange="run()"><span>Apply Aug '27 halving (PoC 20,548 → 10,274 HNT/day)</span></div>
+<div class="field"><label>Horizon (months) <b id="vHor"></b></label><input type="range" id="hor" min="12" max="48" step="6" value="36" oninput="run()"></div>
+<div class="field"><label>Circulating supply today (M HNT)</label><input type="number" id="circ" value="186.3" step="0.1" oninput="run()"></div>
+<div class="field"><label>Spot price today ($)</label><input type="number" id="spot" value="0.20" step="0.01" oninput="run()"></div>
+<div class="note"><b>Anchors (Aug '26):</b> $50K/day burn ≈ 100 TB/day of monetized offload at the $0.50/GB on-chain rate (50,000 DC/GB at the $0.00001 peg) ≈ 86 MB per daily user across 1.16M users. Q3 '25 printed 32.4 TB/day and $30.9K/day. PoC issuance 7.5M/yr post-Aug-'25 halving. Vault: 141M HNT over 36 months (HIP-149). Burn series is on-chain; the traffic decomposition is a back-solve.</div>
+</div>
+<div class="panel">
+<h2>Output</h2>
+<div class="stats">
+<div class="stat"><div class="k">P-eq today</div><div class="v b" id="sEq0"></div></div>
+<div class="stat"><div class="k">P-eq +12mo</div><div class="v b" id="sEq12"></div></div>
+<div class="stat"><div class="k">P-eq end</div><div class="v b" id="sEqN"></div></div>
+<div class="stat"><div class="k">Spot vs P-eq</div><div class="v" id="sGap"></div></div>
+<div class="stat"><div class="k">Net supply, end</div><div class="v" id="sSup"></div></div>
+<div class="stat"><div class="k">Yr-1 deflation @ k</div><div class="v" id="sDef"></div></div>
+</div>
+<canvas id="cv" width="680" height="380"></canvas>
+<div class="legend">
+<span><i style="background:var(--acc)"></i>P-eq (equilibrium price, $, left)</span>
+<span><i style="background:var(--amb)"></i>Modeled market price k×P-eq ($, left)</span>
+<span><i style="background:var(--grn)"></i>Circulating supply (M HNT, right)</span>
+<span><i style="background:var(--red)"></i>Vault-off P-eq (post-mint anchor, $, left)</span>
+</div>
+<div class="note"><b>How to read it:</b> P<sub>eq</sub> = burn$/day ÷ (PoC + vault mint + vault sales) per day. It scales linearly with usage and jumps ~4-5x when the vault stops minting (red line = the anchor with vault at zero — the month-37 re-rating embedded in any hold-through thesis). The supply path is reflexive: at k&lt;1 the market price sits below equilibrium, HNT-terms burn exceeds issuance, and supply shrinks — the mechanism that makes the current $0.20 print self-correcting <i>unless</i> vault selling (slider) re-dilutes faster than usage compounds. Yr-1 deflation is the % of today's circulating supply retired net of all issuance at the modeled price.</div>
+</div>
+</div>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const POC0 = 20548, VAULT_D = 141e6/(36*30.44), HALVE_M = 12; // Aug '27 ~ month 12 from Aug '26
+function preset(p){
+  const v = {bear:{burn:30000,grow:0,kfac:0.5,sell:2},base:{burn:50000,grow:30,kfac:0.6,sell:0},bull:{burn:70000,grow:50,kfac:0.9,sell:0}}[p];
+  $('burn').value=v.burn; $('grow').value=v.grow; $('kfac').value=v.kfac; $('sell').value=v.sell; run();
+}
+function fm(x,d=2){ return x>=1e3 ? (x/1e3).toFixed(1)+'K' : x.toFixed(d); }
+function run(){
+  const burn0=+$('burn').value, gq=+$('grow').value/100, k=+$('kfac').value, sellM=+$('sell').value;
+  const useVault=$('vault').checked, useHalv=$('halv').checked, N=+$('hor').value;
+  const circ0=+$('circ').value*1e6, spot=+$('spot').value;
+  $('vBurn').textContent='$'+fm(burn0,0)+'/day'; $('vGrow').textContent=(gq*100).toFixed(0)+'%/q';
+  $('vK').textContent='k='+k.toFixed(2); $('vSell').textContent=sellM.toFixed(2)+'M/mo'; $('vHor').textContent=N+'mo';
+  const peq=[], peqNoVault=[], px=[], sup=[]; let S=circ0;
+  for(let m=0;m<=N;m++){
+    const b = burn0*Math.pow(1+gq, m/3);
+    const poc = (useHalv && m>=HALVE_M) ? POC0/2 : POC0;
+    const vlt = (useVault && m<36) ? VAULT_D : 0;
+    const sellD = sellM*1e6/30.44;
+    const issue = poc + vlt + sellD;
+    const pe = b/issue;
+    peq.push(pe); peqNoVault.push(b/(poc+sellD));
+    const p = Math.max(k*pe, 0.001); px.push(p);
+    sup.push(S/1e6);
+    S += 30.44*(issue - b/p); if(S<0)S=0;
+  }
+  $('sEq0').textContent='$'+peq[0].toFixed(2);
+  $('sEq12').textContent='$'+(peq[Math.min(12,N)]).toFixed(2);
+  $('sEqN').textContent='$'+peq[N].toFixed(2);
+  const gap=spot/peq[0]; $('sGap').textContent=(gap*100).toFixed(0)+'%';
+  $('sGap').className='v '+(gap<0.9?'g':gap>1.1?'r':'a');
+  const dSup=(sup[N]-sup[0])/sup[0]*100;
+  $('sSup').textContent=(dSup>0?'+':'')+dSup.toFixed(1)+'%';
+  $('sSup').className='v '+(dSup<0?'g':'r');
+  const y1=Math.min(12,N), d1=-(sup[y1]-sup[0])/sup[0]*100;
+  $('sDef').textContent=(d1>0?'−':'+')+Math.abs(d1).toFixed(1)+'%';
+  $('sDef').className='v '+(d1>0?'g':'r');
+  draw(peq,peqNoVault,px,sup,N);
+}
+function draw(peq,pnv,px,sup,N){
+  const cv=$('cv'), c=cv.getContext('2d'), W=cv.width, H=cv.height, L=52, R=58, T=14, B=26;
+  c.clearRect(0,0,W,H); c.font='10px monospace';
+  const pw=W-L-R, ph=H-T-B;
+  const pMax=Math.max(...peq,...pnv,...px)*1.1, sMin=Math.min(...sup)*0.98, sMax=Math.max(...sup)*1.02;
+  const X=m=>L+pw*m/N, Yp=v=>T+ph*(1-v/pMax), Ys=v=>T+ph*(1-(v-sMin)/(sMax-sMin||1));
+  c.strokeStyle='#232a36'; c.fillStyle='#8b94a3';
+  for(let i=0;i<=4;i++){ const y=T+ph*i/4; c.beginPath(); c.moveTo(L,y); c.lineTo(W-R,y); c.stroke();
+    c.textAlign='right'; c.fillText('$'+(pMax*(1-i/4)).toFixed(2), L-6, y+3);
+    c.textAlign='left'; c.fillText((sMax-(sMax-sMin)*i/4).toFixed(0)+'M', W-R+6, y+3); }
+  for(let m=0;m<=N;m+=6){ c.textAlign='center'; c.fillText(m+'mo', X(m), H-8); }
+  const line=(arr,Y,col,dash)=>{ c.strokeStyle=col; c.lineWidth=2; c.setLineDash(dash||[]); c.beginPath();
+    arr.forEach((v,i)=>{ const x=X(i),y=Y(v); i?c.lineTo(x,y):c.moveTo(x,y); }); c.stroke(); c.setLineDash([]); };
+  line(sup,Ys,'#3fb950'); line(pnv,Yp,'#f85149',[4,4]); line(px,Yp,'#d29922',[2,3]); line(peq,Yp,'#58a6ff');
+}
+run();
+</script>
+</body>
+</html>
