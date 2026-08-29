@@ -1,6 +1,32 @@
 {
   "reports": [
-    { "ticker": "LIT", "name": "Lighter", "file": "lit.json", "rec": "WATCHLIST", "researchedAt": "2026-08-28" },
-    { "ticker": "NMR", "name": "Numerai", "file": "nmr.json", "rec": "AVOID/OPTIONALITY", "researchedAt": "2026-08-28" }
+    {
+      "ticker": "LIT",
+      "name": "Lighter",
+      "file": "lit.json",
+      "rec": "WATCHLIST",
+      "researchedAt": "2026-08-28"
+    },
+    {
+      "ticker": "NMR",
+      "name": "Numerai",
+      "file": "nmr.json",
+      "rec": "AVOID/OPTIONALITY",
+      "researchedAt": "2026-08-28"
+    },
+    {
+      "ticker": "HYPE",
+      "name": "Hyperliquid",
+      "file": "hype.json",
+      "rec": "BUY (CORE)",
+      "researchedAt": "2026-08-29"
+    },
+    {
+      "ticker": "HNT",
+      "name": "Helium",
+      "file": "hnt.json",
+      "rec": "WATCHLIST (DEEP VALUE)",
+      "researchedAt": "2026-08-29"
+    }
   ]
 }

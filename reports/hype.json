@@ -1,0 +1,198 @@
+{
+  "live": { "coingeckoId": "hyperliquid", "llamaSlug": "hyperliquid", "majors": { "BTC": "bitcoin", "ETH": "ethereum", "SOL": "solana" } },
+  "researchedAt": "2026-08-29",
+  "meta": {
+    "name": "Hyperliquid",
+    "ticker": "HYPE",
+    "exchanges": "Hyperliquid spot (primary) · Coinbase · Kraken · Bybit · KuCoin · MEXC · Gate",
+    "price": 83.5,
+    "chg24h": 2.5,
+    "asOf": "Aug 29, 2026 · snapshots diverge: DeFiLlama $84.28 / Coinbase $83.32 / CMC $80.18. ATH $86.71 set Aug 27 — trading ~3% below it. Circ-supply treatments differ: ~222M (ex-AF, CG/Llama) vs ~252M (incl. AF, Coinbase/CMC).",
+    "rec": "BUY (CORE) — scale in on weakness; do not initiate full size at the ATH into the Sep 6 unlock window",
+    "stats": [
+      ["Mkt Cap", "$18.7B (222M circ)"],
+      ["FDV", "$80.5B"],
+      ["Fees (30d)", "$64.8M · rev $48.8M"],
+      ["Perp Vol (30d)", "≈$198B · ~58% of top-8 DEX share"],
+      ["AF bought to date", "≈44M+ HYPE (>$2B deployed)"],
+      ["Monthly unlock", "9.92M HYPE (~$830M) thru ~late '27"]
+    ]
+  },
+  "exec": {
+    "thesis": "HYPE is the only large-cap token where nearly the entire P&L of a real, category-leading business is returned to holders: 99% of perp fees flow to the Assistance Fund's continuous open-market buyback ($765M holders revenue TTM, 44M+ tokens retired), and as of Aug 26 the AQAv2 framework adds a second, non-volume leg — ~90% of the yield on the protocol's multi-billion USDC reserve now buys and burns HYPE, with Coinbase as treasury deployer. Against that stands the largest live unlock in crypto: 9.92M core-contributor tokens (~$830M) hit circulation every month through roughly late 2027, ~10x the monthly buyback. The market has now watched that collision for nine months — share collapsed 71%→20% in 2025, recovered to ~58% of top-8 perp DEX flow, and price made a new ATH ($86.71, Aug 27) anyway. The binding variable is market share and fee slope, not the unlock. At ~102x FDV/annualized fees the tape pays a full price for that conclusion; on circulating cash-return math it does not.",
+    "own": [
+      "Best value accrual in crypto at scale: $765M TTM holders revenue, 99%-of-fees buyback (46% of ALL crypto buybacks in 2025), 44M+ HYPE permanently removed, and AQAv2 adding an estimated $140-160M/yr of rate-yield-funded buy+burn from Oct 3 — a revenue leg that doesn't depend on trading volume.",
+      "The competitive stress test already happened and Hyperliquid won it: share fell 71%→~20% (May-Nov '25) under Aster/Lighter/edgeX incentive assaults, then recovered to ~58% of top-8 30d perp volume (~$198B/30d, $9B+ OI) with fees intact at $55-85M/mo — moat validated under live fire, not in theory.",
+      "Ecosystem gravity is compounding the exchange into financial infrastructure: HIP-3 permissionless perps (equities, commodities — live since Oct '25), HIP-4 outcome markets on testnet (500K HYPE stakes per deployer), HyperEVM with native order-book access, and the Coinbase/Circle AQAv2 alignment — each adds a fee surface or a structural HYPE sink."
+    ],
+    "avoid": [
+      "Supply math is brutal and long: ~$550-830M of unlocks monthly vs $53-83M of fee buybacks (~10:1) through late 2027; absorption to date proves demand exists at these prices, not that it persists in a risk-off tape.",
+      "Price sits at ATH, +52% in 30 days, at ~102x FDV/annualized fees — and the buyback is pro-cyclical: volumes, fees, and the bid all shrink together in a drawdown. Feb '26 was a correction, not a bear-market test.",
+      "Structural opacity and gray zones: closed-source matching engine, thin cohort/retention disclosure, no US regulatory home, and float definitions that flatter the mcap (222M 'circulating' includes little of the AF's retired stack but staking/HIP-3 locks aren't netted either)."
+    ],
+    "questions": [
+      "Post-AQAv2, does combined buy+burn (fees + reserve yield) sustainably exceed $100M/mo, and what fraction of the monthly unlock does that actually offset at prevailing prices?",
+      "Do HIP-3 equity/commodity perps become material (>10% of fees) — i.e., is this an exchange token or a financial-infrastructure L1?",
+      "What does incentive-war round two (Aster/Lighter re-arming, or a CEX fee response) do to the 58% share number that underwrites the ATH?",
+      "How rate-sensitive is the AQAv2 leg — a 200bp Fed cutting cycle removes ~40-50% of the reserve-yield buyback just as it juices volumes; which effect dominates?"
+    ]
+  },
+  "biz": {
+    "narrative": "Hyperliquid is a purpose-built L1 whose flagship product is a fully on-chain central limit order book for perps and spot — sub-second execution, no gas on trades, CEX-grade depth with auditable order flow. It is the leading perp DEX by every measure: ≈$198B 30d perp volume, $9B+ open interest, ~58% of top-8 DEX flow (3-4x Aster, its nearest rival). The business model is a straight exchange take: fees on perp and spot flow, of which 99% (perps) is routed to the Assistance Fund's automated open-market HYPE buyback — functionally a near-total earnings payout via repurchase. Around the core venue: HyperEVM (general smart contracts with native order-book access), HIP-3 (builder-deployed perp markets on equities/commodities, staking HYPE for the right), HIP-4 outcome markets (testnet), and since May '26 the Coinbase/Circle AQAv2 pact making USDC the 'aligned quote asset' — Coinbase deploys the USDC treasury and ~90% of reserve yield funds HYPE buy+burn (first payout Oct 3). Native Markets' USDH is being sunset into that arrangement, with Coinbase acquiring the brand.",
+    "flow": [
+      { "label": "Trading fees (perp + spot)", "amt": "$64.8M / 30d", "cls": "" },
+      { "label": "→ Assistance Fund buyback (99% of perp fees)", "amt": "≈$53-83M / mo range", "cls": "g" },
+      { "label": "→ AQAv2 USDC reserve yield → buy+burn (from Oct 3)", "amt": "≈$140-160M / yr est.", "cls": "g" }
+    ],
+    "revLines": [
+      ["Perp maker/taker fees", "Usage-based", "≈$58-60M / 30d", "up", "99% → AF buyback (ex-builder fees)"],
+      ["Spot order-book fees", "Usage-based", "≈$5-6M / 30d", "up", "buy+burn / AF (97% pre-Aug '25 rule, now aligned)"],
+      ["AQAv2 reserve yield (USDC float)", "Rate-based", "first payout Oct 3", "new", "~90% → AF buy+burn, 30-38d cycles"],
+      ["HIP-3 / HIP-4 deployer stakes", "Demand sink (not revenue)", "500K-1M HYPE per market", "up", "locked HYPE, recurring"]
+    ],
+    "feeTrend": {
+      "labels": ["Feb '26", "Mar '26", "Apr '26", "May '26", "Jun '26", "Jul '26", "Aug '26"],
+      "fees": [60, 62, 58, 66, 75, 55, 65],
+      "toToken": [59, 61, 57, 65, 74, 54, 64]
+    },
+    "notes": [
+      "Fee-trend monthlies are interpolations anchored to hard points (DeFiLlama: $64.78M trailing 30d, $958M TTM ⇒ ~$80M/mo trailing-year avg; reported buyback range $53-83M/mo) — treat the shape, not the decimals. Trailing 24h fees ($3.4M ≈ $100M/mo pace) show re-acceleration with the August rally.",
+      "Holders revenue is the cleanest cross-venue comp: HYPE $765M TTM vs LIT $24M vs ASTER $12M — a 30-60x gap the volume-share numbers understate.",
+      "Builder codes route order flow from third-party frontends (wallets, apps) — fees shared with builders, expanding distribution without marketing spend.",
+      "USDH resolution removed a governance overhang: rather than fragmenting collateral, the Sep '25 ticker contest ended with Coinbase/Circle institutionally committed to the chain (May 14 '26 deal; HYPE +~15% on announcement)."
+    ]
+  },
+  "moat": {
+    "axes": ["Liquidity", "Brand", "Technology", "Value Accrual", "Distribution", "Regulatory"],
+    "scores": [5, 5, 5, 5, 4, 2],
+    "note": "Liquidity and tech are the self-reinforcing pair: deepest books → best execution → more flow → deeper books; fully on-chain CLOB remains un-replicated at this scale. Distribution upgraded by Coinbase/Kraken listings + builder codes. Regulatory is the standing 2: no US home, closed-source core, perp-DEX gray zone.",
+    "comps": [
+      ["Aster (BNB/YZi-backed)", "Direct", "≈$12M TTM holders rev", "high on FDV", "y"],
+      ["Lighter (LIT)", "Direct", "$4.1M gross / 30d", "~75x FDV/fees", "y"],
+      ["edgeX · Paradex · Pacifica", "Direct (long tail)", "n/d", "—", "g"],
+      ["dYdX (legacy leader)", "Direct, fading", "n/d", "—", "g"],
+      ["CEX perps (Binance/OKX/Bybit)", "Substitute — still the volume majority", "n/a", "—", "r"]
+    ]
+  },
+  "tokenomics": {
+    "alloc": {
+      "labels": ["Genesis airdrop (community)", "Future emissions & community rewards", "Core contributors (24mo vest from Nov '25)", "Foundation, grants & other"],
+      "values": [31.0, 38.9, 23.8, 6.3]
+    },
+    "milestones": [
+      [">31% distributed", "At TGE — Nov 29 '24 (airdrop; no VC allocation exists)"],
+      ["CC cliff expired", "Nov 29 '25 — 9.92M HYPE/mo began vesting"],
+      ["~50% of max supply circulating", "≈mid-to-late 2027 if straight-line vest continues (partly offset by burns)"]
+    ],
+    "accrual": [
+      ["Assistance Fund buyback — 99% of perp fees, continuous", "Live since '24; $2B+ deployed by May '26", "≈44M+ HYPE (~4.6% of initial supply) bought; $53-83M/mo run-rate; 46% of all crypto buybacks in 2025"],
+      ["Spot fee burns (HYPE-denominated)", "Live", "Total supply already reduced to ~955M from 1B genesis"],
+      ["AQAv2 — ~90% of USDC reserve yield → buy+burn", "Activated Aug 26 '26; first payout Oct 3", "≈$140-160M/yr at ~$5B reserves and ~3.5-4% rates (rate-sensitive)"],
+      ["HIP-3 / HIP-4 deployer staking", "HIP-3 live Oct '25; HIP-4 testnet", "500K-1M HYPE locked per market — a growing non-custodial float sink"]
+    ],
+    "unlocks": {
+      "labels": ["Sep '26", "Oct '26", "Nov '26", "Dec '26", "Jan '27", "Feb '27", "Mar '27", "Apr '27", "May '27", "Jun '27", "Jul '27", "Aug '27"],
+      "team": [9.92, 9.92, 9.92, 9.92, 9.92, 9.92, 9.92, 9.92, 9.92, 9.92, 9.92, 9.92],
+      "investors": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "circPct": [26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37]
+    },
+    "unlockPerf": [
+      ["First core-contributor unlock — 9.92M HYPE, Nov 29 '25 (cliff expiry)", "≈$250M at ~$25", "≈−35% into it (share-war overlap)", "≈52wk low $20.55 zone", "≈flat", "recovered", "underperformed majors into, outperformed out"],
+      ["Monthly 9.92M cadence, Dec '25 → Aug '26 (9 events)", "≈$300-830M each as price rose", "n/a (continuous)", "absorbed", "absorbed", "price ~4x off trough to ATH $86.71", "massively outperformed BTC/ETH/SOL in 2026 (+113% YTD vs majors down)"]
+    ]
+  },
+  "priceHistory": {
+    "labels": ["Nov '25", "Dec '25", "Jan '26", "Feb '26", "Mar '26", "Apr '26", "May '26", "Jun '26", "Jul '26", "Aug '26"],
+    "prices": [22, 30, 39, 30, 42, 47, 45, 72, 55, 84],
+    "unlocksM": [9.92, 9.92, 9.92, 9.92, 9.92, 9.92, 9.92, 9.92, 9.92, 9.92],
+    "unlockEventsDated": [
+      { "date": "2025-11-29", "amt": 250, "label": "CC cliff expiry — monthly 9.92M vest begins" }
+    ],
+    "majors": {
+      "BTC": [92000, 95000, 90000, 78000, 82000, 76000, 80000, 72000, 70000, 78000],
+      "ETH": [3100, 3000, 2800, 2600, 2300, 2200, 2450, 2200, 2150, 2430],
+      "SOL": [140, 135, 120, 105, 110, 100, 105, 95, 95, 103]
+    },
+    "events": [
+      { "idx": 0, "n": 1, "date": "2025-11-29", "dateLbl": "Nov 29 '25", "event": "CC cliff expires at the share-war trough (share ~20%, 52wk low $20.55)", "driver": "Supply+Competitive", "paid": "Peak pessimism — unlock + share loss priced simultaneously" },
+      { "idx": 3, "n": 2, "date": "2026-02-15", "dateLbl": "Feb '26", "event": "Market-wide selloff; HYPE corrects with beta but holds relative strength", "driver": "Macro", "paid": "First (mild) test of buyback pro-cyclicality" },
+      { "idx": 6, "n": 3, "date": "2026-05-14", "dateLbl": "May 14 '26", "event": "Coinbase/Circle commit to AQAv2; Coinbase buys USDH brand; HYPE to ~$45", "driver": "Fundamental", "paid": "Institutional validation of aligned-quote-asset model" },
+      { "idx": 7, "n": 4, "date": "2026-06-16", "dateLbl": "Jun 16 '26", "event": "ATH $76.67 as share recovery (~37%) compounds; then −28% into late July", "driver": "Fundamental→Positioning", "paid": "Share-recovery re-rating, then profit-taking" },
+      { "idx": 9, "n": 5, "date": "2026-08-27", "dateLbl": "Aug 27 '26", "event": "AQAv2 activates (Aug 26); new ATH $86.71; +52% in 30d", "driver": "Fundamental+Narrative", "paid": "Second buyback leg + share ~58% of top-8" }
+    ]
+  },
+  "liquidity": {
+    "sigmaDaily": 7,
+    "adv": 1100,
+    "summary": "ADV ≈$1.0-1.4B across the native Hyperliquid spot book plus Coinbase, Kraken, Bybit, KuCoin — execution capacity is not a constraint at any reasonable position size for this book. Caveat this run: per-venue ±2% order-book depth was NOT captured (no free depth API; CEX snapshots unavailable); the depth curve below is MODELED from ADV using standard depth/ADV ratios and is illustrative only — the execution simulator inherits that uncertainty. Perp-venue HYPE liquidity (on Hyperliquid itself) is far deeper than spot books elsewhere.",
+    "venues": [
+      ["Hyperliquid (native spot)", "n/d", "n/d", "≈$450M", "≈40%"],
+      ["Bybit", "n/d", "n/d", "≈$180M", "≈16%"],
+      ["Coinbase", "n/d", "n/d", "≈$120M", "≈11%"],
+      ["Kraken", "n/d", "n/d", "≈$90M", "≈8%"],
+      ["KuCoin · MEXC · Gate · other", "n/d", "n/d", "≈$260M", "≈25%"]
+    ],
+    "depthCurve": {
+      "impacts": [0.1, 0.25, 0.5, 1, 2, 5],
+      "askDepth": [2, 5, 9, 16, 27, 48],
+      "bidDepth": [2, 5, 10, 17, 29, 50]
+    }
+  },
+  "tech": {
+    "narrative": "Purpose-built L1: HyperCore runs the fully on-chain CLOB (orders, matches, funding, liquidations all on-chain — the book you trade is the real book), with sub-second finality and gasless trading; HyperEVM provides general-purpose smart contracts with CoreWriter access to the native order book — contracts can place orders, which no general-purpose chain offers. HIP-3 lets builders stake HYPE to deploy permissionless perp markets (now spanning equities and commodities); HIP-4 extends to outcome/prediction-style markets via validator-approved templates (testnet, 500K HYPE stake). AQAv2 (live Aug 26 '26) institutionalizes the stablecoin layer: Coinbase deploys the USDC treasury, Circle runs native CCTP issuance, ~90% of reserve yield funds buy+burn.",
+    "devs": [
+      { "title": "Core-stack openness & validator decentralization", "maturity": "Partial — the standing critique", "body": "The matching engine remains closed-source and the validator set, while grown, is small relative to the value settled. This is the main 'is it really a DEX' attack surface — technically and regulatorily. No public timeline for full open-sourcing." },
+      { "title": "HIP-3 markets (equity/commodity perps)", "maturity": "Live since Oct 13 '25, scaling through '26", "body": "The optionality that changes the terminal value: if builder-deployed RWA perps take real share, Hyperliquid's comp set becomes CME/ICE, not dYdX. Each deployment also locks a HYPE stake." },
+      { "title": "HIP-4 outcome markets", "maturity": "Testnet (validator-approved templates)", "body": "Prediction/options-style markets with 500K HYPE stakes, multi-month locks. Mainnet timing is a near-term catalyst; adds a fee surface uncorrelated with perp funding cycles." },
+      { "title": "AQAv2 / stablecoin settlement layer", "maturity": "Live Aug 26 '26; first payout Oct 3", "body": "Converts the protocol's largest idle asset (the USDC margin float, one of the biggest non-Ethereum USDC concentrations) into a recurring buyback. Rate-sensitive by construction; Coinbase/Circle operational dependency is new counterparty surface." }
+    ]
+  },
+  "catalysts": {
+    "near": [
+      ["Sep 6 '26", "Monthly unlock: 9.92M HYPE (~$830M at ATH prices) — largest $ tranche yet", "Supply", "100%", "Historically absorbed; at ATH the $ size is max — watch for pre-positioning", "CoinGecko unlock page / on-chain CC wallets"],
+      ["Oct 3 '26", "First AQAv2 payout — sizing of the reserve-yield buyback revealed", "Fundamental", "95%", "Confirms or deflates the $140-160M/yr second-leg estimate", "Hyperliquid Foundation announcements"],
+      ["Q4 '26", "HIP-4 mainnet decision (outcome markets)", "Fundamental", "60%", "New fee surface + recurring 500K HYPE stakes", "Validator votes / testnet activity"],
+      ["Monthly", "Perp DEX share print — HYPE at ~58% of top-8, 3-4x Aster", "Competitive", "—", "THE variable: fee slope keys off share; incentive-war round 2 is the bear trigger", "DeFiLlama perps 30d dashboard"],
+      ["Q4 '26", "Fed path — cuts shrink AQAv2 yield leg but expand risk appetite/volumes", "Macro", "50%", "Two-sided; net historically positive for volume-driven fees", "FOMC / rates"],
+      ["Ongoing", "US access / further CEX distribution (the Binance question)", "Distribution", "30%", "Any US-regulated wrapper or major listing widens the buyer base", "Exchange announcements"],
+      ["Tail", "Bear-market stress test of pro-cyclical buyback", "Risk", "—", "Unmodelable until it happens; Feb '26 was too brief to count", "Fees vs price in next >30% drawdown"]
+    ],
+    "mid": "The 12-36mo re-rate rests on three legs: (1) HIP-3/HIP-4 making Hyperliquid the settlement layer for on-chain everything-perps (equities, commodities, outcomes) — moving the comp set from perp DEXs to CME/Coinbase; (2) the unlock schedule completing around late '27, after which the 10:1 supply headwind becomes a pure buyback tailwind on a business then doing $1B+ annual fees; (3) AQAv2 compounding — every dollar of margin float growth adds yield-funded burn. The symmetric risk: share is a moat only while execution quality leads; the 2025 collapse proved rotation can be violent and fast."
+  },
+  "scenarios": [
+    { "cls": "bull", "name": "Bull", "tgt": "$140 (+68%)", "body": "Share holds 50%+ of top-8, fees re-rate to $90-110M/mo on volume expansion, AQAv2 first payouts confirm $150M+/yr, HIP-4 ships and HIP-3 equity perps become a visible fee line. Combined buy+burn crosses $100M/mo — offsetting a structurally larger share of the unlock — while the 2027 vest-completion becomes a front-runnable narrative.", "trip": "Tripwires: fees >$85M/30d · AQAv2 payout >$12M in cycle 1 · share >55% sustained · HIP-4 mainnet live" },
+    { "cls": "base", "name": "Base", "tgt": "$90-100 (+8-20%)", "body": "Share oscillates 40-55%, fees hold $55-75M/mo, AQAv2 lands near estimate, unlocks keep getting absorbed with periodic 20-30% drawdowns around big tranches. Price grinds with the buyback floor rising; multiple stays 80-110x FDV/fees as the market pre-pays for vest completion.", "trip": "Tripwires: fees $55-75M/30d band holds · share ≥40% · unlock-week drawdowns <25%" },
+    { "cls": "bear", "name": "Bear", "tgt": "$45 (−46%)", "body": "Macro risk-off + incentive-war round two: Aster/Lighter re-arm, share slides back toward 30%, fees compress to $35-45M/mo exactly as the buyback (pro-cyclical) shrinks — while $500M+/mo of unlocks keep coming and a Fed cutting cycle halves the AQAv2 leg. Multiple de-rates toward 50-60x on falling fees.", "trip": "Tripwires: fees <$45M/30d · share <35% · two consecutive unlocks with >25% drawdowns · AQAv2 cycle-1 payout <$5M" }
+  ],
+  "variant": "Consensus still frames the 238M core-contributor unlock as the reason HYPE is uninvestable above $50B FDV. The variant: the unlock has been live for nine months at ~10:1 versus the buyback and the market absorbed every tranche on the way to an ATH — the controlling variable is market share and fee slope, and that variable inflected (20%→~58% of top-8) while the crowd was still staring at the vesting spreadsheet. Second, unpriced leg: AQAv2 quietly converts HYPE into a duration asset on the USDC float — a multi-hundred-million-dollar yield stream funding burns that exists at zero incremental volume. Nobody's model has a rates line item for an exchange token. The honest counter-variant: both legs are now partially in the price at 102x FDV/fees and an ATH print; the July −28% air pocket shows what positioning does when the narrative pauses.",
+  "valuation": {
+    "methods": [
+      { "name": "Comp FDV/ann. fees (40-80x on $788M run-rate)", "lo": 33, "hi": 66 },
+      { "name": "Holders-revenue multiple (20-30x $765M TTM, circ basis)", "lo": 69, "hi": 103 },
+      { "name": "Buyback-yield model (fees+AQAv2 ≈$0.9-1.0B/yr at 3-5% req. yield)", "lo": 81, "hi": 135 },
+      { "name": "Unlock-adjusted (12mo-fwd ~341M effective circ, flat mcap-to-fees)", "lo": 55, "hi": 75 }
+    ],
+    "current": 83.5,
+    "multiples": [
+      ["FDV / ann. fees (30d ×12.17)", "~102x", "≈45x (Nov '25 trough) – 102x (now)", "LIT ~75x · ASTER ~88x (full-FDV basis)"],
+      ["Mcap / ann. fees (circ basis)", "~24x", "—", "Coinbase equity ~11x rev · CME ~25x"],
+      ["Mcap / TTM holders revenue", "~24x", "—", "No crypto comp returns capital at this scale"],
+      ["Buyback yield (annualized, on mcap)", "≈5-7%", "4-7% through '26", "ETH/BNB burn yield ~1-1.5%"]
+    ],
+    "embedded": "At $83.5 the market pays ~102x FDV/annualized fees — the top of HYPE's own 2026 range and a premium to LIT (~75x) — but only ~24x on circulating cap against holders revenue, with a 5-7% buyback yield that no comparable large cap offers. The FDV/circ split IS the debate: the FDV number pre-charges you for 20 more months of unlocks; the circ number pretends the AF's absorption is free. Truth in between: the fair anchor migrates upward ~$65→$100+ as vesting completes IF fees hold — the tape is prepaying roughly half of that migration."
+  },
+  "synthesis": "The three-sentence version: Hyperliquid is the best business in crypto by cash returned to holders, the unlock everyone fears has been absorbed for nine straight months while share recovered from 20% to ~58%, and AQAv2 just added a second buyback engine that runs on interest rates instead of volume. What you pay for that at $83.5 is an ATH print, 102x FDV/fees, and untested pro-cyclicality — the buyback that supports the token in good tapes evaporates in bad ones, exactly when $500M+ monthly unlocks keep landing. Position accordingly: this is a core holding built on weakness, not a chase at the high — the asset hands you 20-30% air pockets (July: −28%) around a rising structural floor, and the Sep 6 tranche plus the Oct 3 first AQAv2 print are the next two spots where the market will hand you information, and possibly an entry.",
+  "recText": "Recommendation: BUY (CORE) — but sequencing matters more than conviction here. Do not initiate full size at the ATH into the Sep 6 unlock (~$830M, the largest dollar tranche ever). Tactical framework: starter position acceptable here given structural momentum; add on (1) any 15-25% unlock-window or beta drawdown toward $62-70 (prior breakout zone / Jun ATH retest), (2) confirmation that AQAv2's Oct 3 payout lands ≥$10M/cycle, (3) fees printing >$75M/30d. Invalidation: perp share <35% for two consecutive months or fees <$45M/30d — that's the 2025 nightmare re-running, and the unlock math turns lethal without the fee engine. Sizing: full core only for mandates that can hold through a genuine bear-market test the token has not yet faced.",
+  "sources": [
+    "DeFiLlama protocol page (hyperliquid) — 30d fees $64.78M, 30d revenue $48.81M, TTM $958M fees / $720M revenue, price/mcap/FDV/supply snapshot (HIGH; fetched Aug 29 '26)",
+    "CoinGecko / Coinbase / CMC market pages — price $80-84 range across snapshots, ATH $86.71 Aug 27 '26, Sep 6 unlock 9.92M HYPE ($804-830M), circ-supply treatments 222M vs 252M (HIGH; Aug 28-29 '26)",
+    "crypto.news HYPE analysis — unlock mechanics (9.92M/mo, 23.8% CC allocation, 24mo straight-line), buyback range $53-83M/mo, share history 71%→20%→28%→32%→37% (MED-HIGH; early Aug '26)",
+    "CFB (cfbenchmarks) valuation framework — TTM buyback ~$74M/mo, ~20M HYPE repurchased TTM, collateral-yield estimate $140-160M ann., no-VC cap table (HIGH; Jun '26)",
+    "Blockonomi / cryptoslate / coindesk — AQAv2 activation Aug 26 '26, first payout Oct 3, ~90% of USDC reserve yield to buy+burn, Coinbase treasury deployer + USDH brand acquisition May 14 '26 (HIGH; May-Aug '26)",
+    "Datawallet / cryptobriefing / coinpedia — 30d perp volume $172-245B, share 31.9% of all tracked / ~58% of top-8 / 72.9% of HYPE+ASTER+LIT, OI $9B+, holders revenue comps $765M vs $24M vs $12M TTM (MED-HIGH; May-Aug '26)",
+    "Bitget/crypto.news AF coverage — $2B cumulative buybacks crossed May 16 '26, ~44.4M HYPE bought by Jun '26, 46% of all '25 crypto buybacks (MED; May '26)",
+    "CMC-AI updates — HIP-3 live Oct 13 '25, HIP-4 testnet w/ 500K HYPE stakes, HyperEVM Q1 '26 momentum (MED; Aug '26)",
+    "Monthly price series for HYPE and BTC/ETH/SOL are INTERPOLATED between sourced anchors (52wk range $20.55-86.71, +113% YTD, event prints at $45/$76.67/$51-54/$86.71; majors: BTC ~$77.6K, ETH ~$2,430, SOL ~$103 current) — LOW confidence on individual monthly values; live layer replaces on load",
+    "Liquidity depth curve MODELED from ADV (no order-book snapshot captured this run) — LOW confidence; illustrative only"
+  ]
+}

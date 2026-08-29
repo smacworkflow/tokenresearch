@@ -1,0 +1,196 @@
+{
+  "live": { "coingeckoId": "helium", "llamaSlug": "helium", "majors": { "BTC": "bitcoin", "ETH": "ethereum", "SOL": "solana" } },
+  "researchedAt": "2026-08-29",
+  "meta": {
+    "name": "Helium",
+    "ticker": "HNT",
+    "exchanges": "Coinbase · Bitget · Gate · KuCoin · MEXC · Solana DEXs (41 exchanges / 55 markets listed)",
+    "price": 0.20,
+    "chg24h": 6.0,
+    "asOf": "Aug 29, 2026 · $0.19-0.21 across venues; mcap prints diverge $35-47M on supply treatment. Down ~96% from the Jan '26 local high (~$4.5-5) and ~99.5% from the 2021 ATH ($54.88).",
+    "rec": "WATCHLIST (DEEP VALUE) — the collapse mechanically inverted the supply math in holders' favor; no position until vault sell-flow policy is observable",
+    "stats": [
+      ["Mkt Cap", "$38-47M (186.3M circ)"],
+      ["DC burn (usage rev)", "≈$50K/day ≈ $18M/yr run-rate"],
+      ["Mcap / usage rev", "≈2.2-2.6x"],
+      ["Daily users / hotspots", "1.16M / ~366K"],
+      ["HIP-149 vault", "+141M HNT minted over 36mo (~75% of circ)"],
+      ["Burn vs mint (at $0.20)", "≈250K/day burned vs ≈150K/day emitted — net deflationary"]
+    ]
+  },
+  "exec": {
+    "thesis": "HNT in 2026 is the cleanest divergence trade in DePIN: usage at all-time highs — $50K/day of USD-denominated Data Credit burns (99.8% from carrier offload for AT&T, T-Mobile, and Telefónica/Movistar), 1.16M daily users, 366K hotspots — against a token down ~96% in eight months. The collapse wasn't fundamental; it was two governance decisions. On Jan 2 the team suspended the buyback-and-burn of Helium Mobile subscriber revenue (the program that drove the Q4 '25 rally) to fund growth instead; mid-year, HIP-149 authorized minting 141M new HNT over 36 months (~75% of circulating supply) into an operations vault, and Nova Labs sold the Helium Mobile MVNO to Noble Mobile in June. Holders were subordinated to the network twice, and priced it. The unexamined consequence: because DC burns are fixed in dollars, the price collapse exploded the burn rate in token terms — at $0.20, ~250K HNT/day is force-bought and burned versus ~150K/day of combined emissions and vault mints. The lower it goes, the faster supply retires. That reflexive floor, against a $40M market cap carrying $18M/yr of price-insensitive demand, is the trade — if, and only if, the vault doesn't sell into it.",
+    "own": [
+      "The burn math at these prices: $18M/yr of mandatory, usage-driven, price-insensitive HNT buying against a $38-47M mcap — ~45% of the cap per year — with burns currently outrunning ALL new issuance (PoC emissions post-halving + HIP-149 vault drip) by ~1.7x. Mechanically net-deflationary because the price fell, not despite it.",
+      "The revenue is real and growing: carrier offload for three tier-1 telcos is 99.8% of Data Credit burn, offloaded traffic doubled through '25 (5,451 TB cumulative by Q3 '25), HIP-149's $0.05/GB deployer floor stabilizes supply-side economics, and the SEC suit dismissal removed the regulatory overhang.",
+      "Optionality on any re-alignment: the Aug '25-Jan '26 buyback experiment proved the playbook works (HNT ~$2.26→$4.5+ while it ran). On a $40M base, a restored burn program, a disciplined vault, or a Q3 State of Helium showing offload acceleration is a multi-x repricing, not a percentage move."
+    ],
+    "avoid": [
+      "Governance has now chosen the network over the token twice in eight months (buyback suspension Jan 2; 141M-HNT vault mint mid-year) — there is no structural reason it won't do so a third time, and the 7-seat Advisory Council controlling the vault has no published sell-flow policy.",
+      "The vault is the sword of Damocles: 141M HNT (~4x current annual burn at this price) spendable into a book doing $3-8M ADV. If ops spending means on-market selling, the reflexive-floor thesis dies on contact.",
+      "Concentration and abandonment risks: three carriers are effectively the whole revenue line; the consumer brand (Helium Mobile) was divested; delegated veHNT participation lapsed en masse Aug 1 — the holder base is checked out, which is how $0.20 prints happen and how they persist."
+    ],
+    "questions": [
+      "What is the vault's actual disbursement mechanism — HNT grants (recipient sells), OTC, or fiat-converted via structured sales? This single answer decides the thesis.",
+      "Is the $50K/day DC burn still growing post-Noble divestiture, and does Noble's MVNO traffic still route (and burn) through the network at the same rate?",
+      "What were the real terms of the carrier offload contracts — per-GB pricing, exclusivity, renewal dates — and is $0.05/GB deployer floor sustainable within them?",
+      "Why exactly was the buyback suspended (Jan 2) — cash need at Nova Labs, legal caution, or strategic pivot — and what would trigger reinstatement?"
+    ]
+  },
+  "biz": {
+    "narrative": "Helium is the original DePIN: community-deployed wireless hotspots (LoRaWAN IoT + CBRS/Wi-Fi cellular) that carriers pay to route traffic through. Users and carriers pay in USD terms via Data Credits — a $0.00001-pegged utility token minted ONLY by burning HNT — so every gigabyte offloaded is forced HNT demand. The business quietly transformed from a consumer MVNO story into a wholesale carrier-infrastructure story: carrier offload (AT&T, T-Mobile, Telefónica/Movistar routing subscriber traffic through Helium hotspots) is now 99.8% of all DC burn. The consumer-facing Helium Mobile MVNO was sold to Noble Mobile in June '26 — the network keeps the traffic relationship, Nova Labs exits the subscriber business. HIP-138 ('return to HNT') collapsed the IOT/MOBILE subDAO tokens back into HNT, and the Aug '25 halving cut PoC emissions to 7.5M/yr. What broke the token was the funding model: the burn-100%-of-subscriber-revenue program (Aug 18 '25 - Jan 2 '26) was suspended, and HIP-149 mints 141M HNT over 36 months into an ops/growth vault to fund telecom-scale expansion — dilution chosen over distribution.",
+    "flow": [
+      { "label": "Carrier offload + network usage → DC burn", "amt": "≈$50K/day (≈$18M/yr)", "cls": "g" },
+      { "label": "PoC emissions to hotspot deployers (post-halving)", "amt": "≈20.5K HNT/day (7.5M/yr)", "cls": "" },
+      { "label": "HIP-149 ops vault mint", "amt": "≈130K HNT/day avg (141M / 36mo)", "cls": "r" }
+    ],
+    "revLines": [
+      ["Carrier offload (AT&T, T-Mobile, Telefónica)", "Per-GB wholesale", "≈99.8% of $50K/day burn", "up", "100% → HNT burn (DC mint)"],
+      ["IoT data transfer (LoRaWAN)", "Per-packet DC", "residual", "flat", "100% → HNT burn"],
+      ["Helium Mobile subscriber burn program", "SUSPENDED Jan 2 '26", "was ~$1.5M/mo peak", "cut", "was 100% buy+burn — now $0"],
+      ["HIP-149 deployer floor / veHNT redirect", "Reward-band mechanics", "n/a (emission routing)", "new", "surplus above 3x payer rate → veHNT stakers"]
+    ],
+    "feeTrend": {
+      "labels": ["Q1 '25", "Q2 '25", "Q3 '25", "Q4 '25", "Q1 '26", "Q2 '26", "Q3 '26"],
+      "fees": [0.5, 0.8, 1.2, 1.5, 1.4, 1.5, 1.5],
+      "toToken": [0.5, 0.8, 1.2, 1.5, 1.4, 1.5, 1.5]
+    },
+    "notes": [
+      "feeTrend is monthly-average DC burn per quarter in $M (Q3 '25: $30.9K/day → ~$0.94M/mo rising to $1.5M record in Sep '25; ~$50K/day ≈ $1.5M/mo by mid-'26) — quarterly buckets used because monthly series isn't published; MED confidence, shape reliable, decimals not.",
+      "A May '26 guide claims '$24M revenue in January 2026' — inconsistent with Blockworks' $50K/day burn data by ~10x; likely conflates annualized or gross-MVNO figures. Disregarded (LOW confidence).",
+      "The suspended burn program (Aug 18 '25 - Jan 2 '26) routed 100% of Helium Mobile subscriber revenue (~$2.3M/mo gross est.) to buy+burn — it drove Q3 '25 annualized revenue to $18.3M and the token from $2.26 to the Q4 rally. Its suspension started the 2026 collapse.",
+      "Burn-vs-mint crossover is price-dependent: at $0.60 burns ≈ 83K HNT/day (sub-mint, dilutive); at $0.20 burns ≈ 250K/day (out-burning mints 1.7x). The token found its mechanical floor zone by falling to it."
+    ]
+  },
+  "moat": {
+    "axes": ["Liquidity", "Brand", "Technology", "Value Accrual", "Distribution", "Regulatory"],
+    "scores": [2, 3, 4, 1, 4, 3],
+    "note": "Distribution (three tier-1 carrier relationships + 366K deployed hotspots) is the real asset — physical infrastructure with years of deployment lead no competitor replicates quickly. Value Accrual scored 1: the only live mechanism is the mechanical DC burn; every discretionary alignment lever was switched off in 2026. Regulatory upgraded on SEC suit dismissal.",
+    "comps": [
+      ["XNET / other DeWi offload", "Direct (carrier offload)", "n/d — far smaller", "—", "g"],
+      ["World Mobile", "Direct (DeWi)", "n/d", "—", "g"],
+      ["GRASS / DePIN sector beta", "Sentiment comp", "n/d", "sector −70-90% from '24 highs", "y"],
+      ["Tower cos / neutral-host (tradfi)", "Substitute at scale", "n/a", "8-12x EBITDA", "y"],
+      ["Carrier self-build densification", "Substitute", "n/a", "—", "r"]
+    ]
+  },
+  "tokenomics": {
+    "alloc": {
+      "labels": ["Circulating (incl. IOT/MOBILE conversions)", "HIP-149 ops & growth vault (36mo mint)", "Remaining PoC emissions (to max supply)", "Effective new max ≈364M"],
+      "values": [186.3, 141.0, 36.7, 0]
+    },
+    "milestones": [
+      ["Fully unlocked (legacy schedule)", "Team/investor vesting long complete; supply was purely emissions-driven pre-HIP-149"],
+      ["3rd halving", "Aug 1 '25 — emissions 15M → 7.5M HNT/yr (~20.5K/day)"],
+      ["HIP-149 vault mint begins", "Mid-'26 — up to 141M HNT over 36 months (~3.9M/mo avg), Advisory Council governed"]
+    ],
+    "accrual": [
+      ["Data Credit burn — USD-pegged, usage-mandatory", "Live, growing with offload", "≈$50K/day; at $0.20 ≈ 250K HNT/day retired (~49%/yr of circ at current run-rate — price-reflexive)"],
+      ["Helium Mobile subscriber revenue buy+burn", "SUSPENDED Jan 2 '26", "Ran Aug 18 '25-Jan 2 '26; drove $18.3M annualized rev and the Q4 '25 rally"],
+      ["veHNT staking (6% emission pool)", "Live, participation lapsed", "All delegated positions expired Aug 1 '26; HIP-149 redirects deployer surplus above cap to veHNT"],
+      ["Halving schedule (HIP-20)", "Live", "Biennial; next cut Aug '27 to ~3.75M/yr"]
+    ],
+    "unlocks": {
+      "labels": ["Sep '26", "Oct '26", "Nov '26", "Dec '26", "Jan '27", "Feb '27", "Mar '27", "Apr '27", "May '27", "Jun '27", "Jul '27", "Aug '27"],
+      "team": [3.9, 3.9, 3.9, 3.9, 3.9, 3.9, 3.9, 3.9, 3.9, 3.9, 3.9, 3.9],
+      "investors": [0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6, 0.6],
+      "circPct": [84, 84, 84, 84, 84, 84, 84, 84, 84, 83, 83, 83]
+    },
+    "unlockPerf": [
+      ["Buyback suspension — Jan 2 '26 (supply-policy shock #1)", "removed ~$1.5-2.3M/mo of buy+burn", "token near local high ~$4.5-5", "top ticked within days", "slide begins", "−45% by Mar", "underperformed everything"],
+      ["HIP-149 approval — ~Jun/Jul '26 (supply-policy shock #2: +141M mint)", "+75% future supply authorized", "$0.60-0.93 zone", "−35% into approval window", "−45%", "−67% to $0.20 by Aug", "worst large-DePIN performer of '26"]
+    ]
+  },
+  "priceHistory": {
+    "labels": ["Nov '25", "Dec '25", "Jan '26", "Feb '26", "Mar '26", "Apr '26", "May '26", "Jun '26", "Jul '26", "Aug '26"],
+    "prices": [2.8, 3.8, 4.6, 4.4, 2.5, 1.4, 0.93, 0.60, 0.32, 0.20],
+    "unlocksM": [0, 0, 0, 0, 0, 0, 0, 3.9, 3.9, 3.9],
+    "unlockEventsDated": [
+      { "date": "2026-01-02", "amt": 0, "label": "Buyback-and-burn program suspended" }
+    ],
+    "majors": {
+      "BTC": [92000, 95000, 90000, 78000, 82000, 76000, 80000, 72000, 70000, 78000],
+      "ETH": [3100, 3000, 2800, 2600, 2300, 2200, 2450, 2200, 2150, 2430],
+      "SOL": [140, 135, 120, 105, 110, 100, 105, 95, 95, 103]
+    },
+    "events": [
+      { "idx": 1, "n": 1, "date": "2025-12-15", "dateLbl": "Q4 '25", "event": "Buyback era peak: 100%-of-subscriber-revenue burn + Aug halving compound; ~$2.26→$4.5+", "driver": "Fundamental+Supply", "paid": "Market paid for holder alignment while it existed" },
+      { "idx": 2, "n": 2, "date": "2026-01-02", "dateLbl": "Jan 2 '26", "event": "Burn program suspended after 4.5 months; funds redirected to network growth", "driver": "Governance", "paid": "Alignment withdrawn — top of the entire structure" },
+      { "idx": 6, "n": 3, "date": "2026-05-15", "dateLbl": "May '26", "event": "Slide to sub-$1; usage keeps growing ($50K/day burns) — divergence widens", "driver": "Positioning", "paid": "'Usage up, token zombie' becomes consensus" },
+      { "idx": 7, "n": 4, "date": "2026-06-03", "dateLbl": "Jun 3 '26", "event": "Helium Mobile MVNO sold to Noble Mobile; HIP-149 (141M HNT vault mint) advances", "driver": "Governance+Supply", "paid": "Dilution + brand divestiture priced together" },
+      { "idx": 9, "n": 5, "date": "2026-08-01", "dateLbl": "Aug 1 '26", "event": "All delegated veHNT expires; capitulation to $0.19-0.21; burn rate in HNT terms hits ~250K/day", "driver": "Capitulation", "paid": "Mechanical burn floor engages — burns now out-run all issuance ~1.7x" }
+    ]
+  },
+  "liquidity": {
+    "sigmaDaily": 9,
+    "adv": 5,
+    "summary": "Thin: ~$3-8M ADV across 41 listed exchanges (24h prints spike with volatility — $8.3M on the latest +140% volume day; baseline nearer $3-5M). Coinbase is the deepest USD venue; the rest is scattered CEX/Solana-DEX flow. Per-venue ±2% depth NOT captured this run — depth curve below is MODELED from ADV and is illustrative (LOW confidence). Practical read: positions beyond low-six-figures need TWAP over days; the same illiquidity that lets $0.20 print also means any re-rating gaps rather than grinds. The HIP-149 vault (141M HNT) versus this book is the central risk — even 2M HNT/mo of on-market selling ≈ 10-15% of ADV absorbed daily.",
+    "venues": [
+      ["Coinbase", "n/d", "n/d", "≈$1.5-6.6M", "≈35-50%"],
+      ["Bitget · Gate · KuCoin · MEXC", "n/d", "n/d", "≈$1-3M", "≈30%"],
+      ["Solana DEXs (Jupiter-routed)", "n/d", "n/d", "≈$0.5-1.5M", "≈15%"],
+      ["Other CEX long tail", "n/d", "n/d", "≈$0.5-1M", "≈10-15%"]
+    ],
+    "depthCurve": {
+      "impacts": [0.1, 0.25, 0.5, 1, 2, 5],
+      "askDepth": [0.04, 0.09, 0.16, 0.28, 0.5, 0.95],
+      "bidDepth": [0.04, 0.1, 0.18, 0.3, 0.55, 1.0]
+    }
+  },
+  "tech": {
+    "narrative": "Post-migration (Solana, Apr '23) and post-HIP-138, Helium is a single-token network: hotspots (LoRaWAN for IoT; CBRS radios and Wi-Fi via Helium Plus for cellular) earn HNT via Proof-of-Coverage-successor mechanics; carriers and users consume the network by burning HNT into USD-pegged Data Credits. The carrier offload stack — SIM-level policy that hands subscriber traffic to Helium hotspots where coverage exists — is the differentiated tech: it's live with three tier-1 carriers, which no other DeWi project has achieved. HIP-149 replaced Proof-of-Coverage rewards for Mobile with a two-sided band: a carrier-revenue-tied floor ($0.05/GB minimum deployer payout) and a cap redirecting surplus to veHNT stakers.",
+    "devs": [
+      { "title": "Vault governance & disbursement policy", "maturity": "The open question", "body": "141M HNT over 36 months under a 7-seat Advisory Council with no published on-market-sale policy. Whether ops spending means selling HNT into a $5M ADV book, or structured/OTC/grant disbursement, is the single most price-relevant unknown on the asset." },
+      { "title": "Carrier offload expansion", "maturity": "Live, scaling", "body": "AT&T, T-Mobile, Telefónica/Movistar routing traffic; offloaded data doubled through '25. Contract terms undisclosed — pricing, exclusivity, renewals are all diligence gaps. Each new carrier or geography compounds the burn line." },
+      { "title": "Post-Noble network/MVNO separation", "maturity": "New (Jun '26)", "body": "Noble Mobile owns the subscriber business; the network keeps the traffic. Clean in theory — watch whether Noble's traffic keeps burning DC at the same rate and whether the divestiture proceeds fund anything holder-relevant." },
+      { "title": "Helium Plus (Wi-Fi onboarding)", "maturity": "Live since Jul '25", "body": "Converts existing business Wi-Fi into network nodes — removes hardware capex from supply-side growth, targets high-traffic urban zones where offload demand actually is (HIP-103 'A' zones)." }
+    ]
+  },
+  "catalysts": {
+    "near": [
+      ["Sep-Oct '26", "Q3 State of Helium report — first full post-Noble, post-HIP-149 data print", "Fundamental", "95%", "DC burn trend + first vault-disbursement disclosures; the thesis-deciding document", "Helium Foundation / Messari"],
+      ["Ongoing", "Vault flows on-chain — any sustained on-market selling", "Supply", "—", "Kills the deep-value case regardless of usage; ~2M HNT/mo is the pain threshold vs this ADV", "Vault address monitoring / explorer"],
+      ["Ongoing", "DC burn run-rate vs $50K/day baseline", "Fundamental", "—", "The floor mechanism: <$30K/day breaks net-deflation at current price; >$70K/day forces the squeeze math", "Blockworks / dune dashboards, weekly"],
+      ["Q4 '26", "New carrier or geography announcement (Telefónica LatAm expansion the obvious one)", "Fundamental", "35%", "Each carrier adds a compounding burn line; also validates post-Noble focus", "Helium blog / carrier PR"],
+      ["Any time", "Buyback program reinstatement or vault-funded burn commitment", "Governance", "20%", "The multi-x trigger — the Aug '25-Jan '26 experiment already proved the market pays for it", "HIP repository / Amir Haleem comms"],
+      ["Aug '27", "4th halving — PoC emissions to ~3.75M/yr", "Supply", "100%", "Further tilts burn/mint math; minor vs vault but directionally supportive", "Schedule (HIP-20)"]
+    ],
+    "mid": "The 12-36mo question is whether Helium completes the transformation into a wholesale telecom-infrastructure network whose token participates. The pieces that must land: carrier offload revenue compounding (more carriers, more geographies, more traffic per hotspot via Helium Plus densification); the 141M vault spent on things that grow the burn line rather than sold into the book; and some restored distribution mechanism — buyback, vault-burn, or veHNT revenue share — before the vault's 36 months expire. If all three land, this is a sub-$50M entry into the only DePIN with tier-1 telco revenue. If the vault leaks into the market, HNT becomes a terminal-decline financing token where usage growth funds dilution forever — the '26 price action says the market currently believes the second story."
+  },
+  "scenarios": [
+    { "cls": "bull", "name": "Bull", "tgt": "$0.60 (+200%)", "body": "Q3 report shows DC burns compounding past $60-70K/day, vault disbursement proves OTC/grant-based (no market selling), and any re-alignment gesture (partial burn restoration, vault-funded buyback) lands. The reflexive math does the rest: at these prices every $1M of incremental usage retires ~2.5% of the market cap annually, and the short book / apathetic holder base has no inventory to sell a squeeze into.", "trip": "Tripwires: DC burn >$65K/day · vault on-market sales ≈0 · any buyback/burn reinstatement HIP · Noble traffic confirmed burning at par" },
+    { "cls": "base", "name": "Base", "tgt": "$0.20-0.35 (0 to +75%)", "body": "Usage grows modestly, the vault drips out mixed disbursements that roughly cancel the burn advantage, no alignment restoration. HNT trades as a high-beta zombie with a rising mechanical floor — burns prevent new lows from sticking, governance prevents a re-rating. Dead money with embedded optionality.", "trip": "Tripwires: DC burn $40-60K/day band · vault sales <1M HNT/mo · no new carrier, no new HIP" },
+    { "cls": "bear", "name": "Bear", "tgt": "$0.08 (−60%)", "body": "The vault sells: ops funding hits the market at 2-4M HNT/mo against $3-5M ADV, or a carrier contract lapses post-Noble and DC burn rolls below $30K/day — breaking net-deflation exactly as dilution accelerates. The deep-value math inverts, remaining holders capitulate through the '20 ATL zone in real terms.", "trip": "Tripwires: sustained vault outflows to CEXs · DC burn <$30K/day · carrier attrition · Noble routing away from network" }
+  ],
+  "variant": "Consensus reads HIP-149's 141M mint as terminal dilution and prices HNT as a governance-broken zombie. The variant is that the crash already did the shorts' work and flipped the mechanism: DC burns are denominated in dollars, so at $0.20 the network force-buys ~250K HNT/day — 1.7x ALL issuance including the vault drip, ~45% of the market cap annually at run-rate. This is the only asset in crypto where the value-capture rate mechanically strengthens as price falls, and the market is treating that property as if it didn't exist. The second unpriced item: the divergence itself is the catalyst inventory — usage at ATHs, token at lows, means every alignment lever (vault-funded burn, buyback restoration, veHNT revenue share) is available, cheap for the foundation to pull, and already proven to work (Q4 '25). The honest counter: this variant requires the vault to not sell, and the people controlling the vault are the same people who suspended the buyback. Trust is the short leg of the trade.",
+  "valuation": {
+    "methods": [
+      { "name": "DePIN mcap/usage-revenue comps (10-30x $18M)", "lo": 0.97, "hi": 2.90 },
+      { "name": "Burn-yield cap-rate (15-30% req. yield on $18M forced flow)", "lo": 0.32, "hi": 0.64 },
+      { "name": "Dilution-adjusted (≈364M eff. supply, 5-10x usage rev)", "lo": 0.25, "hi": 0.49 },
+      { "name": "Cycle range (capitulation floor → Jan '26 governance-alignment high)", "lo": 0.15, "hi": 1.50 }
+    ],
+    "current": 0.20,
+    "multiples": [
+      ["Mcap / usage revenue (DC burn ann.)", "≈2.4x", "2.2x (now) – ~25x (Q3 '25 at $2.44)", "DePIN peers 10-40x · tower cos 8-12x EBITDA"],
+      ["Annualized burn / mcap ('forced yield')", "≈45%", "3-8% pre-crash", "HYPE buyback yield 5-7% · nothing else comparable"],
+      ["Price vs Jan '26 alignment-era high", "−96%", "$4.6 → $0.20", "usage roughly doubled over same window"],
+      ["FDV w/ vault (≈364M supply)", "≈$73M", "—", "vs $18M/yr revenue ≈ 4x"]
+    ],
+    "embedded": "At $0.20 the market prices HNT below every method's floor except pure capitulation-range math — ~2.4x usage revenue for tier-1 telco infrastructure, versus 10-40x for DePIN peers with worse revenue quality. What's embedded is total distrust: the market assumes the 141M vault leaks into the bid and that governance never again shares a dollar with holders. That's a knowable, monitorable assumption — vault flows are on-chain — which is what makes this a watchlist name rather than an avoid: the bear case is falsifiable in public data, weekly."
+  },
+  "synthesis": "Helium built the thing — real telco revenue, three tier-1 carriers, the largest deployed DePIN footprint — and then governance spent 2026 demonstrating that none of it belongs to token holders: buyback suspended in January, 141M new HNT authorized mid-year, consumer brand sold in June, token down 96%. The crash has now mechanically inverted the supply picture (USD-fixed burns retire ~1.7x all issuance at $0.20, ~45% of the mcap annually), creating a reflexive floor and genuine deep-value optionality — but the same council that broke alignment controls a vault big enough to cap any recovery, and its sell-flow policy is unpublished. So the position is surveillance, not size: the Q3 State of Helium and the vault's on-chain flows will settle, within a quarter, whether this is the cheapest real-revenue asset in crypto or a terminal financing token. Both answers are worth knowing before the market does.",
+  "recText": "Recommendation: WATCHLIST (deep value) — no core position at any price until vault disbursement behavior is observable on-chain; a starter (≤25% of intended size) is defensible sub-$0.25 strictly as optionality, sized to the illiquidity ($3-5M ADV means exits gap). Buy triggers: (1) vault flows confirmed OTC/grant-structured with no sustained CEX inflows, (2) DC burn >$60K/day, (3) any HIP restoring a burn/buyback/revenue-share mechanism. Invalidation (exit even the starter): vault selling >2M HNT/mo on-market, DC burn <$30K/day sustained, or carrier attrition post-Noble. Monitoring cadence: vault address weekly, burn dashboard weekly, Q3 State of Helium on release.",
+  "sources": [
+    "CoinGecko / Coinbase / Bitget / crypto.news market pages — price $0.19-0.21, mcap $35-47M, circ 186.3M, max 223M, ATH $54.88 (HIGH; Aug 24-29 '26)",
+    "Blockworks via Bitget/crypto.news (Jun 3 '26) — $50K/day DC burn, 9.72% 7-day deflation metric, Noble Mobile acquisition of Helium Mobile MVNO, Amir Haleem network/MVNO distinction (HIGH)",
+    "Messari State of Helium Q3 '25 via mexc — $18.3M annualized rev, $30.9K/day burns (+196% QoQ), $1.5M record month Sep '25, 32.4 TB/day paid traffic, 5,451 TB cumulative offload, price $2.26→$2.44, mcap $453.9M (HIGH; Oct '25)",
+    "MillionMiner operator guide (May '26) — buyback program dates Aug 18 '25-Jan 2 '26 and suspension, carrier offload = 99.8% of DC burn, halving mechanics (20,548 HNT/day), HIP-138 details incl. 18.2B MOBILE burn (MED-HIGH)",
+    "GridEcon HIP-149 analysis (Aug '26) + CoinPedia (Jul '26) — 141M HNT mint over 36mo into ops vault, 7-seat Advisory Council, $0.05/GB deployer floor, veHNT surplus redirect (HIGH on mechanics)",
+    "CMC-AI updates — veHNT delegated positions expired Aug 1 '26, HIP-149 floor Jul 29 '26, 'strong revenue fails to lift token' Jul 27 '26, 1.16M daily users / 366K hotspots, SEC suit dismissal (MED)",
+    "docs.helium.com — DC mechanics ($0.00001 peg, mint-by-burn only), HIP-20 halving schedule, 223M legacy max supply (HIGH)",
+    "Monthly price series INTERPOLATED between sourced anchors ($2.44 Q3 '25 → ~$4.5-5 Jan '26 peak inferred from '200d MA falling since Feb 1' + '−92% from ATH' Feb print → $0.93 May → $0.60 Jun → $0.32 Jul est → $0.20 Aug); majors series same interpolation as HYPE report — LOW confidence monthlies, live layer replaces",
+    "'$24M January revenue' claim (cryptonews guide) EXCLUDED as inconsistent with burn data by ~10x (noted in biz.notes)",
+    "Depth curve MODELED from ADV — no order-book snapshot available this run (LOW; illustrative)"
+  ]
+}
