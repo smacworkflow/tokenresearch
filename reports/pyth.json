@@ -1,0 +1,178 @@
+{
+  "live": { "coingeckoId": "pyth-network", "llamaSlug": "pyth", "majors": { "BTC": "bitcoin", "ETH": "ethereum", "SOL": "solana" } },
+  "researchedAt": "2026-09-03",
+  "meta": {
+    "name": "Pyth Network", "ticker": "PYTH", "exchanges": "Binance · Upbit · OKX · Bybit · Kraken · Solana DEXs",
+    "price": 0.056, "chg24h": 12.5, "asOf": "Sep 3, 2026 · CMC $0.0563 / CG ~$0.056-0.059 cluster; volume methodology differs 2.2x across aggregators",
+    "rec": "STARTER / WATCHLIST+ — first inflecting name on this site; buy pullbacks, not the +90%-off-ATL chase",
+    "stats": [
+      ["Mkt Cap", "$443M"], ["FDV", "$563M"], ["Float", "78.75% (final cliff May '27)"],
+      ["Pyth Pro ARR", "$10.4M (+39% m/m)"], ["DAO Share (60%)", "~$6.2M/yr"], ["Mcap / ARR", "~43x, falling fast"]
+    ]
+  },
+  "exec": {
+    "thesis": "PYTH is two businesses diverging under one token. The free DeFi oracle — the reason the token exists — is losing the war: ~5-7% TVS share vs. Chainlink's 59-73%, staking rewards ended (Apr '26), the original appchain is being sunset, and days ago Chainlink took the expanded US Commerce Department deal (six datasets, ten chains, continuous values) that was once Pyth's signature win. Meanwhile the paid business is one of the fastest-compounding revenue lines in crypto: Pyth Pro went $1M ARR (Sep '25 launch) → $3M (Mar) → $7.49M (Jul, +22% m/m) → $10.4M (Aug, +39% m/m, best month ever), with Nasdaq, Fidelity, Tradeweb and Euronext publishing into the marketplace and 60% of subscription revenue contractually flowing to the DAO, which mechanically spends a third of its treasury each month buying PYTH (the 'Pyth Reserve,' patterned on Chainlink's). The buyback is real but tiny today (~$100K/mo scale, ~12M PYTH cumulative) — the trade is not the current yield, it's the growth rate: at $443M mcap the market pays ~43x an ARR line compounding >20% monthly, on a token still −95% from ATH, with the ATL ($0.0296) printed only three months ago. The clocks working against it: OIS unstaking overhang (~1B PYTH peak staked, rewards now zero) and the final 2.13B cliff on May 19, 2027.",
+    "own": [
+      "The only liquid token attached to a disclosed, audited-cadence, compounding B2B data business: $1M → $10.4M ARR in 11 months, 122+ paying accounts, $5-10K/mo tiers, monthly public reporting — SaaS-grade transparency no other token offers.",
+      "Contractual value accrual with a working flywheel: 60% of Pyth Pro revenue → DAO treasury → 1/3 bought back monthly (Pyth Reserve, live since Dec '25). Small today; scales mechanically with ARR — and a pending governance proposal (Aug 30) would add PYTH as a payment token, the first direct utility-demand link.",
+      "Supply-side moat forming: Nasdaq (TotalView depth-of-book), Fidelity, Euronext FX, Tradeweb, SGX publishing through Pyth's marketplace — the data-supplier network is the hard-to-replicate asset, and it strengthened all year."
+    ],
+    "avoid": [
+      "Chainlink is winning the war that matters most: took the expanded Commerce deal (Sep 1-2 '26), extended Data Streams to US equities (Jan '26), runs UBS's tokenized-fund plumbing, and holds 59-73% TVS vs. Pyth's flat-to-declining 5-7%. The named logos on Pyth's side are data SUPPLIERS, not confirmed paying subscribers.",
+      "Supply overhangs on two clocks: OIS rewards ended April '26 (peak ~1B PYTH staked now free to leave), and the final cliff — 2.13B PYTH, ~21% of supply, ~$119M at current price — hits May 19, 2027. The May '26 cliff preceded a slide to the ATL within three weeks.",
+      "The buyback is narrative-sized, not flow-sized: ~$100-150K/mo against a $443M mcap (≈0.03% monthly). The Chainlink-Reserve '+80% in 19 days' comp everyone cites is a story about narrative repricing, not cash flow — this remains a growth bet, not a yield bet."
+    ],
+    "questions": [
+      "Does ARR growth hold above ~15-20%/mo through Q4? The next Douro Labs report (early Oct) is the single most important data point — a plateau at ~$10M changes everything.",
+      "Does the PYTH-as-payment-token proposal (posted Aug 30) pass, and does anyone actually use it? First direct token-demand mechanism if so.",
+      "Who are the paying subscribers? The supplier logos are public; the 122+ payers are anonymous. Any disclosed enterprise payer would de-risk the entire ARR line.",
+      "Does Pyth answer Chainlink's Commerce expansion — or has the government-data narrative permanently changed hands?"
+    ]
+  },
+  "biz": {
+    "narrative": "Pyth is a first-party financial oracle: ~125 exchanges, market makers and trading firms publish their proprietary prices directly (no middleman node operators), aggregated into 1,400+ feeds across 100+ chains via a pull model. The business now has two engines. (1) Pyth Core — the free/cheap DeFi oracle securing ~$3-4.5B TVS; fees were always negligible and are being zeroed as part of the Lazer infrastructure migration (Pythnet appchain sunsets later in 2026). (2) Pyth Pro — institutional market-data subscriptions ($5K/mo US equities, $10K/mo all-asset tiers) plus Pyth Indices (45 live 24/7 index products, $1.59M ARR of the Aug total) and the Data Marketplace, operated by Douro Labs (the for-profit founded by ex-Jump Crypto leadership) under a DAO-granted mandate: Douro keeps 40% for operations, 60% flows to the DAO treasury monthly. The DAO then buys PYTH with one-third of its treasury every month (Pyth Reserve — bought, held, not burned). The entity stack matters: Douro Labs LLC (private, undisclosed funding) collects the revenue; the Marshall Islands DAO LLC receives the 60%; tokenholders benefit only via the Reserve buyback — and Douro's operator mandate expires ~Sep 2027, requiring a renewal vote.",
+    "flow": [
+      { "label": "Pyth Pro ARR run-rate", "amt": "$10.4M /yr", "cls": "" },
+      { "label": "Douro Labs 40% + ops", "amt": "−$4.2M", "cls": "leak" },
+      { "label": "DAO 60% → Reserve buyback (1/3 of treasury/mo)", "amt": "~$6.2M/yr in, buyback scaling", "cls": "win" }
+    ],
+    "revLines": [
+      ["Pyth Pro subscriptions", "Recurring SaaS", "$10.4M ARR", "up", "60% → DAO → partial buyback"],
+      ["Pyth Indices (within Pro)", "Recurring SaaS", "$1.59M ARR", "up", "same 60/40 split"],
+      ["Core oracle fees + Entropy + Express Relay", "Usage-based", "small, not broken out", "flat", "→ DAO treasury"],
+      ["Data Marketplace (Nasdaq, Fidelity et al.)", "Rev-share", "early", "up", "supply-side moat builder"]
+    ],
+    "feeTrend": {
+      "title": "Pyth Pro ARR Trajectory ($M annualized)",
+      "names": ["ARR ($M)", "DAO share 60% ($M)"],
+      "labels": ["Sep 25 (launch)","Dec 25","Mar 26","Jun 26","Jul 26","Aug 26"],
+      "fees": [1.0, 1.0, 3.0, 6.1, 7.49, 10.4],
+      "toToken": [0.6, 0.6, 1.8, 3.7, 4.5, 6.2]
+    },
+    "notes": [
+      "Monthly disclosure cadence is unique in crypto: Douro Labs publishes revenue reports on the governance forum; the DAO publishes buyback reports. Verifiable, dated, on-chain-auditable — treat the ARR series as HIGH confidence.",
+      "Paying-customer identities undisclosed (122+ accounts as of July). Nasdaq/Fidelity/Euronext/Tradeweb are marketplace PUBLISHERS (supply side) — do not conflate with subscribers.",
+      "Reserve mechanics: DAO buybacks are 1/3 of a rolling treasury balance, not 1/3 of ARR — actual monthly buys have been ~$50-150K. Cumulative ~12M PYTH (~$600K). The mechanism is real; the dollars are still small.",
+      "August new-ARR added: $2.9M gross (vs $1.7M in July) — growth is accelerating, not just persisting. Watch for the Sept report in early October."
+    ]
+  },
+  "moat": {
+    "axes": ["Network effects", "Switching costs", "Scale/liquidity", "Brand", "Regulatory", "Tech/IP"],
+    "scores": [3, 3, 3, 3, 3, 4],
+    "note": "Tech/IP: the first-party publisher model (exchanges publish their own prices, ms-latency Lazer stack) is genuinely differentiated. Network effects run through the supplier side — every Nasdaq-class publisher makes the marketplace harder to replicate. But Chainlink dominates where oracles are actually paid for security (TVS 59-73% vs Pyth 5-7%, flat-to-declining), just extended into US equities data, and took the expanded Commerce mandate. Pyth is winning a new market while losing the old one.",
+    "comps": [
+      ["Chainlink (LINK) — own Reserve buyback", "Direct", "TVS 59-73%", "n/a", "r"],
+      ["Bloomberg / Refinitiv / ICE Data", "Substitution (TradFi data)", "$B-scale", "n/a", "r"],
+      ["RedStone — fastest-growing oracle", "Direct", "~8% TVS", "n/a", "a"],
+      ["Chronicle", "Direct", "~13% TVS", "n/a", "a"],
+      ["Exchange-native oracles / TWAPs", "Substitution", "—", "n/a", "g"]
+    ]
+  },
+  "tokenomics": {
+    "allocTitle": "Token Allocation (10B max)",
+    "alloc": { "labels": ["Ecosystem Growth (52%)", "Publisher Rewards (22%)", "Protocol Dev (10%)", "Private Sales (10%)", "Community/Launch (6%)"], "values": [52, 22, 10, 10, 6] },
+    "milestones": [[">50% float", "May 2025 — third annual cliff"], ["78.75% float — current", "May 19-22 '26 cliff: 2.13B PYTH (~$94-99M) unlocked"], ["100% float", "May 19, 2027 — FINAL cliff: 2.13B PYTH (~21% of supply)"]],
+    "accrual": [
+      ["Pyth Reserve — monthly DAO buyback (1/3 of treasury)", "Live since Dec 12 '25", "~12M PYTH bought cumulative (~$600K); scales with ARR"],
+      ["Pyth Pro revenue → DAO (60/40 Douro split, CO-PIP-9)", "Live — mandate expires ~Sep '27", "$10.4M ARR × 60% ≈ $6.2M/yr DAO share"],
+      ["OIS staking rewards", "ENDED Apr '26 (OP-PIP-103)", "Peak ~1B PYTH staked; zero slashing ever; unstaking overhang now"],
+      ["PYTH as payment token for services", "Proposed Aug 30 '26 — pending vote", "First direct utility-demand link if passed"]
+    ],
+    "unlocks": {
+      "labels": ["Sep 26","Oct 26","Nov 26","Dec 26","Jan 27","Feb 27","Mar 27","Apr 27","May 27","Jun 27","Jul 27","Aug 27"],
+      "team": [0, 0, 0, 0, 0, 0, 0, 0, 105, 0, 0, 0],
+      "investors": [0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0],
+      "circPct": [78.8, 78.8, 78.8, 78.8, 78.8, 78.8, 78.8, 78.8, 100, 100, 100, 100]
+    },
+    "unlockPerf": [
+      ["May '26 cliff — 2.13B PYTH (~21% supply, ~$94M): 1.13B ecosystem, 537M publisher, 250M private-sale, 212M protocol", "~$94-99M", "−4% (drift)", "−19% (slid to ATL $0.0296 by Jun 6)", "−4% / −20%", "−11% / −22%", "−1% / −11%"],
+      ["May 19, 2027 — FINAL cliff: 2.13B PYTH (~$119M at spot). After this, 100% unlocked forever", "~$119M", "—", "—", "—", "—", "—"]
+    ]
+  },
+  "priceHistory": {
+    "labels": ["Aug 25","Sep 25","Oct 25","Nov 25","Dec 25","Jan 26","Feb 26","Mar 26","Apr 26","May 26","Jun 26","Jul 26","Aug 26","Sep 3 '26"],
+    "prices": [0.184, 0.148, 0.106, 0.073, 0.056, 0.053, 0.049, 0.039, 0.047, 0.041, 0.037, 0.040, 0.049, 0.056],
+    "unlocksM": [0, 0, 0, 0, 0, 0, 0, 0, 0, 94, 0, 0, 0, 0],
+    "unlockEventsDated": [ { "date": "2026-05-20", "amt": 94, "label": "Annual cliff — 2.13B PYTH (~21% of supply)" } ],
+    "majors": {
+      "BTC": [108.2, 114.0, 109.6, 89.8, 87.6, 78.8, 67.0, 68.3, 76.4, 73.7, 58.6, 62.9, 78.6, 79.0],
+      "ETH": [4.40, 4.14, 3.85, 2.98, 2.97, 2.45, 1.96, 2.11, 2.26, 2.01, 1.57, 1.86, 2.47, 2.40],
+      "SOL": [200.9, 208.7, 187.2, 133.0, 124.7, 105.5, 84.3, 83.2, 83.1, 82.4, 73.6, 72.9, 103.0, 100.4]
+    },
+    "events": [
+      { "idx": 0, "n": 1, "date": "2025-08-28", "dateLbl": "Aug 28 '25", "event": "US Commerce Dept selects Pyth to publish GDP data on-chain — +61% month", "driver": "Narrative", "paid": "Government-data exclusivity narrative at ~$1.8B mcap" },
+      { "idx": 4, "n": 2, "date": "2025-12-12", "dateLbl": "Dec 12 '25", "event": "Pyth Reserve launched: monthly DAO buybacks begin (1/3 of treasury)", "driver": "Company", "paid": "No re-rate — buyback dollars too small to matter yet" },
+      { "idx": 9, "n": 3, "date": "2026-05-20", "dateLbl": "May 20 '26", "event": "Fourth annual cliff: 2.13B PYTH (~21% of supply, ~$94M) unlocks", "driver": "Supply", "paid": "Drifted in, sold off after — ATL within 3 weeks" },
+      { "idx": 10, "n": 4, "date": "2026-06-06", "dateLbl": "Jun 6 '26", "event": "ATL $0.0296 — −95% from ATH; OIS rewards had ended April", "driver": "Supply+Sector", "paid": "Capitulation — mcap ~$233M vs $3M+ ARR then compounding" },
+      { "idx": 12, "n": 5, "date": "2026-08-31", "dateLbl": "Aug '26", "event": "Pyth Pro ARR accelerates: $7.49M (Jul, +22%) → $10.4M (Aug, +39%, record month)", "driver": "Company", "paid": "+23% month + Sep follow-through — market starts paying for ARR" },
+      { "idx": 13, "n": 6, "date": "2026-09-02", "dateLbl": "Sep 1-2 '26", "event": "Chainlink takes EXPANDED Commerce deal (6 datasets, 10 chains, continuous) — Pyth's flagship narrative challenged", "driver": "Competitive", "paid": "Market shrugged so far (+13% MTD on ARR momentum) — watch this" }
+    ]
+  },
+  "liquidity": {
+    "sigmaDaily": 7,
+    "adv": 55,
+    "summary": "PYTH is the most liquid name on this site: listed on Binance, Upbit, OKX, Bybit, Kraken plus deep Solana DEX liquidity (Jupiter/Raydium/Meteora). Spot ADV is $35M (CMC methodology) to $77M (CoinGecko methodology) — the 2.2x gap is venue-inclusion methodology, use ~$55M as a working midpoint. Volume is lumpy: baseline $5-9M/day spiking 40-80x on momentum days ($696M on Aug 22). CAVEAT: per-venue ±2% order-book depth could not be retrieved this run (CoinGecko markets tab JS-gated) — the depth curve below is MODELED from mcap/ADV comparables, not observed. Blocks to ~$2M should clear inside 2%; a Binance perp market exists for hedged execution (unlike NMR/LIT's thinner setups).",
+    "venues": [
+      ["Binance (spot + perp)", "n/r", "n/r", "top venue", "—"],
+      ["Upbit (KRW)", "n/r", "n/r", "major", "—"],
+      ["OKX / Bybit / Kraken / KuCoin", "n/r", "n/r", "major", "—"],
+      ["Solana DEXs (Jupiter, Raydium, Meteora)", "n/r", "n/r", "deep native liquidity", "—"],
+      ["Aggregate spot 24h", "—", "—", "$35M (CMC) - $77M (CG)", "100%"]
+    ],
+    "depthCurve": { "impacts": [0.25, 0.5, 1, 2, 4, 8], "askDepth": [0.40, 0.70, 1.30, 2.20, 3.8, 6.5], "bidDepth": [0.40, 0.75, 1.35, 2.30, 4.0, 7.0] }
+  },
+  "tech": {
+    "narrative": "Pyth's differentiation is the first-party model: ~125 exchanges and trading firms (Jane Street-class publishers, now Nasdaq-class data owners) publish proprietary prices directly, removing the node-operator middleman that defines Chainlink's design. The 2026 infrastructure story is a full replatforming: the original Pythnet appchain sunsets later this year in favor of Pyth Lazer (millisecond-latency streaming), Core oracle fees are being zeroed (OP-PIP-128), and OIS staking rewards ended — the network is deliberately pivoting from 'DeFi oracle with token incentives' to 'institutional market-data utility with a subscription business.' Embedded bull assumption: the supplier network (who publishes through you) matters more than the consumer network (who reads you for free), and Pyth owns the supplier side. Embedded risk: the pivot concedes the paid-security oracle market to Chainlink at exactly the moment Chainlink is entering Pyth's data-subscription turf from above.",
+    "devs": [
+      { "title": "Lazer migration / Pythnet sunset", "maturity": "In progress — 'later in 2026'", "body": "Full infrastructure replatform with no announced completion date. Execution risk item #1: any degradation during migration hits both the free oracle's credibility and Pro's SLA story." },
+      { "title": "Pyth Pro + Indices growth engine", "maturity": "Live, compounding", "body": "$10.4M ARR, +$2.9M gross adds in August alone, 45 index products, Asian equities expansion complete. The entire investment case lives or dies on this line's slope — verify monthly, forum-published." },
+      { "title": "Chainlink counterattack", "maturity": "Live, escalating", "body": "Data Streams into US equities (Jan), UBS tokenized-fund rails (DTA), and the expanded Commerce mandate (Sep 1-2: six datasets, ten chains, continuous values). The best-capitalized competitor in crypto infrastructure is now fighting on Pyth's chosen ground." },
+      { "title": "PYTH payment-token proposal", "maturity": "Pending — posted Aug 30 '26", "body": "Would let customers pay for services in PYTH — the first direct utility-demand mechanism (vs. the indirect Reserve buyback). Passage + actual usage would be the token's most important structural upgrade since TGE." }
+    ]
+  },
+  "catalysts": {
+    "near": [
+      ["~Oct 3 '26", "September Douro Labs ARR report — does >20%/mo growth persist past $10.4M?", "Fundamental", "monthly, 100%", "±10-15% each report", "forum.pyth.network monthly reports"],
+      ["Sep-Oct '26", "PYTH-as-payment-token governance vote (posted Aug 30)", "Fundamental", "55%", "+10-20% on passage", "forum.pyth.network proposals"],
+      ["Weeks", "Pyth response to Chainlink's Commerce expansion — parity announcement or silence", "Narrative", "40%", "±10%", "pyth.network blog, BEA/Commerce comms"],
+      ["Q4 '26", "Pythnet sunset / Lazer migration completion", "Fundamental", "70%", "±5% execution risk", "OP-PIP updates, status pages"],
+      ["Ongoing", "OIS unstaking flow (peak ~1B PYTH staked, rewards now zero)", "Supply", "ongoing", "−5-10% drift pressure", "Staking dashboards"],
+      ["Q1-Q2 '27", "Douro Labs operator-mandate renewal negotiation begins (expires ~Sep '27)", "Governance", "100%", "±10% — the 60/40 split is renegotiable", "Governance forum"],
+      ["May 19 '27", "FINAL cliff: 2.13B PYTH (~21% of supply, ~$119M at spot) — then 100% unlocked forever", "Supply", "100%", "−15-25% into event; clean float after", "Tokenomist, DefiLlama unlocks"]
+    ],
+    "mid": "The 12-36mo question is whether Pyth Pro can outrun two erosions: Chainlink's advance into paid market data, and PYTH's own supply clocks (OIS unstaking now, final cliff May '27). The bull path is mechanical: ARR compounding even at 10%/mo reaches ~$33M by mid-2027; 60% of that is ~$20M/yr flowing to a DAO whose only mandated use of a third of it is buying PYTH — at which point the Reserve stops being narrative and becomes flow, on a supply that goes permanently clean after May 2027. The bear path is equally clear: ARR plateaus near $10-15M as Chainlink's equities push and TradFi incumbents (Bloomberg at $24K/yr terminals has seen off cheaper challengers for decades) cap the market, the buyback never reaches escape velocity, and the May '27 cliff hits a stalled story. Distinct from LIT/NMR: PYTH's value-accrual plumbing already exists and is governance-hardened — the uncertainty is purely about the revenue slope, which is disclosed monthly. That makes this the most monitorable thesis on this site."
+  },
+  "scenarios": [
+    { "cls": "bull", "name": "Bull", "tgt": "$0.15 (+168%)", "body": "ARR sustains ~15%+/mo → $35-45M by end-2027; payment-token proposal passes and gets used; Reserve buybacks reach $500K+/mo and become visible flow; May '27 cliff absorbed into a growth story. Market re-rates to 25-30x a growing DAO-share line — the Chainlink-Reserve narrative playbook with actual revenue behind it.", "trip": "Tripwires: monthly ARR growth >15% · payment proposal passes · any named enterprise subscriber · Reserve buys >$300K/mo" },
+    { "cls": "base", "name": "Base", "tgt": "$0.065 (+16%)", "body": "ARR grows but decelerates to ~5-8%/mo ($18-22M by end-2027); Chainlink caps the top end; token grinds with beta, pops on monthly reports, sags into the May '27 cliff, then re-rates modestly on clean float.", "trip": "Tripwires: ARR $14-18M by Q1 '27 · TVS share holds >5% · cliff drawdown <25%" },
+    { "cls": "bear", "name": "Bear", "tgt": "$0.025 (−55%)", "body": "ARR plateaus at $10-13M as the easy logos exhaust and Chainlink's equities data + Commerce ownership squeeze the pipeline; OIS unstaking bleeds supply; May '27 cliff (21% of supply) hits a stalled story and retests the ATL.", "trip": "Tripwires: two consecutive months <5% ARR growth · TVS share <4% · no payment-proposal passage · publisher defections to Chainlink" }
+  ],
+  "variant": "Crypto consensus sees a −95%-from-ATH bagholder token losing the oracle war to Chainlink — true, and priced. What consensus misses: PYTH quietly became the only liquid token attached to a real, disclosed, monthly-audited B2B SaaS line compounding >20%/mo, with contractual 60% revenue flow to a DAO that mechanically buys the token. The market caps the Reserve at today's ~$100K/mo instead of underwriting the slope — exactly the mistake that made Chainlink's own Reserve launch a +80%-in-19-days event when buyback dollars became visible. The honest counter-variant: the celebrated logos are data SUPPLIERS not payers, Chainlink just took the Commerce expansion on Pyth's home turf, and Bloomberg has crushed cheaper data challengers for forty years. Position for the slope, not the story: the monthly forum report is the highest-signal recurring catalyst in this site's coverage — own it while growth prints >15%/mo, cut it on two soft months, and respect the May '27 cliff as a hard calendar risk regardless.",
+  "valuation": {
+    "methods": [
+      { "name": "SaaS ARR multiple (20-50x on $10.4M)", "lo": 0.026, "hi": 0.066 },
+      { "name": "Fwd ARR $25M mid-'27 at 20-30x", "lo": 0.063, "hi": 0.095 },
+      { "name": "Chainlink-Reserve narrative rerun", "lo": 0.08, "hi": 0.12 },
+      { "name": "Bear: plateau + cliff retest", "lo": 0.020, "hi": 0.030 }
+    ],
+    "current": 0.056,
+    "multiples": [
+      ["Mcap / ARR", "~43x", "23x (Jun ATL) - 43x (now)", "no clean token peer; SaaS comps 8-25x"],
+      ["Mcap / DAO-share ARR (60%)", "~71x", "n/a", "the 'real' tokenholder multiple"],
+      ["Reserve buyback yield on mcap", "~0.03%/mo — negligible", "scaling with ARR", "HYPE/LIT 3-5%/yr — different league"],
+      ["Price vs. ATH / ATL", "−95% / +90%", "ATL $0.0296 Jun 6 '26", "ATH $1.15 Mar '24 (2024-cycle artifact)"]
+    ],
+    "embedded": "At $0.056 the market pays ~43x trailing ARR — aggressive for SaaS, cheap for a line compounding 20-39%/mo. Reverse-engineered: holding this price flat through May 2027 requires ARR roughly tripling to ~$30M (multiple compressing to ~15x) just to absorb the cliff neutrally. The asymmetry: ARR is disclosed monthly, so the thesis self-verifies or self-destructs faster than any other name on this site — you will know by year-end whether the slope is real, months before the cliff clock matters."
+  },
+  "synthesis": "PYTH is the inverse of this site's other coverage: NMR has policy risk with no revenue linkage, LIT has revenue linkage with a supply wall — PYTH has both the linkage (60% contractual, mechanical monthly buyback) and the growth (fastest disclosed revenue compounding in crypto), but attached to a token that already lost its first war and faces its final unlock in nine months. The monthly disclosure cadence makes it the most falsifiable thesis here: growth >15%/mo and the case compounds; two soft reports and it's dead money into a 21%-of-supply cliff.",
+  "recText": "Recommendation: small starter position is defensible here — the first name on this site where fundamentals are inflecting while the token sits −95% from ATH. Entries on pullbacks toward $0.045-0.048 (post-spike retrace zone) rather than chasing +90% off the ATL; add on the payment-token proposal passing or ARR >$13M; hard review at every monthly report; reduce into Q1-Q2 '27 regardless of thesis health as the May 19, 2027 cliff approaches. Priority follow-ups: the early-October ARR report, and whether Pyth answers Chainlink's Commerce-deal expansion.",
+  "sources": [
+    "forum.pyth.network — Douro Labs monthly revenue reports, PIP governance record (CO-PIP-9 60/40 split, OP-PIP-103 OIS end, OP-PIP-128 Core sunset), monthly Reserve purchase reports — PRIMARY, high confidence; the ARR series is the best-disclosed revenue line in crypto",
+    "pyth.network blog — Pyth Reserve (Dec 12 '25), Next Chapter/Lazer (Apr 23 '26), Aug '26 report ($10.4M ARR) — PRIMARY",
+    "Messari State of Pyth Q4 '25, DeFiLlama, CoinLaw — TVS/market share (Chainlink 59-73%, Pyth 5-7%; TVS $3.1-4.5B across snapshots — genuinely inconsistent, flagged)",
+    "CoinDesk / Cryptonomist / crypto.news — Commerce Dept: Pyth original deal (Aug 28 '25), Chainlink expansion (Sep 1-2 '26); Nasdaq TotalView (Jun 30 '26); The TRADE — Fidelity/Euronext/Tradeweb as marketplace publishers",
+    "CMC/CoinGecko/CoinLore — price ($0.056 cluster Sep 3), supply 7.875B/10B, ATH $1.15 Mar '24, ATL $0.0296 Jun 6 '26; volume methodology gap 2.2x (CMC $35M vs CG $77M) flagged",
+    "Tokenomist / KuCoin / CryptoBriefing — May '26 unlock (2.13B, breakdown), final cliff May 19 '27",
+    "LOW CONFIDENCE flagged: ±2% order-book depth NOT retrieved (JS-gated) — depth curve is modeled, not observed; paying-subscriber identities undisclosed; Douro Labs funding/valuation undisclosed; DAO total treasury size not aggregated anywhere; TVS figures inconsistent across sources; July new-ARR reported as both $1.5M and $1.7M; Chainlink-Reserve '+80%' comp is narrative, not mechanism"
+  ]
+}
