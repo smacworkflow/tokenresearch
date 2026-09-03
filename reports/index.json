@@ -27,6 +27,13 @@
       "file": "hnt.json",
       "rec": "WATCHLIST (DEEP VALUE)",
       "researchedAt": "2026-08-29"
+    },
+    {
+      "ticker": "PYTH",
+      "name": "Pyth Network",
+      "file": "pyth.json",
+      "rec": "STARTER/WATCHLIST+",
+      "researchedAt": "2026-09-03"
     }
   ]
 }
